@@ -1,0 +1,45 @@
+/*所有*/
+*{font-size:16px;margin:0 auto;font-family:"microsoft yahei","宋体"; color: #666666;}
+a{color:#333333;text-decoration:none;}
+a:hover {text-decoration:none;color:#333333;}
+.r {text-align:right;width:30%;}
+.l {text-align:left;}
+.d {border:1px white solid;line-height:150%;color:white;font-size:12px;padding:3px 5px;}
+.d:hover {text-decoration:none;color:white;font-weight:600;}
+.span,span{color:green;font-weight:600;}
+
+/*顶部*/
+.sub_bod{left:0px;top:38px;position:absolute;height:55px;width:100%;z-index:-100}
+.sub_top{height:40px;margin-bottom:12px;background-color:#0180CF;width:100%;position:relative;}
+.sub_top .title{text-align:center;color:#FFFFFF;height:40px;line-height:40px;}
+.sub_top .back{position:absolute;left:10px;top:10px;}
+.sub_top .menu{position:absolute;right:0px;top:6px;padding-right:10px;}
+.sub_top .menu img{ width:28px;}
+
+/*查询*/
+.main{margin-bottom:36px;}
+.so_box{margin:0 auto;height:40px;line-height:40px;background-color:white;width:92%;border:1px #CACACA solid;margin-top:12px;position:relative}
+.so_boxed{margin:0 auto;line-height:120%;width:92%;margin-top:12px;position:relative}
+.so_box .txts{margin:0 auto;height:36px;outline: none;line-height:39px;width:88%;padding-left:10px;border:0px;color:#333333;background-color:#FFFFFF;}
+.ss_box{margin:0 auto;height:40px;width:92%;margin-top:12px;border:0px;}
+.sp_box{margin:0 auto;width:92%;margin-top:12px;border:0px;}
+.so_box .buts{margin:0 auto;height:40px;line-height:40px;width:100%;padding-left:10px;border:0px;color:#333333;background-color:#0180CF;color:#FFFFFF;}
+.so_box .more{position:absolute;position:absolute; top:8px; right:10px;}
+.so_box .more img{ height:24px;}
+
+.so_boxes{margin:0 auto;width:92%;margin-top:12px;border:0px;background-color:#0180CF;}
+.so_boxes .buts{margin:0 auto;height:40px;line-height:40px;width:100%;background:#fff url(../img/line_bg.jpg) repeat-x;color:white;border:0px;}
+.so_boxex{margin:0 auto;width:92%;margin-top:12px;border:0px;}
+
+.select select{width:100%;padding:5px;border:1px #CACACA solid;height:40px;-webkit-appearance:none;}
+.select option{height:40px;} /*国际玩笑*/
+.select{margin:0 auto;width:92%;height:40px;overflow:hidden;}
+
+/*结果*/
+table{border:1px solid #a2c6d3; margin:0 auto;background:#fff;font-size:12px;width:92%;}
+table td{border-right:1px solid #a2c6d3;border-bottom:1px solid #a2c6d3;padding:5px}
+.tt{background:#e5f2fa;line-height:18px;FONT-SIZE:12px;}
+
+/*底部*/
+.foot{margin:0 auto;height:24px;width:100%;position:fixed;bottom:0px;left:0px;border-top:1px #CACACA solid;background:#ddd;}
+.foot .title{width:100%;text-align:center;line-height:22px;}
