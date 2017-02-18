@@ -1,0 +1,436 @@
+名称,说明,库,声明,NOTE
+abort,异常终止一个进程,stdlib.h,void abort(void);,C 标准库的 stdlib .h 头文件定义了四个变量类型、一些宏和各种通用工具函数。
+abs,求整数的绝对值,stdlib.h,int abs(int i);,C 标准库的 stdlib .h 头文件定义了四个变量类型、一些宏和各种通用工具函数。
+absread,绝对磁盘扇区读数据,,"int absread(int drive, int nsects, int sectno, void *buffer);",
+abswirte,绝对磁盘扇区写数据,,"int abswrite(int drive, int nsects, in tsectno, void *buffer); ",
+access,确定文件的访问权限,unistd.h,"int access(const char *filename, int amode);",unistd.h 是 C 和 C++ 程序设计语言中提供对 POSIX 操作系统 API 的访问功能的头文件的名称。
+acos,反余弦函数,math.h,double acos(double x);,C 标准库的 math.h 头文件定义了各种数学函数和一个宏。在这个库中所有可用的功能都带有一个 double 类型的参数，且都返回 double 类型的结果。
+allocmem,分配DOS存储段,alloc.h,"int allocmem(unsigned size, unsigned *seg);","alloc.h 含的内容 同编译器有关, 如果调用, 动态分配函数. "
+arc,画一弧线,graphics.h,"void far arc(int x, int y, int stangle, int endangle, int radius);",graphics.h 是TC里面的图形库，如果要用的话应该用TC来编译
+asctime,转换日期和时间为ASCII码,time.h,char *asctime(const struct tm *tblock);,C 标准库的 time.h 头文件定义了四个变量类型、两个宏和各种操作日期和时间的函数。
+asin,反正弦函数,math.h,double asin(double x);,C 标准库的 math.h 头文件定义了各种数学函数和一个宏。在这个库中所有可用的功能都带有一个 double 类型的参数，且都返回 double 类型的结果。
+assert,测试一个条件并可能使程序终止,assert.h,void assert(int test);,C 标准库的 assert.h头文件提供了一个名为 assert 的宏，它可用于验证程序做出的假设，并在假设为假时输出诊断消息。已定义的宏 assert 指向另一个宏 NDEBUG，宏 NDEBUG 不是 <assert.h> 的一部分。如果已在引用 <assert.h> 的源文件中定义 NDEBUG 为宏名称，则 assert 宏的定义如下：#define assert(ignore) ((void)0)
+atan,反正切函数,math.h,double atan(double x);,C 标准库的 math.h 头文件定义了各种数学函数和一个宏。在这个库中所有可用的功能都带有一个 double 类型的参数，且都返回 double 类型的结果。
+atan2,计算Y/X的反正切值,math.h,"double atan2(double y, double x);",C 标准库的 math.h 头文件定义了各种数学函数和一个宏。在这个库中所有可用的功能都带有一个 double 类型的参数，且都返回 double 类型的结果。
+atexit,注册终止函数,stdlib.h,int atexit(atexit_t func);,C 标准库的 stdlib .h 头文件定义了四个变量类型、一些宏和各种通用工具函数。
+atof,把字符串转换成浮点数,stdlib.h,double atof(const char *nptr);,C 标准库的 stdlib .h 头文件定义了四个变量类型、一些宏和各种通用工具函数。
+atoi,把字符串转换成长整型数,stdlib.h,int atoi(const char *nptr);,C 标准库的 stdlib .h 头文件定义了四个变量类型、一些宏和各种通用工具函数。
+atol,把字符串转换成长整型数,stdlib.h,long atol(const char *nptr);,C 标准库的 stdlib .h 头文件定义了四个变量类型、一些宏和各种通用工具函数。
+bar,画一个二维条形图,graphics.h,"void far bar(int left, int top, int right, int bottom);",graphics.h 是TC里面的图形库，如果要用的话应该用TC来编译
+bar3d,画一个三维条形图,graphics.h,"void far bar3d(int left, int top, int right, int bottom, int depth, int topflag);",graphics.h 是TC里面的图形库，如果要用的话应该用TC来编译
+bdos,DOS系统调用,dos.h,"int bdos(int dosfun, unsigned dosdx, unsigned dosal);",dos.h 里面包含了很多BIOS和DOS调用函数
+bdosptr,DOS系统调用,dos.h,"int bdosptr(int dosfun, void *argument, unsigned dosal);",dos.h 里面包含了很多BIOS和DOS调用函数
+bioscom,串行I/O通信,bios.h,"int bioscom(int cmd, char abyte, int port);",bios.h TC库
+biosdisk,软硬盘I/O,bios.h,"int biosdisk(int cmd, int drive, int head, int track, int sector, int nsects, void *buffer);",bios.h TC库
+biosequip,检查设备,bios.h,int biosequip(void);,bios.h TC库
+bioskey,直接使用BIOS服务的键盘接口,bios.h,int bioskey(int cmd);,bios.h TC库
+biosmemory,返回存储块大小,bios.h,int biosmemory(void);,bios.h TC库
+biosprint,直接使用BIOS服务的打印机I/O,bios.h,"int biosprint(int cmd, int byte, int port);",bios.h TC库
+biostime,读取或设置BIOS时间,bios.h,"long biostime(int cmd, long newtime);",bios.h TC库
+brk,改变数据段空间分配,alloc.h,int brk(void *endds);,"alloc.h 含的内容 同编译器有关, 如果调用, 动态分配函数. "
+bsearch,二分法搜索,stdlib.h,"void *bsearch(const void *key, const void *base, size_t *nelem, size_t width, int(*fcmp)(const void *, const *));",C 标准库的 stdlib .h 头文件定义了四个变量类型、一些宏和各种通用工具函数。
+cabs,计算复数的绝对值,math.h,double cabs(struct complex z);,C 标准库的 math.h 头文件定义了各种数学函数和一个宏。在这个库中所有可用的功能都带有一个 double 类型的参数，且都返回 double 类型的结果。
+calloc,分配主存储器,alloc.h/stdlib.h,"void *calloc(size_t nelem, size_t elsize);",C 标准库的 stdlib .h 头文件定义了四个变量类型、一些宏和各种通用工具函数。
+ceil,向上舍入,math.h,double ceil(double x);,C 标准库的 math.h 头文件定义了各种数学函数和一个宏。在这个库中所有可用的功能都带有一个 double 类型的参数，且都返回 double 类型的结果。
+cgets,从控制台读字符串,conio.h,char *cgets(char *str);,conio是Console Input/Output（控制台输入输出）的简写，其中定义了通过控制台进行数据输入和数据输出的函数，主要是一些用户通过按键盘产生的对应操作
+chdir,改变工作目录,dir.h,int chdir(const char *path);,dir.h 是linux系统上的头文件
+chmod,改变文件的访问方式 ,,"int chmod(const char *filename, int permiss);",
+_chmod,改变文件的访问方式 ,,"int _chmod(const char *filename, int permiss);",
+chsize,改变文件大小,fcntl.h,"int chsize(int handle, long size);",fcntl.h 用来避免一些系统安全问题。
+circle,"在给定半径以(x, y)为圆心画圆",,"void far circle(int x, int y, int radius);",
+cleardevice,清除图形屏幕,graphics.h,void far cleardevice(void);,graphics.h 是TC里面的图形库，如果要用的话应该用TC来编译
+clearerr,复位错误标志,stdio.h,void clearerr(FILE *stream);,C 标准库的 stdio .h 头文件定义了三个变量类型、一些宏和各种函数来执行输入和输出。
+clearviewport,清除图形视区,graphics.h,void far clearviewport(void);,graphics.h 是TC里面的图形库，如果要用的话应该用TC来编译
+clock,确定处理器时间,time.h,clock_t clock(void);,C 标准库的 time.h 头文件定义了四个变量类型、两个宏和各种操作日期和时间的函数。
+close,关闭文件句柄,,int close(int handle);,
+_close,关闭文件句柄,,int _close(int handle);,
+closegraph,关闭图形系统,,void far closegraph(void);,
+clreol,在文本窗口中清除字符到行末,conio.h,void clreol(void);,conio是Console Input/Output（控制台输入输出）的简写，其中定义了通过控制台进行数据输入和数据输出的函数，主要是一些用户通过按键盘产生的对应操作
+clrscr,清除文本模式窗口,conio.h,void clrscr(void); ,conio是Console Input/Output（控制台输入输出）的简写，其中定义了通过控制台进行数据输入和数据输出的函数，主要是一些用户通过按键盘产生的对应操作
+coreleft,返回未使用内存的大小,alloc.h,unsigned coreleft(void);,"alloc.h 含的内容 同编译器有关, 如果调用, 动态分配函数. "
+cos,余弦函数,math.h,double cos(double x); ,math.h 头文件定义了各种数学函数和一个宏。在这个库中所有可用的功能都带有一个 double 类型的参数，且都返回 double 类型的结果。
+cosh,双曲余弦函数,math.h,dluble cosh(double x);,math.h 头文件定义了各种数学函数和一个宏。在这个库中所有可用的功能都带有一个 double 类型的参数，且都返回 double 类型的结果。
+country,返回与国家有关的信息,,"struct COUNTRY *country(int countrycode, struct country *country);",
+cprintf,送格式化输出至屏幕,conio.h,"int cprintf(const char *format[, argument, ...]);",conio是Console Input/Output（控制台输入输出）的简写，其中定义了通过控制台进行数据输入和数据输出的函数，主要是一些用户通过按键盘产生的对应操作
+cputs,写字符到屏幕,conio.h,void cputs(const char *string);,conio是Console Input/Output（控制台输入输出）的简写，其中定义了通过控制台进行数据输入和数据输出的函数，主要是一些用户通过按键盘产生的对应操作
+creat,创建一个新文件或重写一个已存在的文件,io.h,"int creat (const char *filename, int permiss);",io.h 中定义了一些函数和常量
+_creat,创建一个新文件或重写一个已存在的文件,io.h,"int _creat (const char *filename, int permiss);",io.h 中定义了一些函数和常量
+creatnew,创建一个新文件,io.h,"int creatnew(const char *filename, int attrib);",io.h 中定义了一些函数和常量
+creattemp,创建一个新文件或重写一个已存在的文件,io.h,"int creattemp(const char *filename, int attrib); ",io.h 中定义了一些函数和常量
+cscanf,从控制台执行格式化输入,conio.h,"int cscanf(char *format[,argument, ...]);",conio是Console Input/Output（控制台输入输出）的简写，其中定义了通过控制台进行数据输入和数据输出的函数，主要是一些用户通过按键盘产生的对应操作
+ctime,把日期和时间转换为字符串,time.h,char *ctime(const time_t *time);,C 标准库的 time.h 头文件定义了四个变量类型、两个宏和各种操作日期和时间的函数。
+ctrlbrk,设置Ctrl-Break处理程序,,void ctrlbrk(*fptr)(void);,
+delay,程序的执行暂停一段时间(毫秒),dos.h,void delay(unsigned milliseconds);,dos.h 里面包含了很多BIOS和DOS调用函数
+delline,在文本窗口中删去一行,conio.h,void delline(void);,conio是Console Input/Output（控制台输入输出）的简写，其中定义了通过控制台进行数据输入和数据输出的函数，主要是一些用户通过按键盘产生的对应操作
+detectgraph,通过检测硬件确定图形驱动程序和模式,graphics.h,"void far detectgraph(int far *graphdriver, int far *graphmode);",graphics.h 是TC里面的图形库，如果要用的话应该用TC来编译
+difftime,计算两个时刻之间的时间差,time.h,"double difftime(time_t time2, time_t time1);",C 标准库的 time.h 头文件定义了四个变量类型、两个宏和各种操作日期和时间的函数。
+disable,屏蔽中断,,void disable(void);,
+div,"将两个整数相除, 返回商和余数",stdlib.h,"div_t (int number, int denom);",C 标准库的 stdlib .h 头文件定义了四个变量类型、一些宏和各种通用工具函数。
+dosexterr,获取扩展DOS错误信息,dos.h,int dosexterr(struct DOSERR *dblkp);,dos.h 里面包含了很多BIOS和DOS调用函数
+dostounix,转换日期和时间为UNIX时间格式,dos.h,"long dostounix(struct date *dateptr, struct time *timeptr);",dos.h 里面包含了很多BIOS和DOS调用函数
+drawpoly,画多边形,graphics.h,"void far drawpoly(int numpoints, int far *polypoints); ",graphics.h 是TC里面的图形库，如果要用的话应该用TC来编译
+dup,复制一个文件句柄,string.h,void flush(FILE *stream);,C 标准库的 string .h 头文件定义了一个变量类型、一个宏和各种操作字符数组的函数。
+dup2,复制文件句柄,string.h,"int dup2(int oldhandle, int newhandle);",C 标准库的 string .h 头文件定义了一个变量类型、一个宏和各种操作字符数组的函数。
+ecvt,把一个浮点数转换为字符串,stdlib.h,"char ecvt(double value, int ndigit, int *decpt, int *sign); ",C 标准库的 stdlib .h 头文件定义了四个变量类型、一些宏和各种通用工具函数。
+ellipse,画一椭圆,graphics.h,"void far ellipse(int x, int y, int stangle, int endangle, int xradius, int yradius);",graphics.h 是TC里面的图形库，如果要用的话应该用TC来编译
+enable,开放硬件中断,,void enable(void);,
+eof,检测文件结束,stdio.h,int eof(int *handle);,C 标准库的 stdio .h 头文件定义了三个变量类型、一些宏和各种函数来执行输入和输出。
+execl,装入并运行其它程序的函数,process.h,"int execl(char *pathname, char *arg0, arg1, ..., argn, NULL);",process.h 是包含用于和宏指令的作用声明和过程一起使用的C标头文件
+execle,装入并运行其它程序的函数,process.h,"int execle(char *pathname, char *arg0, arg1, ..., argn, NULL, char *envp[]);",process.h 是包含用于和宏指令的作用声明和过程一起使用的C标头文件
+execlp,装入并运行其它程序的函数,process.h,"int execlp(char *pathname, char *arg0, arg1, .., NULL);",process.h 是包含用于和宏指令的作用声明和过程一起使用的C标头文件
+execple,装入并运行其它程序的函数,process.h,"int execple(char *pathname, char *arg0, arg1, ..., NULL, char *envp[]);",process.h 是包含用于和宏指令的作用声明和过程一起使用的C标头文件
+execv,装入并运行其它程序的函数,process.h,"int execv(char *pathname, char *argv[]);",process.h 是包含用于和宏指令的作用声明和过程一起使用的C标头文件
+execve,装入并运行其它程序的函数,process.h,"int execve(char *pathname, char *argv[], char *envp[]); ",process.h 是包含用于和宏指令的作用声明和过程一起使用的C标头文件
+execvp,装入并运行其它程序的函数,process.h,"int execvp(char *pathname, char *argv[]);",process.h 是包含用于和宏指令的作用声明和过程一起使用的C标头文件
+execvpe,装入并运行其它程序的函数,process.h,"int execvpe(char *pathname, char *argv[], char *envp[]);",process.h 是包含用于和宏指令的作用声明和过程一起使用的C标头文件
+exit,终止程序,stdlib.h,void exit(int status);,C 标准库的 stdlib .h 头文件定义了四个变量类型、一些宏和各种通用工具函数。
+exp,指数函数,math.h,double exp(double x); ,C 标准库的 math.h 头文件定义了各种数学函数和一个宏。在这个库中所有可用的功能都带有一个 double 类型的参数，且都返回 double 类型的结果。
+fabs,返回浮点数的绝对值,math.h,double fabs(double x);,C 标准库的 math.h 头文件定义了各种数学函数和一个宏。在这个库中所有可用的功能都带有一个 double 类型的参数，且都返回 double 类型的结果。
+farcalloc,从远堆栈中申请空间,alloc.h,"void far *farcalloc(unsigned long units, unsigned ling unitsz);","alloc.h 含的内容 同编译器有关, 如果调用, 动态分配函数. "
+farcoreleft,返回远堆中未作用存储区大小 ,alloc.h,long farcoreleft(void);,"alloc.h 含的内容 同编译器有关, 如果调用, 动态分配函数. "
+farfree,从远堆中释放一块 ,alloc.h,void farfree(void);,"alloc.h 含的内容 同编译器有关, 如果调用, 动态分配函数. "
+farmalloc,从远堆中分配存储块,alloc.h,void far *farmalloc(unsigned long size); ,"alloc.h 含的内容 同编译器有关, 如果调用, 动态分配函数. "
+farrealloc,调整远堆中的分配块,alloc.h,"void far *farrealloc(void far *block, unsigned long newsize);","alloc.h 含的内容 同编译器有关, 如果调用, 动态分配函数. "
+fclose,关闭一个流,string.h,int fclose(FILE *stream);,C 标准库的 string .h 头文件定义了一个变量类型、一个宏和各种操作字符数组的函数。
+fcloseall,关闭打开流,string.h,int fcloseall(void);,C 标准库的 string .h 头文件定义了一个变量类型、一个宏和各种操作字符数组的函数。
+fcvt,把一个浮点数转换为字符串,stdlib.h,"char *fcvt(double value, int ndigit, int *decpt, int *sign); ",C 标准库的 stdlib .h 头文件定义了四个变量类型、一些宏和各种通用工具函数。
+fdopen,把流与一个文件句柄相接,stdio.h,"FILE *fdopen(int handle, char *type);",C 标准库的 stdio .h 头文件定义了三个变量类型、一些宏和各种函数来执行输入和输出。
+feof,检测流上的文件结束符,stdio.h,int feof(FILE *stream);,C 标准库的 stdio .h 头文件定义了三个变量类型、一些宏和各种函数来执行输入和输出。
+ferror,检测流上的错误,stdio.h,int ferror(FILE *stream);,C 标准库的 stdio .h 头文件定义了三个变量类型、一些宏和各种函数来执行输入和输出。
+fflush,清除一个流,stdio.h,int fflush(FILE *stream);,C 标准库的 stdio .h 头文件定义了三个变量类型、一些宏和各种函数来执行输入和输出。
+fgetc,从流中读取字符,stdio.h,int fgetc(FILE *stream);,C 标准库的 stdio .h 头文件定义了三个变量类型、一些宏和各种函数来执行输入和输出。
+fgetchar,从流中读取字符,stdio.h,int fgetchar(void);,C 标准库的 stdio .h 头文件定义了三个变量类型、一些宏和各种函数来执行输入和输出。
+fgetpos,取得当前文件的句柄,stdio.h,int fgetpos(FILE *stream);,C 标准库的 stdio .h 头文件定义了三个变量类型、一些宏和各种函数来执行输入和输出。
+fgets,从流中读取一字符串,stdio.h,"char *fgets(char *string, int n, FILE *stream);",C 标准库的 stdio .h 头文件定义了三个变量类型、一些宏和各种函数来执行输入和输出。
+filelength,取文件长度字节数,,long filelength(int handle);,
+fillellipse,画出并填充一椭圆,graphics.h,"void far fillellipse(int x, int y, int xradius, int yradius);",graphics.h 是TC里面的图形库，如果要用的话应该用TC来编译
+fillpoly,画并填充一个多边形 ,graphics.h,"void far fillpoly(int numpoints, int far *polypoints);",graphics.h 是TC里面的图形库，如果要用的话应该用TC来编译
+findfirst,搜索磁盘目录,dir.h,"int findfirst(char *pathname, struct ffblk *ffblk, int attrib); ",dir.h 是linux系统上的头文件
+findnext,搜索磁盘目录,dir.h,int findnext(struct ffblk *ffblk); ,dir.h 是linux系统上的头文件
+floodfill,填充一个有界区域,graphics.h,"void far floodfill(int x, int y, int border);",graphics.h 是TC里面的图形库，如果要用的话应该用TC来编译
+floor,向下舍入,math.h,double floor(double x);,C 标准库的 math.h 头文件定义了各种数学函数和一个宏。在这个库中所有可用的功能都带有一个 double 类型的参数，且都返回 double 类型的结果。
+flushall,清除所有缓冲区,stdio.h,int flushall(void);,C 标准库的 stdio .h 头文件定义了三个变量类型、一些宏和各种函数来执行输入和输出。
+fmod,"计算x对y的模, 即x/y的余数",math.h,"double fmod(double x, double y);",C 标准库的 math.h 头文件定义了各种数学函数和一个宏。在这个库中所有可用的功能都带有一个 double 类型的参数，且都返回 double 类型的结果。
+fnmerge,建立新文件名,,"void fnerge(char *path, char *drive, char *dir); ",
+fopen,打开一个流,stdio.h,"FILE *fopen(char *filename, char *type);",C 标准库的 stdio .h 头文件定义了三个变量类型、一些宏和各种函数来执行输入和输出。
+FP_OFF,获取远地址偏移量,dos.h,unsigned FP_OFF(void far *farptr);,dos.h 里面包含了很多BIOS和DOS调用函数
+FP_SEG,获取远地址段值,dos.h,unsigned FP_SEG(void far *farptr);,dos.h 里面包含了很多BIOS和DOS调用函数
+fprintf,传送格式化输出到一个流中,stdio.h,"int fprintf(FILE *stream, char *format[, argument,...]); ",C 标准库的 stdio .h 头文件定义了三个变量类型、一些宏和各种函数来执行输入和输出。
+fputc,送一个字符到一个流中,stdio.h,"int fputc(int ch, FILE *stream);",C 标准库的 stdio .h 头文件定义了三个变量类型、一些宏和各种函数来执行输入和输出。
+fputchar,送一个字符到标准输出流(stdout)中,stdio.h,int fputchar(char ch);,
+fputs,送一个字符到一个流中,stdio.h,"int fputs(char *string, FILE *stream);",C 标准库的 stdio .h 头文件定义了三个变量类型、一些宏和各种函数来执行输入和输出。
+fread,从一个流中读数据,stdio.h,"int fread(void *ptr, int size, int nitems, FILE *stream);",C 标准库的 stdio .h 头文件定义了三个变量类型、一些宏和各种函数来执行输入和输出。
+free,释放已分配的块,alloc.h/stdlib.h,void free(void *ptr);,C 标准库的 stdlib .h 头文件定义了四个变量类型、一些宏和各种通用工具函数。
+freemem,释放先前分配的DOS内存块,,int freemem(unsigned seg);,
+freopen,替换一个流,stdio.h,"FILE *freopen(char *filename, char *type, FILE *stream);",C 标准库的 stdio .h 头文件定义了三个变量类型、一些宏和各种函数来执行输入和输出。
+frexp,把一个双精度数分解为尾数的指数,math.h,"double frexp(double value, int *eptr);",C 标准库的 math.h 头文件定义了各种数学函数和一个宏。在这个库中所有可用的功能都带有一个 double 类型的参数，且都返回 double 类型的结果。
+fscanf,从一个流中执行格式化输入,stdio.h,"int fscanf(FILE *stream, char *format[,argument...]); ",C 标准库的 stdio .h 头文件定义了三个变量类型、一些宏和各种函数来执行输入和输出。
+fseek,重定位流上的文件指针,stdio.h,"int fseek(FILE *stream, long offset, int fromwhere);",C 标准库的 stdio .h 头文件定义了三个变量类型、一些宏和各种函数来执行输入和输出。
+fsetpos,定位流上的文件指针,stdlib.h,"int fsetpos(FILE *stream, const fpos_t *pos);",C 标准库的 stdlib .h 头文件定义了四个变量类型、一些宏和各种通用工具函数。
+fstat,获取打开文件信息,,"int fstat(char *handle, struct stat *buff);",
+ftell,返回当前文件指针,stdio.h,long ftell(FILE *stream);,C 标准库的 stdio .h 头文件定义了三个变量类型、一些宏和各种函数来执行输入和输出。
+fwrite,写内容到流中,stdio.h,"int fwrite(void *ptr, int size, int nitems, FILE *stream);",C 标准库的 stdio .h 头文件定义了三个变量类型、一些宏和各种函数来执行输入和输出。
+gcvt,把浮点数转换成字符串,stdlib.h,"char *gcvt(double value, int ndigit, char *buf);",C 标准库的 stdlib .h 头文件定义了四个变量类型、一些宏和各种通用工具函数。
+geninterrupt ,产生一个软中断,,void geninterrupt(int intr_num); ,
+getarccoords,取得最后一次调用arc的坐标 ,graphics.h,void far getarccoords(struct arccoordstype far *arccoords);,graphics.h 是TC里面的图形库，如果要用的话应该用TC来编译
+getaspectratio,返回当前图形模式的纵横比 ,graphics.h,"void far getaspectratio(int far *xasp, int far *yasp); ",graphics.h 是TC里面的图形库，如果要用的话应该用TC来编译
+getbkcolor,返回当前背景颜色,graphics.h,int far getbkcolor(void);,graphics.h 是TC里面的图形库，如果要用的话应该用TC来编译
+getc,从流中取字符,stdio.h,int getc(FILE *stream);,C 标准库的 stdio .h 头文件定义了三个变量类型、一些宏和各种函数来执行输入和输出。
+getcbrk,获取Control_break设置,dos.h,int getcbrk(void);,dos.h 里面包含了很多BIOS和DOS调用函数
+getch,从控制台无回显地取一个字符,stdio.h,int getch(void);,C 标准库的 stdio .h 头文件定义了三个变量类型、一些宏和各种函数来执行输入和输出。
+getchar,从stdin流中读字符,stdio.h,int getchar(void);,C 标准库的 stdio .h 头文件定义了三个变量类型、一些宏和各种函数来执行输入和输出。
+getche,从控制台取字符(带回显),conio.h,int getche(void);,conio是Console Input/Output（控制台输入输出）的简写，其中定义了通过控制台进行数据输入和数据输出的函数，主要是一些用户通过按键盘产生的对应操作
+getcolor,返回当前画线颜色,graphics.h,int far getcolor(void);,graphics.h 是TC里面的图形库，如果要用的话应该用TC来编译
+getcurdir,取指定驱动器的当前目录,,"int getcurdir(int drive, char *direc);",
+getcwd,取当前工作目录,,"char *getcwd(char *buf, int n);",
+getdate,取DOS日期,dos.h,void getdate(struct *dateblk);,dos.h 里面包含了很多BIOS和DOS调用函数
+getdefaultpalette,返回调色板定义结构,graphics.h,struct palettetype *far getdefaultpalette(void);,graphics.h 是TC里面的图形库，如果要用的话应该用TC来编译
+getdisk,取当前磁盘驱动器号,dir.h,int getdisk(void);,dir.h 是linux系统上的头文件
+getdrivername,返回指向包含当前图形驱动程序名字的字符串指针,graphics.h,char *getdrivename(void); ,graphics.h 是TC里面的图形库，如果要用的话应该用TC来编译
+getdta,取磁盘传输地址,dos.h,char far *getdta(void);,dos.h 里面包含了很多BIOS和DOS调用函数
+getenv,从环境中取字符串 ,stdlib.h,char *getenv(char *envvar);,C 标准库的 stdlib .h 头文件定义了四个变量类型、一些宏和各种通用工具函数。
+getfat,取文件分配表信息,,"void getfat(int drive, struct fatinfo *fatblkp);",
+getfatd,取文件分配表信息,,"void getfatd(int drive, struct fatinfo *fatblkp);",
+getfillpattern,将用户定义的填充模式拷贝到内存中,graphics.h,void far getfillpattern(char far *upattern);,graphics.h 是TC里面的图形库，如果要用的话应该用TC来编译
+getfillsettings,取得有关当前填充模式和填充颜色的信息,graphics.h,void far getfillsettings(struct fillsettingstype far *fillinfo);,graphics.h 是TC里面的图形库，如果要用的话应该用TC来编译
+getftime,取文件日期和时间,,"int getftime(int handle, struct ftime *ftimep);",
+getgraphmode,返回当前图形模式,graphics.h,int far getgraphmode(void);,graphics.h 是TC里面的图形库，如果要用的话应该用TC来编译
+getimage,将指定区域的一个位图存到主存中,graphics.h,"void far getimage(int left, int top, int right, int bottom, void far *bitmap); ",graphics.h 是TC里面的图形库，如果要用的话应该用TC来编译
+getlinesettings,取当前线型、模式和宽度,graphics.h,void far getlinesettings(struct linesettingstype far *lininfo);,graphics.h 是TC里面的图形库，如果要用的话应该用TC来编译
+getmaxcolor,返回可以传给函数setcolor的最大颜色值,graphics.h,int far getmaxcolor(void);,graphics.h 是TC里面的图形库，如果要用的话应该用TC来编译
+getmaxx,返回屏幕的最大x坐标,graphics.h,int far getmaxx(void);,graphics.h 是TC里面的图形库，如果要用的话应该用TC来编译
+getmaxy,返回屏幕的最大y坐标,graphics.h,int far getmaxy(void);,graphics.h 是TC里面的图形库，如果要用的话应该用TC来编译
+getmodename,返回含有指定图形模式名的字符串指针,graphics.h,char *far getmodename(int mode_name);,graphics.h 是TC里面的图形库，如果要用的话应该用TC来编译
+getmoderange,取给定图形驱动程序的模式范围,graphics.h,"void far getmoderange(int graphdriver, int far *lomode, int far *himode); ",graphics.h 是TC里面的图形库，如果要用的话应该用TC来编译
+getpalette,返回有关当前调色板的信息,graphics.h,void far getpalette(struct palettetype far *palette); ,graphics.h 是TC里面的图形库，如果要用的话应该用TC来编译
+getpass,读一个口令,conio.h,char *getpass(char *prompt);,conio是Console Input/Output（控制台输入输出）的简写，其中定义了通过控制台进行数据输入和数据输出的函数，主要是一些用户通过按键盘产生的对应操作
+getpixel,取得指定像素的颜色,graphics.h,"int far getpixel(int x, int y);",graphics.h 是TC里面的图形库，如果要用的话应该用TC来编译
+gets,从流中取一字符串,stdio.h,char *gets(char *string);,C 标准库的 stdio .h 头文件定义了三个变量类型、一些宏和各种函数来执行输入和输出。
+gettext,将文本方式屏幕上的文本拷贝到存储区,conio.h,"int gettext(int left, int top, int right, int bottom, void *destin);",conio是Console Input/Output（控制台输入输出）的简写，其中定义了通过控制台进行数据输入和数据输出的函数，主要是一些用户通过按键盘产生的对应操作
+gettextinfo,取得文本模式的显示信息,conio.h,void gettextinfo(struct text_info *inforec);,conio是Console Input/Output（控制台输入输出）的简写，其中定义了通过控制台进行数据输入和数据输出的函数，主要是一些用户通过按键盘产生的对应操作
+gettextsettings,返回有关当前图形文本字体的信息,graphics.h,void far gettextsettings(struct textsettingstype far *textinfo);,graphics.h 是TC里面的图形库，如果要用的话应该用TC来编译
+gettime,取得系统时间,dos.h,void gettime(struct time *timep);,dos.h 里面包含了很多BIOS和DOS调用函数
+getvect,取得中断向量入口,dos.h,void interrupt(*getvect(int intr_num));,dos.h 里面包含了很多BIOS和DOS调用函数
+getverify,返回DOS校验标志状态,dos.h,int getverify(void);,dos.h 里面包含了很多BIOS和DOS调用函数
+getviewsetting,返回有关当前视区的信息,,void far getviewsettings(struct viewporttype far *viewport);,
+getw,从流中取一整数,,int getw(FILE *strem);,
+getx,返回当前图形位置的x坐标,graphics.h,int far getx(void);,graphics.h 是TC里面的图形库，如果要用的话应该用TC来编译
+gety,返回当前图形位置的y坐标,graphics.h,int far gety(void);,graphics.h 是TC里面的图形库，如果要用的话应该用TC来编译
+gmtime,把日期和时间转换为格林尼治标准时间(GMT),time.h,struct tm *gmtime(long *clock);,C 标准库的 time.h 头文件定义了四个变量类型、两个宏和各种操作日期和时间的函数。
+gotoxy,在文本窗口中设置光标,conio.h,"void gotoxy(int x, int y);",conio是Console Input/Output（控制台输入输出）的简写，其中定义了通过控制台进行数据输入和数据输出的函数，主要是一些用户通过按键盘产生的对应操作
+graphdefaults,将所有图形设置复位为它们的缺省值,graphics.h,void far graphdefaults(void);,graphics.h 是TC里面的图形库，如果要用的话应该用TC来编译
+grapherrormsg,返回一个错误信息串的指针,graphics.h,char *far grapherrormsg(int errorcode);,graphics.h 是TC里面的图形库，如果要用的话应该用TC来编译
+_graphfreemem,用户可修改的图形存储区释放函数,graphics.h,"void far _graphfreemem(void far *ptr, unsigned size);",graphics.h 是TC里面的图形库，如果要用的话应该用TC来编译
+_graphgetmem,用户可修改的图形存储区分配函数,graphics.h,void far *far _graphgetmem(unsigned size);,graphics.h 是TC里面的图形库，如果要用的话应该用TC来编译
+graphresult,返回最后一次不成功的图形操作的错误代码,graphics.h,int far graphresult(void);,graphics.h 是TC里面的图形库，如果要用的话应该用TC来编译
+harderr,建立一个硬件错误处理程序,,void harderr(int (*fptr)());,
+hardresume,硬件错误处理函数,,void hardresume(int rescode);,
+highvideo,选择高亮度文本字符,conio.h,void highvideo(void);,conio是Console Input/Output（控制台输入输出）的简写，其中定义了通过控制台进行数据输入和数据输出的函数，主要是一些用户通过按键盘产生的对应操作
+hypot,计算直角三角形的斜边长,math.h,"double hypot(double x, double y);",
+imagesize,返回保存位图像所需的字节数,graphics.h,"unsigned far imagesize(int left, int top, int right, int bottom);",graphics.h 是TC里面的图形库，如果要用的话应该用TC来编译
+initgraph,初始化图形系统,graphics.h,"void far initgraph(int far *graphdriver, int far *graphmode, char far *pathtodriver);",graphics.h 是TC里面的图形库，如果要用的话应该用TC来编译
+inport,从硬件端口中输入,,int inp(int protid);,
+insline,在文本窗口中插入一个空行,conio.h,void insline(void);,
+installuserdriver,安装设备驱动程序到BGI设备驱动程序表中,graphics.h,"int far installuserdriver(char far *name, int (*detect)(void));",graphics.h 是TC里面的图形库，如果要用的话应该用TC来编译
+installuserfont,安装未嵌入BGI系统的字体文件(CHR),graphics.h,int far installuserfont(char far *name);,graphics.h 是TC里面的图形库，如果要用的话应该用TC来编译
+int86,通用8086软中断接口,,"int int86(int intr_num, union REGS *inregs, union REGS *outregs);",
+int86x,通用8086软中断接口,,"int int86x(int intr_num, union REGS *insegs, union REGS *outregs, struct SREGS *segregs);",
+intdos,通用DOS接口,dos.h,"int intdos(union REGS *inregs, union REGS *outregs);",dos.h 里面包含了很多BIOS和DOS调用函数
+intdosx,通用DOS中断接口,dos.h,"int intdosx(union REGS *inregs, union REGS *outregs, struct SREGS *segregs);",dos.h 里面包含了很多BIOS和DOS调用函数
+intr,改变软中断接口,,"void intr(int intr_num, struct REGPACK *preg);",
+ioctl,控制I/O设备,sys/procfs.h,"int ioctl(int handle, int cmd[,int *argdx, int argcx]); ",头文件
+isalnum,该函数检查所传的字符是否是字母和数字,ctype.h,int isalnum(int c),C 标准库的 ctype.h 头文件提供了一些函数，可用于测试和映射字符。这些函数接受 int 作为参数，它的值必须是 EOF 或表示为一个无符号字符。如果参数 c 满足描述的条件，则这些函数返回非零（true）。如果参数 c 不满足描述的条件，则这些函数返回零。
+isalpha,该函数检查所传的字符是否是字母,ctype.h,int isalpha(int c),C 标准库的 ctype.h 头文件提供了一些函数，可用于测试和映射字符。这些函数接受 int 作为参数，它的值必须是 EOF 或表示为一个无符号字符。如果参数 c 满足描述的条件，则这些函数返回非零（true）。如果参数 c 不满足描述的条件，则这些函数返回零。
+iscntrl,该函数检查所传的字符是否是控制字符,ctype.h,int iscntrl(int c),C 标准库的 ctype.h 头文件提供了一些函数，可用于测试和映射字符。这些函数接受 int 作为参数，它的值必须是 EOF 或表示为一个无符号字符。如果参数 c 满足描述的条件，则这些函数返回非零（true）。如果参数 c 不满足描述的条件，则这些函数返回零。
+isdigit,该函数检查所传的字符是否是十进制数字,ctype.h,int isdigit(int c),C 标准库的 ctype.h 头文件提供了一些函数，可用于测试和映射字符。这些函数接受 int 作为参数，它的值必须是 EOF 或表示为一个无符号字符。如果参数 c 满足描述的条件，则这些函数返回非零（true）。如果参数 c 不满足描述的条件，则这些函数返回零。
+isgraph,该函数检查所传的字符是否有图形表示法,ctype.h,int isgraph(int c),C 标准库的 ctype.h 头文件提供了一些函数，可用于测试和映射字符。这些函数接受 int 作为参数，它的值必须是 EOF 或表示为一个无符号字符。如果参数 c 满足描述的条件，则这些函数返回非零（true）。如果参数 c 不满足描述的条件，则这些函数返回零。
+islower,该函数检查所传的字符是否是小写字母,ctype.h,int islower(int c),C 标准库的 ctype.h 头文件提供了一些函数，可用于测试和映射字符。这些函数接受 int 作为参数，它的值必须是 EOF 或表示为一个无符号字符。如果参数 c 满足描述的条件，则这些函数返回非零（true）。如果参数 c 不满足描述的条件，则这些函数返回零。
+isprint,该函数检查所传的字符是否是可打印的,ctype.h,int isprint(int c),C 标准库的 ctype.h 头文件提供了一些函数，可用于测试和映射字符。这些函数接受 int 作为参数，它的值必须是 EOF 或表示为一个无符号字符。如果参数 c 满足描述的条件，则这些函数返回非零（true）。如果参数 c 不满足描述的条件，则这些函数返回零。
+ispunct,该函数检查所传的字符是否是标点符号字符,ctype.h,int ispunct(int c),C 标准库的 ctype.h 头文件提供了一些函数，可用于测试和映射字符。这些函数接受 int 作为参数，它的值必须是 EOF 或表示为一个无符号字符。如果参数 c 满足描述的条件，则这些函数返回非零（true）。如果参数 c 不满足描述的条件，则这些函数返回零。
+isspace,该函数检查所传的字符是否是空白字符,ctype.h,int isspace(int c),C 标准库的 ctype.h 头文件提供了一些函数，可用于测试和映射字符。这些函数接受 int 作为参数，它的值必须是 EOF 或表示为一个无符号字符。如果参数 c 满足描述的条件，则这些函数返回非零（true）。如果参数 c 不满足描述的条件，则这些函数返回零。
+isupper,该函数检查所传的字符是否是大写字母,ctype.h,int isupper(int c),C 标准库的 ctype.h 头文件提供了一些函数，可用于测试和映射字符。这些函数接受 int 作为参数，它的值必须是 EOF 或表示为一个无符号字符。如果参数 c 满足描述的条件，则这些函数返回非零（true）。如果参数 c 不满足描述的条件，则这些函数返回零。
+isxdigit,该函数检查所传的字符是否是十六进制数字,ctype.h,int isxdigit(int c),C 标准库的 ctype.h 头文件提供了一些函数，可用于测试和映射字符。这些函数接受 int 作为参数，它的值必须是 EOF 或表示为一个无符号字符。如果参数 c 满足描述的条件，则这些函数返回非零（true）。如果参数 c 不满足描述的条件，则这些函数返回零。
+isatty,检查设备类型,ctype.h,int isatty(int handle);,C 标准库的 ctype.h 头文件提供了一些函数，可用于测试和映射字符。这些函数接受 int 作为参数，它的值必须是 EOF 或表示为一个无符号字符。如果参数 c 满足描述的条件，则这些函数返回非零（true）。如果参数 c 不满足描述的条件，则这些函数返回零。
+itoa,把一整数转换为字符串,stdlib.h,"char *itoa(int value, char *string, int radix);",C 标准库的 stdlib .h 头文件定义了四个变量类型、一些宏和各种通用工具函数。
+kbhit,检查当前按下的键,conio.h,int kbhit(void);,conio是Console Input/Output（控制台输入输出）的简写，其中定义了通过控制台进行数据输入和数据输出的函数，主要是一些用户通过按键盘产生的对应操作
+keep,退出并继续驻留,dos.h,"void keep(int status, int size);",dos.h 里面包含了很多BIOS和DOS调用函数
+labs,取长整型绝对值,stdlib.h,long labs(long n);,stdlib .h 头文件定义了四个变量类型、一些宏和各种通用工具函数。
+ldexp,计算value*2的幂,math.h,"double ldexp(double value, int exp);",C 标准库的 math.h 头文件定义了各种数学函数和一个宏。在这个库中所有可用的功能都带有一个 double 类型的参数，且都返回 double 类型的结果。
+ldiv,"两个长整型数相除, 返回商和余数",stdlib.h,"ldiv_t ldiv(long lnumer, long ldenom);",C 标准库的 stdlib .h 头文件定义了四个变量类型、一些宏和各种通用工具函数。
+lfind,执行线性搜索,stdlib.h,"void *lfind(void *key, void *base, int *nelem, int width, int (*fcmp)());",
+line,在指定两点间画一直线,graphics.h,"void far line(int x0, int y0, int x1, int y1);",graphics.h 是TC里面的图形库，如果要用的话应该用TC来编译
+linerel,从当前位置点(CP)到与CP有一给定相对距离的点画一直线,graphics.h,"void far linerel(int dx, int dy);",graphics.h 是TC里面的图形库，如果要用的话应该用TC来编译
+localtime,把日期和时间转变为结构,time.h,struct tm *localtime(long *clock);,C 标准库的 time.h 头文件定义了四个变量类型、两个宏和各种操作日期和时间的函数。
+lock,设置文件共享锁,,"int lock(int handle, long offset, long length);",
+log,对数函数ln(x),math.h,double log(double x);,C 标准库的 math.h 头文件定义了各种数学函数和一个宏。在这个库中所有可用的功能都带有一个 double 类型的参数，且都返回 double 类型的结果。
+log10,对数函数log,math.h,double log10(double x);,C 标准库的 math.h 头文件定义了各种数学函数和一个宏。在这个库中所有可用的功能都带有一个 double 类型的参数，且都返回 double 类型的结果。
+longjump,执行非局部转移,setjmp.h,"void longjump(jmp_buf env, int val);",C 标准库的 setjmp.h 头文件定义了宏 setjmp()、函数 longjmp() 和变量类型 jmp_buf，该变量类型会绕过正常的函数调用和返回规则。
+lowvideo,选择低亮度字符,conio.h,void lowvideo(void);,conio是Console Input/Output（控制台输入输出）的简写，其中定义了通过控制台进行数据输入和数据输出的函数，主要是一些用户通过按键盘产生的对应操作
+lrotl,将无符号长整型数向左循环移位,stdlib.h,"unsigned long lrotl(unsigned long lvalue, int count);",C 标准库的 stdlib .h 头文件定义了四个变量类型、一些宏和各种通用工具函数。
+_lrotl,将无符号长整型数向左循环移位,stdlib.h,"unsigned long _lrotl(unsigned long lvalue, int count);",C 标准库的 stdlib .h 头文件定义了四个变量类型、一些宏和各种通用工具函数。
+lsearch,线性搜索,stdlib.h,"void *lsearch(const void *key, void *base, size_t *nelem, size_t width, int (*fcmp)(const void *, const void *)); ",
+lseek,移动文件读/写指针,sys/types.h/unistd.h,"long lseek(int handle, long offset, int fromwhere);",头文件
+main,"主函数, 每一C 程序都必须有一main()函数, 可以根据自己的爱好把它放在程序的某个地方. 有些程序员把它放在最前面, 而另一些程序员把它放在最后面, 无论放在哪个地方, 都是适合的。",/,main(),
+malloc,内存分配函数,alloc.h/stdlib.h,void *malloc(unsigned size);,C 标准库的 stdlib .h 头文件定义了四个变量类型、一些宏和各种通用工具函数。
+matherr,用户可修改的数学错误处理程序,math.h,int matherr(struct exception *e);,C 标准库的 math.h 头文件定义了各种数学函数和一个宏。在这个库中所有可用的功能都带有一个 double 类型的参数，且都返回 double 类型的结果。
+mblen,返回参数 str 所指向的多字节字符的长度,stdlib.h,"int mblen(const char *str, size_t n)",C 标准库的 stdlib .h 头文件定义了四个变量类型、一些宏和各种通用工具函数。
+mbstowcs,把参数 str 所指向的多字节字符的字符串转换为参数 pwcs 所指向的数组,stdlib.h,"size_t mbstowcs(schar_t *pwcs, const char *str, size_t n)",C 标准库的 stdlib .h 头文件定义了四个变量类型、一些宏和各种通用工具函数。
+mbtowc,检查参数 str 所指向的多字节字符,stdlib.h,"int mbtowc(whcar_t *pwc, const char *str, size_t n)",C 标准库的 stdlib .h 头文件定义了四个变量类型、一些宏和各种通用工具函数。
+memccpy,从源source中拷贝n个字节到目标destin中,string.h/men.h,"void *memccpy(void *destin, void *source, unsigned char ch,",C 标准库的 string .h 头文件定义了一个变量类型、一个宏和各种操作字符数组的函数。
+memchr,在数组的前n个字节中搜索字符,string.h/men.h,"void *memchr(void *s, char ch, unsigned n);",C 标准库的 string .h 头文件定义了一个变量类型、一个宏和各种操作字符数组的函数。
+memcpy,从源source中拷贝n个字节到目标destin中,string.h/men.h,"void *memcpy(void *destin, void *source, unsigned n);",C 标准库的 string .h 头文件定义了一个变量类型、一个宏和各种操作字符数组的函数。
+memicmp,"比较两个串s1和s2的前n个字节, 忽略大小写",string.h/men.h,"int memicmp(void *s1, void *s2, unsigned n);",C 标准库的 string .h 头文件定义了一个变量类型、一个宏和各种操作字符数组的函数。
+memmove,移动一块字节,string.h/men.h,"void *memmove(void *destin, void *source, unsigned n);",C 标准库的 string .h 头文件定义了一个变量类型、一个宏和各种操作字符数组的函数。
+memset,"设置s中的所有字节为ch, s数组的大小由n给定",string.h/men.h,"void *memset(void *s, char ch, unsigned n);",C 标准库的 string .h 头文件定义了一个变量类型、一个宏和各种操作字符数组的函数。
+MK_FP,设置一个远指针,dos.h,"void far *MK_FP(unsigned seg, unsigned off);",dos.h 里面包含了很多BIOS和DOS调用函数
+mkdir,建立一个目录,dir.h,int mkdir(char *pathname);,dir.h 是linux系统上的头文件
+mktemp,建立唯一的文件名,dir.h,char *mktemp(char *template);,dir.h 是linux系统上的头文件
+mktime,把 timeptr 所指向的结构转换为一个依据本地时区的 time_t 值,time.h,time_t mktime(struct tm *timeptr),C 标准库的 time.h 头文件定义了四个变量类型、两个宏和各种操作日期和时间的函数。
+modf,把数分为指数和尾数,math.h,"double modf(double value, double *iptr);",C 标准库的 math.h 头文件定义了各种数学函数和一个宏。在这个库中所有可用的功能都带有一个 double 类型的参数，且都返回 double 类型的结果。
+movedata,拷贝字节,mem.h,"void movedata(int segsrc, int offsrc, int segdest, int offdest, unsigned numbytes); ",mem.h 这个库函数中的函数主要是针对字符串进行的
+movemem,移动一块字节,mem.h,"void movemem(void *source, void *destin, unsigned len);",mem.h 这个库函数中的函数主要是针对字符串进行的
+moverel,将当前位置(CP)移动一相对距离,graphics.h,"void far moverel(int dx, int dy);",graphics.h 是TC里面的图形库，如果要用的话应该用TC来编译
+movetext,将屏幕文本从一个矩形区域拷贝到另一个矩形区域,,"int movetext(int left, int top, int right, int bottom, int newleft, int newtop);",
+moveto,"将CP移到(x, y)",graphics.h,"void far moveto(int x, int y);",graphics.h 是TC里面的图形库，如果要用的话应该用TC来编译
+normvideo,选择正常亮度字符,conio.h,void normvideo(void);,conio是Console Input/Output（控制台输入输出）的简写，其中定义了通过控制台进行数据输入和数据输出的函数，主要是一些用户通过按键盘产生的对应操作
+nosound,关闭PC扬声器,/,void nosound(void);,
+open,打开一个文件用于读或写,fcntl.h,"int open(char *pathname, int access[, int permiss]);",fcntl.h 用来避免一些系统安全问题。
+outport,输出整数到硬件端口中,dos.h,"void outport(int port, int value);",dos.h 里面包含了很多BIOS和DOS调用函数
+outportb,输出字节到硬件端口中,dos.h,"void outportb(int port, char byte);",dos.h 里面包含了很多BIOS和DOS调用函数
+outtext,在视区显示一个字符串,graphics.h,void far outtext(char far *textstring);,graphics.h 是TC里面的图形库，如果要用的话应该用TC来编译
+outtextxy,在指定位置显示一字符串,graphics.h,"void far outtextxy(int x, int y, char *textstring);",graphics.h 是TC里面的图形库，如果要用的话应该用TC来编译
+parsfnm,分析文件名,dos.h,"char *parsfnm (char *cmdline, struct fcb *fcbptr, int option);",dos.h 里面包含了很多BIOS和DOS调用函数
+peek,检查存储单元,dos.h,"int peek(int segment, unsigned offset);",dos.h 里面包含了很多BIOS和DOS调用函数
+peekb,检查存储单元,dos.h,"char peekb (int segment, unsigned offset);",dos.h 里面包含了很多BIOS和DOS调用函数
+perror,系统错误信息,stdio.h,void perror(char *string);,C 标准库的 stdio .h 头文件定义了三个变量类型、一些宏和各种函数来执行输入和输出。
+pieslice,绘制并填充一个扇形,graphics.h,"void far pieslice(int x, int stanle, int endangle, int radius);",graphics.h 是TC里面的图形库，如果要用的话应该用TC来编译
+poke,存值到一个给定存储单元,dos.h,"void poke(int segment, int offset, int value);",dos.h 里面包含了很多BIOS和DOS调用函数
+pokeb,存值到一个给定存储单元,dos.h,"void pokeb(int segment, int offset, char value);",dos.h 里面包含了很多BIOS和DOS调用函数
+poly,根据参数产生一个多项式,math.h,"double poly(double x, int n, double c[]);",math.h 头文件定义了各种数学函数和一个宏。在这个库中所有可用的功能都带有一个 double 类型的参数，且都返回 double 类型的结果。
+pow,指数函数(x的y次方),math.h,"double pow(double x, double y);",math.h 头文件定义了各种数学函数和一个宏。在这个库中所有可用的功能都带有一个 double 类型的参数，且都返回 double 类型的结果。
+pow10,指数函数(10的p次方),math.h,double pow10(int p);,math.h 头文件定义了各种数学函数和一个宏。在这个库中所有可用的功能都带有一个 double 类型的参数，且都返回 double 类型的结果。
+printf,产生格式化输出的函数,stdio.h,"int printf(char *format[,argument,...]);",C 标准库的 stdio .h 头文件定义了三个变量类型、一些宏和各种函数来执行输入和输出。
+putc,输出一字符到指定流中,stdio.h,"int putc(int ch, FILE *stream);",C 标准库的 stdio .h 头文件定义了三个变量类型、一些宏和各种函数来执行输入和输出。
+putch,输出字符到控制台,conio.h,int putch(int ch);,conio是Console Input/Output（控制台输入输出）的简写，其中定义了通过控制台进行数据输入和数据输出的函数，主要是一些用户通过按键盘产生的对应操作
+putchar,在stdout上输出字符,stdio.h,int putchar(int ch);,stdio .h 头文件定义了三个变量类型、一些宏和各种函数来执行输入和输出。
+putenv,把字符串加到当前环境中,stdlib.h,int putenv(char *envvar);,C 标准库的 stdlib .h 头文件定义了四个变量类型、一些宏和各种通用工具函数。
+putimage,在屏幕上输出一个位图,graphics.h,"void far putimage(int x, int y, void far *bitmap, int op);",graphics.h 是TC里面的图形库，如果要用的话应该用TC来编译
+putpixel,在指定位置画一像素,graphics.h,"void far putpixel (int x, int y, int pixelcolor);",graphics.h 是TC里面的图形库，如果要用的话应该用TC来编译
+puts,送一字符串到流中,stdio.h,int puts(char *string);,stdio .h 头文件定义了三个变量类型、一些宏和各种函数来执行输入和输出。
+puttext,将文本从存储区拷贝到屏幕,conio.h,"int puttext(int left, int top, int right, int bottom, void *source);",conio是Console Input/Output（控制台输入输出）的简写，其中定义了通过控制台进行数据输入和数据输出的函数，主要是一些用户通过按键盘产生的对应操作
+putw,把一字符或字送到流中,,"int putw(int w, FILE *stream);",
+qsort,使用快速排序例程进行排序,stdlib.h,"void qsort(void *base, int nelem, int width, int (*fcmp)());",C 标准库的 stdlib .h 头文件定义了四个变量类型、一些宏和各种通用工具函数。
+raise,向正在执行的程序发送一个信号,signal.h,int raise(int sig);,signal.h 头文件定义了一个变量类型 sig_atomic_t、两个函数调用和一些宏来处理程序执行期间报告的不同信号。
+rand,随机数发生器,stdlib.h,void rand(void);,C 标准库的 stdlib .h 头文件定义了四个变量类型、一些宏和各种通用工具函数。
+randbrd,随机块读,dos.h,"int randbrd(struct fcb *fcbptr, int reccnt);",dos.h 里面包含了很多BIOS和DOS调用函数
+randbwr,随机块写,dos.h,"int randbwr(struct fcp *fcbptr, int reccnt);",dos.h 里面包含了很多BIOS和DOS调用函数
+random,随机数发生器,stdlib.h,int random(int num);,C 标准库的 stdlib .h 头文件定义了四个变量类型、一些宏和各种通用工具函数。
+read,从文件中读,unistd.h,"int read(int handle, void *buf, int nbyte);",unistd.h 是 C 和 C++ 程序设计语言中提供对 POSIX 操作系统 API 的访问功能的头文件的名称。
+realloc,重新分配主存,alloc.h/stdlib.h,"void *realloc(void *ptr, unsigned newsize);",C 标准库的 stdlib .h 头文件定义了四个变量类型、一些宏和各种通用工具函数。
+rectangle,画一个矩形,graphics.h,"void far rectangle(int left, int top, int right, int bottom);",graphics.h 是TC里面的图形库，如果要用的话应该用TC来编译
+registerbgidriver,登录已连接进来的图形驱动程序代码,graphics.h,int registerbgidriver(void(*driver)(void));,graphics.h 是TC里面的图形库，如果要用的话应该用TC来编译
+remove,删除一个文件,stdio.h,int remove(char *filename);,C 标准库的 stdio .h 头文件定义了三个变量类型、一些宏和各种函数来执行输入和输出。
+rename,重命名文件,stdio.h,"int rename(char *oldname, char *newname);",C 标准库的 stdio .h 头文件定义了三个变量类型、一些宏和各种函数来执行输入和输出。
+restorecrtmode,将屏幕模式恢复为先前的imitgraph设置,graphics.h,void far restorecrtmode(void);,graphics.h 是TC里面的图形库，如果要用的话应该用TC来编译
+rewind,将文件指针重新指向一个流的开头,stdio.h,int rewind(FILE *stream);,C 标准库的 stdio .h 头文件定义了三个变量类型、一些宏和各种函数来执行输入和输出。
+rmdir,删除DOS文件目录,unistd.h,int rmdir(char *stream);,unistd.h 是 C 和 C++ 程序设计语言中提供对 POSIX 操作系统 API 的访问功能的头文件的名称。
+sbrk,改变数据段空间位置,alloc.h,char *sbrk(int incr);,"alloc.h 含的内容 同编译器有关, 如果调用, 动态分配函数. "
+scanf,执行格式化输入,stdio.h,"int scanf(char *format[,argument,...]);",C 标准库的 stdio .h 头文件定义了三个变量类型、一些宏和各种函数来执行输入和输出。
+searchpath,搜索DOS路径,dir.h,char *searchpath(char *filename);,dir.h 是linux系统上的头文件
+sector,画并填充椭圆扇区,graphics.h,"void far sector(int x, int y, int stangle, int endangle);",graphics.h 是TC里面的图形库，如果要用的话应该用TC来编译
+segread,读段寄存器值,dos.h,void segread(struct SREGS *segtbl);,dos.h 里面包含了很多BIOS和DOS调用函数
+setactivepage,设置图形输出活动页,graphics.h,void far setactivepage(int pagenum);,graphics.h 是TC里面的图形库，如果要用的话应该用TC来编译
+setallpallette,按指定方式改变所有的调色板颜色,graphics.h,"void far setallpallette(struct palette, far *pallette);",graphics.h 是TC里面的图形库，如果要用的话应该用TC来编译
+setaspectratio,设置图形纵横比,graphics.h,"void far setaspectratio(int xasp, int yasp);",graphics.h 是TC里面的图形库，如果要用的话应该用TC来编译
+setbkcolor,用调色板设置当前背景颜色,graphics.h,void far setbkcolor(int color);,graphics.h 是TC里面的图形库，如果要用的话应该用TC来编译
+setblock,修改先前已分配的DOS存储段大小,dos.h,"int setblock(int seg, int newsize);",dos.h 里面包含了很多BIOS和DOS调用函数
+setbuf,把缓冲区与流相联,stdio.h,"void setbuf(FILE *steam, char *buf);",stdio .h 头文件定义了三个变量类型、一些宏和各种函数来执行输入和输出。
+setcbrk,设置Control-break,,int setcbrk(int value);,
+setcolor,设置当前画线颜色,graphics.h,void far setcolor(int color);,graphics.h 是TC里面的图形库，如果要用的话应该用TC来编译
+setdate,设置DOS日期,dos.h,void setdate(struct date *dateblk);,dos.h 里面包含了很多BIOS和DOS调用函数
+setdisk,设置当前磁盘驱动器,dir.h,int setdisk(int drive);,dir.h 是linux系统上的头文件
+setdta,设置磁盘传输区地址,,void setdta(char far *dta);,
+setfillpattern,选择用户定义的填充模式,graphics.h,"void far setfillpattern(char far *upattern, int color);",graphics.h 是TC里面的图形库，如果要用的话应该用TC来编译
+setfillstyle,设置填充模式和颜色,graphics.h,"void far setfillstyle(int pattern, int color);",graphics.h 是TC里面的图形库，如果要用的话应该用TC来编译
+setftime,设置文件日期和时间,,"int setftime(int handle, struct ftime *ftimep);",
+setgraphbufsize,改变内部图形缓冲区的大小,graphics.h,unsigned far setgraphbufsize(unsigned bufsize);,graphics.h 是TC里面的图形库，如果要用的话应该用TC来编译
+setgraphmode,将系统设置成图形模式且清屏,graphics.h,void far setgraphmode(int mode);,graphics.h 是TC里面的图形库，如果要用的话应该用TC来编译
+setjmp,非局部转移,setjmp.h,int setjmp(jmp_buf env); ,C 标准库的 setjmp.h 头文件定义了宏 setjmp()、函数 longjmp() 和变量类型 jmp_buf，该变量类型会绕过正常的函数调用和返回规则。
+setlinestyle,设置当前画线宽度和类型,graphics.h,"void far setlinestyle(int linestype, unsigned upattern);",graphics.h 是TC里面的图形库，如果要用的话应该用TC来编译
+setmem,存值到存储区,mem.h,"void setmem(void *addr, int len, char value);",mem.h 这个库函数中的函数主要是针对字符串进行的
+setmode,设置打开文件方式,,"int setmode(int handle, unsigned mode);",
+setpalette,改变调色板的颜色,graphics.h,"void far setpalette(int index, int actural_color);",graphics.h 是TC里面的图形库，如果要用的话应该用TC来编译
+setrgbpalette,定义IBM8514图形卡的颜色,graphics.h,"void far setrgbpalette(int colornum, int red, int green, int blue);",graphics.h 是TC里面的图形库，如果要用的话应该用TC来编译
+settextjustify,为图形函数设置文本的对齐方式,graphics.h,"void far settextjustify(int horiz, int vert);",graphics.h 是TC里面的图形库，如果要用的话应该用TC来编译
+settextstyle,为图形输出设置当前的文本属性,graphics.h,"void far settextstyle (int font, int direction, char size);",graphics.h 是TC里面的图形库，如果要用的话应该用TC来编译
+settime,设置系统时间,dos.h,void settime(struct time *timep);,dos.h 里面包含了很多BIOS和DOS调用函数
+setusercharsize,为矢量字体改变字符宽度和高度,graphics.h,"void far setusercharsize(int multx, int dirx, int multy, int diry);",graphics.h 是TC里面的图形库，如果要用的话应该用TC来编译
+setvbuf,把缓冲区与流相关,stdio.h,"int setvbuf(FILE *stream, char *buf, int type, unsigned size);",C 标准库的 stdio .h 头文件定义了三个变量类型、一些宏和各种函数来执行输入和输出。
+setvect,设置中断矢量入口,,"void setvect(int intr_num, void interrupt(*isr)());",
+setverify,设置验证状态,,void setverify(int value);,
+setviewport,为图形输出设置当前视口,graphics.h," void far setviewport(int left, int top, int right, int bottom, int clipflag);",graphics.h 是TC里面的图形库，如果要用的话应该用TC来编译
+setvisualpage,设置可见图形页号,graphics.h,void far setvisualpage(int pagenum);,graphics.h 是TC里面的图形库，如果要用的话应该用TC来编译
+setwritemode,设置图形方式下画线的输出模式,graphics.h,void far setwritemode(int mode);,graphics.h 是TC里面的图形库，如果要用的话应该用TC来编译
+signal,设置某一信号的对应动作,signal.h,"int signal(int sig, sigfun fname);",C 标准库的 signal.h 头文件定义了一个变量类型 sig_atomic_t、两个函数调用和一些宏来处理程序执行期间报告的不同信号。
+sin,正弦函数,math.h,double sin(double x);,C 标准库的 math.h 头文件定义了各种数学函数和一个宏。在这个库中所有可用的功能都带有一个 double 类型的参数，且都返回 double 类型的结果。
+sinh,双曲正弦函数,math.h,double sinh(double x);,C 标准库的 math.h 头文件定义了各种数学函数和一个宏。在这个库中所有可用的功能都带有一个 double 类型的参数，且都返回 double 类型的结果。
+sleep,执行挂起一段时间,dos.h,unsigned sleep(unsigned seconds);,dos.h 里面包含了很多BIOS和DOS调用函数
+sopen ,打开一共享文件,,"int sopen(char *pathname, int access, int shflag, int permiss);",
+sound,以指定频率打开PC扬声器,/,void sound(unsigned frequency);,
+spawnl,创建并运行子程序,process.h,"int spawnl(int mode, char *pathname, char *arg0, arg1, ... argn, NULL);",process.h 是包含用于和宏指令的作用声明和过程一起使用的C标头文件
+spawnle,创建并运行子程序,process.h,"int spawnle(int mode, char *pathname, char *arg0, arg1,..., argn, NULL);",process.h 是包含用于和宏指令的作用声明和过程一起使用的C标头文件
+sprintf,送格式化输出到字符串中,stdio.h,"int sprintf(char *string, char *farmat [,argument,...]);",C 标准库的 stdio .h 头文件定义了三个变量类型、一些宏和各种函数来执行输入和输出。
+sqrt,计算平方根,math.h,double sqrt(double x);,C 标准库的 math.h 头文件定义了各种数学函数和一个宏。在这个库中所有可用的功能都带有一个 double 类型的参数，且都返回 double 类型的结果。
+srand,初始化随机数发生器,stdlib.h,void srand(unsigned seed);,C 标准库的 stdlib .h 头文件定义了四个变量类型、一些宏和各种通用工具函数。
+sscanf,执行从字符串中的格式化输入,stdio.h,"int sscanf(char *string, char *format[,argument,...]);",C 标准库的 stdio .h 头文件定义了三个变量类型、一些宏和各种函数来执行输入和输出。
+stat,读取打开文件信息,,"int stat(char *pathname, struct stat *buff);",
+_status87,取浮点状态,float.h,unsigned int _status87(void);,C 标准库的 float.h 头文件包含了一组与浮点值相关的依赖于平台的常量。这些常量是由 ANSI C 提出的，这让程序更具有可移植性
+stime,设置时间,time.h,int stime(long *tp);,C 标准库的 time.h 头文件定义了四个变量类型、两个宏和各种操作日期和时间的函数。
+stpcpy,拷贝一个字符串到另一个,string.h,"char *stpcpy(char *destin, char *source);",C 标准库的 string .h 头文件定义了一个变量类型、一个宏和各种操作字符数组的函数。
+strcat,字符串拼接函数,string.h,"char *strcat(char *destin, char *source);",C 标准库的 string .h 头文件定义了一个变量类型、一个宏和各种操作字符数组的函数。
+strchr,在一个串中查找给定字符的第一个匹配之处,string.h,"char *strchr(char *str, char c);",C 标准库的 string .h 头文件定义了一个变量类型、一个宏和各种操作字符数组的函数。
+strcmp,字符串比较,string.h,"int strcmp(char *str1, char *str2);",C 标准库的 string .h 头文件定义了一个变量类型、一个宏和各种操作字符数组的函数。
+strcmpi,"将一个串与另一个比较, 不管大小写",string.h,"int strcmpi(char *str1, char *str2);",C 标准库的 string .h 头文件定义了一个变量类型、一个宏和各种操作字符数组的函数。
+strcpy,字符串拷贝,string.h,"char *strcpy(char *str1, char *str2);",C 标准库的 string .h 头文件定义了一个变量类型、一个宏和各种操作字符数组的函数。
+strcspn,在串中查找第一个给定字符集内容的段,string.h,"int strcspn(char *str1, char *str2);",C 标准库的 string .h 头文件定义了一个变量类型、一个宏和各种操作字符数组的函数。
+strdup,将串拷贝到新建的位置处,string.h,char *strdup(char *str);,C 标准库的 string .h 头文件定义了一个变量类型、一个宏和各种操作字符数组的函数。
+strerror,返回指向错误信息字符串的指针,errno.h,char *strerror(int errnum);,C 标准库的 errno.h 头文件定义了整数变量 errno，它是通过系统调用设置的，在错误事件中的某些库函数表明了什么发生了错误。该宏扩展为类型为 int 的可更改的左值，因此它可以被一个程序读取和修改。在程序启动时，errno 设置为零，C 标准库中的特定函数修改它的值为一些非零值以表示某些类型的错误。您也可以在适当的时候修改它的值或重置为零。errno.h 头文件也顶了以一系列表示不同错误代码的宏，这些宏应扩展为类型为 int 的整数常量表达式。
+strftime,根据 format 中定义的格式化规则，格式化结构 timeptr 表示的时间，并把它存储在 str 中,time.h,"size_t strftime(char *str, size_t maxsize, const char *format, const struct tm *timeptr)",C 标准库的 time.h 头文件定义了四个变量类型、两个宏和各种操作日期和时间的函数。
+stricmp,以大小写不敏感方式比较两个串,string.h,"int stricmp(char *str1, char *str2);",C 标准库的 string .h 头文件定义了一个变量类型、一个宏和各种操作字符数组的函数。
+strncmp,字符串比较,string.h,"int strncmp(char *str1, char *str2, int maxlen);",C 标准库的 string .h 头文件定义了一个变量类型、一个宏和各种操作字符数组的函数。
+strncmpi,"将一个串中的一部分与另一个串比较, 不管大小写",string.h,"int strncmpi(char *str1, char *str2, unsigned maxlen);",C 标准库的 string .h 头文件定义了一个变量类型、一个宏和各种操作字符数组的函数。
+strncpy,字符串拷贝,string.h,"char *strncpy(char *destin, char *source, int maxlen);",C 标准库的 string .h 头文件定义了一个变量类型、一个宏和各种操作字符数组的函数。
+strnicmp,不注重大小写地比较两个串,string.h,"int strnicmp(char *str1, char *str2, unsigned maxlen);",C 标准库的 string .h 头文件定义了一个变量类型、一个宏和各种操作字符数组的函数。
+strnset,将一个串中的所有字符都设为指定字符,string.h,"char *strnset(char *str, char ch, unsigned n);",C 标准库的 string .h 头文件定义了一个变量类型、一个宏和各种操作字符数组的函数。
+strpbrk,在串中查找给定字符集中的字符,string.h,"char *strpbrk(char *str1, char *str2);",C 标准库的 string .h 头文件定义了一个变量类型、一个宏和各种操作字符数组的函数。
+strrchr,在串中查找指定字符的最后一个出现,string.h,"char *strrchr(char *str, char c);",C 标准库的 string .h 头文件定义了一个变量类型、一个宏和各种操作字符数组的函数。
+strrev,字符串倒转,string.h,char *strrev(char *str);,C 标准库的 string .h 头文件定义了一个变量类型、一个宏和各种操作字符数组的函数。
+strset,将一个串中的所有字符都设为指定字符,string.h,"char *strset(char *str, char c);",C 标准库的 string .h 头文件定义了一个变量类型、一个宏和各种操作字符数组的函数。
+strspn,在串中查找指定字符集的子集的第一次出现,string.h,"int strspn(char *str1, char *str2);",C 标准库的 string .h 头文件定义了一个变量类型、一个宏和各种操作字符数组的函数。
+strstr,在串中查找指定字符串的第一次出现,string.h,"char *strstr(char *str1, char *str2);",C 标准库的 string .h 头文件定义了一个变量类型、一个宏和各种操作字符数组的函数。
+strtod,将字符串转换为double型值,stdlib.h,"double strtod(char *str, char **endptr);",C 标准库的 stdlib .h 头文件定义了四个变量类型、一些宏和各种通用工具函数。
+strtok,查找由在第二个串中指定的分界符分隔开的单词,string.h,"char *strtok(char *str1, char *str2);",C 标准库的 string .h 头文件定义了一个变量类型、一个宏和各种操作字符数组的函数。
+strtol,将串转换为长整数,stdlib.h,"long strtol(char *str, char **endptr, int base);",C 标准库的 stdlib .h 头文件定义了四个变量类型、一些宏和各种通用工具函数。
+strtoul,把参数 str 所指向的字符串转换为一个无符号长整数（类型为 unsigned long int 型）,stdlib.h,"unsigned long int strtoul(const char *str, char **endptr, int base)",C 标准库的 stdlib .h 头文件定义了四个变量类型、一些宏和各种通用工具函数。
+strupr,将串中的小写字母转换为大写字母,string.h,char *strupr(char *str);,C 标准库的 string .h 头文件定义了一个变量类型、一个宏和各种操作字符数组的函数。
+swab,交换字节,,"void swab (char *from, char *to, int nbytes);",
+system,发出一个DOS命令,stdlib.h,int system(char *command);,C 标准库的 stdlib .h 头文件定义了四个变量类型、一些宏和各种通用工具函数。
+tan,正切函数,math.h,double tan(double x);,C 标准库的 math.h 头文件定义了各种数学函数和一个宏。在这个库中所有可用的功能都带有一个 double 类型的参数，且都返回 double 类型的结果。
+tanh,双曲正切函数,math.h,double tanh(double x);,C 标准库的 math.h 头文件定义了各种数学函数和一个宏。在这个库中所有可用的功能都带有一个 double 类型的参数，且都返回 double 类型的结果。
+tell,取文件指针的当前位置,,long tell(int handle);,
+textattr,设置文本属性,conio.h,void textattr(int attribute);,conio是Console Input/Output（控制台输入输出）的简写，其中定义了通过控制台进行数据输入和数据输出的函数，主要是一些用户通过按键盘产生的对应操作
+textbackground,选择新的文本背景颜色,conio.h,void textbackground(int color);,conio是Console Input/Output（控制台输入输出）的简写，其中定义了通过控制台进行数据输入和数据输出的函数，主要是一些用户通过按键盘产生的对应操作
+textcolor,在文本模式中选择新的字符颜色,conio.h,void textcolor(int color);,conio是Console Input/Output（控制台输入输出）的简写，其中定义了通过控制台进行数据输入和数据输出的函数，主要是一些用户通过按键盘产生的对应操作
+textheight,返回以像素为单位的字符串高度,graphics.h,int far textheight(char far *textstring);,graphics.h 是TC里面的图形库，如果要用的话应该用TC来编译
+textmode,将屏幕设置成文本模式,conio.h,void textmode(int mode);,conio是Console Input/Output（控制台输入输出）的简写，其中定义了通过控制台进行数据输入和数据输出的函数，主要是一些用户通过按键盘产生的对应操作
+textwidth,返回以像素为单位的字符串宽度,graphics.h,int far textwidth(char far *textstring);,graphics.h 是TC里面的图形库，如果要用的话应该用TC来编译
+time,取一天的时间,time.h,logn time(long *tloc);,time.h 头文件定义了四个变量类型、两个宏和各种操作日期和时间的函数
+tmpfile ,以二进制方式打开暂存文件,stdio.h,FILE *tmpfile(void);,C 标准库的 stdio .h 头文件定义了三个变量类型、一些宏和各种函数来执行输入和输出。
+tmpnam,创建一个唯一的文件名,stdio.h,char *tmpnam(char *sptr);,C 标准库的 stdio .h 头文件定义了三个变量类型、一些宏和各种函数来执行输入和输出。
+tolower,把字符转换成小写字母,ctype.h,int tolower(int c);,C 标准库的 ctype.h 头文件提供了一些函数，可用于测试和映射字符。这些函数接受 int 作为参数，它的值必须是 EOF 或表示为一个无符号字符。如果参数 c 满足描述的条件，则这些函数返回非零（true）。如果参数 c 不满足描述的条件，则这些函数返回零。
+toupper,把字符转换成大写字母,ctype.h,int toupper(int c);,C 标准库的 ctype.h 头文件提供了一些函数，可用于测试和映射字符。这些函数接受 int 作为参数，它的值必须是 EOF 或表示为一个无符号字符。如果参数 c 满足描述的条件，则这些函数返回非零（true）。如果参数 c 不满足描述的条件，则这些函数返回零。
+tzset,UNIX时间兼容函数,time.h,void tzset(void);,C 标准库的 time.h 头文件定义了四个变量类型、两个宏和各种操作日期和时间的函数。
+ultoa,转换一个无符号长整型数为字符串,stdlib.h,"char *ultoa(unsigned long value, char *string, int radix);",C 标准库的 stdlib .h 头文件定义了四个变量类型、一些宏和各种通用工具函数。
+ungetc,把一个字符退回到输入流中,stdio.h,"int ungetc(char c, FILE *stream);",C 标准库的 stdio .h 头文件定义了三个变量类型、一些宏和各种函数来执行输入和输出。
+ungetch,把一个字符退回到键盘缓冲区中,,int ungetch(int c);,
+unixtodos,把日期和时间转换成DOS格式,dos.h,"void unixtodos(long utime, struct date *dateptr, struct time *timeptr); ",dos.h 里面包含了很多BIOS和DOS调用函数
+unlink,删掉一个文件,dos.h,int unlink(char *filename);,dos.h 里面包含了很多BIOS和DOS调用函数
+unlock,解除文件共享锁,,"int unlock(int handle, long offset, long length);",
+vfprintf,送格式化输出到一流中,stdio.h,"int vfprintf(FILE *stream, char *format, va_list param);",C 标准库的 stdio .h 头文件定义了三个变量类型、一些宏和各种函数来执行输入和输出。
+vfscanf,从流中执行格式化输入,stdio.h,"int vfscanf(FILE *stream, char *format, va_list param);",C 标准库的 stdio .h 头文件定义了三个变量类型、一些宏和各种函数来执行输入和输出。
+vprintf,送格式化输出到stdout中,stdio.h,"int vprintf(char *format, va_list param);",C 标准库的 stdio .h 头文件定义了三个变量类型、一些宏和各种函数来执行输入和输出。
+vscanf,从stdin中执行格式化输入,stdio.h,"int vscanf(char *format, va_list param);",C 标准库的 stdio .h 头文件定义了三个变量类型、一些宏和各种函数来执行输入和输出。
+vsprintf,送格式化输出到串中,stdio.h,"int vsprintf(char *string, char *format, va_list param);",C 标准库的 stdio .h 头文件定义了三个变量类型、一些宏和各种函数来执行输入和输出。
+vsscanf,从流中执行格式化输入,stdio.h,"int vsscanf(char *s, char *format, va_list param);",C 标准库的 stdio .h 头文件定义了三个变量类型、一些宏和各种函数来执行输入和输出。
+wcstombs,把数组 pwcs 中存储的编码转换为多字节字符，并把它们存储在字符串 str 中,stdlib.h,"size_t wcstombs(char *str, const wchar_t *pwcs, size_t n)",C 标准库的 stdlib .h 头文件定义了四个变量类型、一些宏和各种通用工具函数。
+wctomb,检查对应于参数 wchar 所给出的多字节字符的编码,stdlib.h,"int wctomb(char *str, wchar_t wchar)",C 标准库的 stdlib .h 头文件定义了四个变量类型、一些宏和各种通用工具函数。
+wherex,返回窗口内水平光标位置,conio.h,int wherex(void);,conio是Console Input/Output（控制台输入输出）的简写，其中定义了通过控制台进行数据输入和数据输出的函数，主要是一些用户通过按键盘产生的对应操作
+wherey ,返回窗口内垂直光标位置,conio.h,int wherey(void);,conio是Console Input/Output（控制台输入输出）的简写，其中定义了通过控制台进行数据输入和数据输出的函数，主要是一些用户通过按键盘产生的对应操作
+window,定义活动文本模式窗口,conio.h,"void window(int left, int top, int right, int bottom);",conio是Console Input/Output（控制台输入输出）的简写，其中定义了通过控制台进行数据输入和数据输出的函数，主要是一些用户通过按键盘产生的对应操作
+write,写到一文件中,unistd.h,"int write(int handel, void *buf, int nbyte);",unistd.h 是 C 和 C++ 程序设计语言中提供对 POSIX 操作系统 API 的访问功能的头文件的名称。
+assert.h,,,,C 标准库的 assert.h头文件提供了一个名为 assert 的宏，它可用于验证程序做出的假设，并在假设为假时输出诊断消息。已定义的宏 assert 指向另一个宏 NDEBUG，宏 NDEBUG 不是 <assert.h> 的一部分。如果已在引用 <assert.h> 的源文件中定义 NDEBUG 为宏名称，则 assert 宏的定义如下：#define assert(ignore) ((void)0)
+ctype.h ,,,,C 标准库的 ctype.h 头文件提供了一些函数，可用于测试和映射字符。这些函数接受 int 作为参数，它的值必须是 EOF 或表示为一个无符号字符。如果参数 c 满足描述的条件，则这些函数返回非零（true）。如果参数 c 不满足描述的条件，则这些函数返回零。
+errno.h,,,,C 标准库的 errno.h 头文件定义了整数变量 errno，它是通过系统调用设置的，在错误事件中的某些库函数表明了什么发生了错误。该宏扩展为类型为 int 的可更改的左值，因此它可以被一个程序读取和修改。在程序启动时，errno 设置为零，C 标准库中的特定函数修改它的值为一些非零值以表示某些类型的错误。您也可以在适当的时候修改它的值或重置为零。errno.h 头文件也顶了以一系列表示不同错误代码的宏，这些宏应扩展为类型为 int 的整数常量表达式。
+float.h,,,,C 标准库的 float.h 头文件包含了一组与浮点值相关的依赖于平台的常量。这些常量是由 ANSI C 提出的，这让程序更具有可移植性
+limits.h,,,,C 标准库的 limits.h 头文件决定了各种变量类型的各种属性。定义在该头文件中的宏限制了各种变量类型（比如 char、int 和 long）的值。这些限制指定了变量不能存储任何超出这些限制的值，例如一个无符号可以存储的最大值是 255。
+locale.h,,,,C 标准库的 locale.h 头文件定义了特定地域的设置，比如日期格式和货币符号。接下来我们将介绍一些宏，以及一个重要的结构 struct lconv 和两个重要的函数。
+math.h,,,,C 标准库的 math.h 头文件定义了各种数学函数和一个宏。在这个库中所有可用的功能都带有一个 double 类型的参数，且都返回 double 类型的结果。
+setjmp.h,,,,C 标准库的 setjmp.h 头文件定义了宏 setjmp()、函数 longjmp() 和变量类型 jmp_buf，该变量类型会绕过正常的函数调用和返回规则。
+signal.h,,,,C 标准库的 signal.h 头文件定义了一个变量类型 sig_atomic_t、两个函数调用和一些宏来处理程序执行期间报告的不同信号。
+stdarg.h,,,,"C 标准库的 stdarg.h 头文件定义了一个变量类型 va_list 和三个宏，这三个宏可用于在参数个数未知（即参数个数可变）时获取函数中的参数。可变参数的函数通在参数列表的末尾是使用省略号(,...)定义的。"
+stddef.h,,,,C 标准库的 stddef .h 头文件定义了各种变量类型和宏。这些定义中的大部分也出现在其它头文件中。
+stdio.h,,,,C 标准库的 stdio .h 头文件定义了三个变量类型、一些宏和各种函数来执行输入和输出。
+stdlib.h,,,,C 标准库的 stdlib .h 头文件定义了四个变量类型、一些宏和各种通用工具函数。
+string.h,,,,C 标准库的 string .h 头文件定义了一个变量类型、一个宏和各种操作字符数组的函数。
+time.h,,,,C 标准库的 time.h 头文件定义了四个变量类型、两个宏和各种操作日期和时间的函数。
+graphics.h,,,,graphics.h 是TC里面的图形库，如果要用的话应该用TC来编译
+dos.h,,,,dos.h 里面包含了很多BIOS和DOS调用函数
+alloc.h,,,,"alloc.h 含的内容 同编译器有关, 如果调用, 动态分配函数. "
+bios.h,,,,bios.h TC库
+conio.h,,,,conio是Console Input/Output（控制台输入输出）的简写，其中定义了通过控制台进行数据输入和数据输出的函数，主要是一些用户通过按键盘产生的对应操作
+unistd.h,,,,unistd.h 是 C 和 C++ 程序设计语言中提供对 POSIX 操作系统 API 的访问功能的头文件的名称。
+fcntl.h,,,,fcntl.h 用来避免一些系统安全问题。
+dir.h,,,,dir.h 是linux系统上的头文件
+process.h,,,,process.h 是包含用于和宏指令的作用声明和过程一起使用的C标头文件
+mem.h,,,,mem.h 这个库函数中的函数主要是针对字符串进行的
+io.h,,,,io.h 中定义了一些函数和常量
