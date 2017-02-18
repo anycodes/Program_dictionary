@@ -1,0 +1,1001 @@
+名称,指定者,声明,NOTE,类/接口,抛出,
+add,Collection<E>,public boolean add(E?o),确保此 collection 包含指定的元素（可选操作）。如果此 collection 由于此方法的调用而发生改变，则返回 true。（如果此 collection 不允许有重复元素，并且已经包含了指定的元素，则返回 false。）支持此操作的 collection 可能限制哪些元素能添加到此 collection 中来。需要特别指出的是，某些 collection 拒绝添加 null 元素，其他一些 collection 则对可以添加的元素类型强加限制。Collection 类应该在其文档中清楚地指定添加元素方面的所有限制。此实现始终抛出 UnsupportedOperationException。,AbstractCollection,,
+addAll,Collection<E>,public boolean addAll(Collection<? extends E>?c),将指定 collection 中的所有元素添加到此 collection 中（可选操作）。如果在该操作进行过程中修改了指定的 collection，那么此操作的行为是不明确的。（这意味着，如果指定的 collection 是此 collection，并且此 collection 非空，则此调用的行为是不明确的。） 此实现在指定的 collection 上进行迭代，并依次将迭代器返回的每个对象添加到此 collection 中。注意，除非重写 add，否则此实现将抛出 UnsupportedOperationException（假定指定的 collection 非空）。,AbstractCollection,,
+iterator,Collection<E>,public abstract Iterator<E> iterator(),返回在此 collection 中的元素上进行迭代的迭代器。,AbstractCollection,,
+size,Collection<E>,public abstract int size(),返回此 collection 中的元素数。如果该 collection 包含多于 Integer.MAX_VALUE 的元素，则返回 Integer.MAX_VALUE。 ,AbstractCollection,,
+isEmpty,Collection<E>,public boolean isEmpty(),如果此 collection 不包含元素，则返回 true。,AbstractCollection,,
+contains,Collection<E>,public boolean contains(Object?o),如果此 collection 包含指定的元素，则返回 true。更正式地说，当且仅当此 collection 至少包含一个满足以下条件的元素 e 时才返回 true：(o==null ? e==null : o.equals(e))。,AbstractCollection,,
+toArray,Collection<E>,public Object[] toArray(),返回包含此 collection 中所有元素的数组。如果此 collection 保证其迭代器按顺序返回其元素，那么此方法也必须按相同的顺序返回这些元素。返回的数组将是“安全的”，因为此 collection 并不维护对返回数组的任何引用。（换句话说，即使 collection 受到数组的支持，此方法也必须分配一个新的数组）。因此，调用方可以随意修改返回的数组。此实现会分配返回的数组，并迭代 collection 中的元素，将每个对象引用存储在数组的下一个连续元素中，并从元素 0 开始。,AbstractCollection,,
+toArray,Collection<E>,public <T> T[] toArray(T[]?a),返回包含此 collection 中所有元素的数组；返回数组的运行时类型是指定数组的类型。如果指定的数组能容纳该 collection，则在此数组中返回 collection 的元素。否则，将根据指定数组的运行时类型和此 collection 的大小分配一个新数组。如果指定的数组能容纳 collection，并且有剩余的空间（即数组的元素比 collection 多），那么会将紧挨着 collection 尾部的元素设置为 null（这对确定 collection 的长度很有用，但只有 在调用方知道 collection 不包含任何 null 元素时才可行）。如果此 collection 保证其迭代器按顺序返回其元素，那么此方法也必须按相同的顺序返回这些元素。此实现会检查该数组是否足够大，以包含该 collection 中的元素；如果不能包含，则将分配一个具有适当大小和类型的新数组（使用反射）。然后，在该 collection 上进行迭代，将每个对象引用存储在数组的下一个连续元素中，并从元素 0 开始。如果该数组比该 collection 大，则在该 collection 尾部后面的第一个位置存储 null。 ,AbstractCollection,,
+remove,Collection<E>,public boolean remove(Object?o),从此 collection 中移除指定元素的单个实例（如果存在）（可选操作）。更正式地说，如果该 collection 包含一个或多个满足 (o==null ? e==null : o.equals(e)) 的元素 e，则移除 e。如果该 collection 包含指定的元素（或等价元素，如果该 collection 由于此方法的调用发生变化），则返回 true。此实现在该 collection 上进行迭代，查找指定的元素。如果找到该元素，那么它会使用迭代器的 remove 方法从该 collection 中移除该元素。注意，如果此 collection 的 iterator 方法所返回的迭代器无法实现 remove 方法，并且此 collection 包含指定的对象，那么此实现会抛出 UnsupportedOperationException。,AbstractCollection,,
+containsAll,Collection<E>,public boolean containsAll(Collection<?>?c),如果此 collection 包含指定 collection 中的所有元素，则返回 true。 此实现在指定的 collection 上进行迭代，依次检查该迭代器返回的每个元素，查看其是否包含在此 collection 中。如果包含所有元素，则返回 true；否则将返回 false。 ,AbstractCollection,,
+removeAll,Collection<E>,public boolean removeAll(Collection<?>?c),从此 collection 中移除包含在指定 collection 中的所有元素（可选操作）。 此实现在此 collection 上进行迭代，依次检查该迭代器返回的每个元素，以查看其是否包含在指定的 collection 中。如果是，则使用迭代器的 remove 方法将其从此 collection 中移除。注意，如果 iterator 方法返回的迭代器无法实现 remove 方法，并且此 collection 包含一个或多个与指定 collection 共有的元素，那么此实现将抛出 UnsupportedOperationException。,AbstractCollection,,
+retainAll,Collection<E>,public boolean retainAll(Collection<?>?c),仅在此 collection 中保留指定 collection 中所包含的元素（可选操作）。换句话说，移除此 collection 中未包含在指定 collection 中的所有元素。此实现在此 collection 上进行迭代，依次检查该迭代器返回的每个元素，以查看其是否包含在指定的 collection 中。如果不是，则使用迭代器的 remove 方法将其从此 collection 中移除。注意，如果 iterator 方法返回的迭代器无法实现 remove 方法，并且此 collection 包含一个或多个在指定 collection 中不存在的元素，那么此实现将抛出 UnsupportedOperationException。,AbstractCollection,,
+clear,Collection<E>,public void clear(),从此 collection 中移除所有元素（可选操作）。此调用返回后，该 collection 将为空（除非它抛出异常）。此实现在此 collection 上进行迭代，并使用 Iterator.remove 操作移除每个元素。为了提高效率，多数实现可能会选择重写此方法。注意，如果此 collection 的 iterator 方法所返回的迭代器无法实现 remove 方法，并且此 collection 非空，那么此实现将抛出 UnsupportedOperationException。,AbstractCollection,,
+toString,Collection<E>,public String toString(),"返回此 collection 的字符串表示形式。该字符串表示形式由 collection 元素的列表组成，这些元素按其迭代器返回的顺序排列，并用方括号 (""[]"") 括起来。相邻元素由字符 "", ""（逗号加空格）分隔。通过 String.valueOf(Object) 可以将元素转换成字符串。此实现会创建一个空字符串缓冲区，追加一个左方括号，然后在 collection 上进行迭代，依次追加每个元素的字符串表示形式。每追加一个元素后（最后一个元素除外），将追加字符串 "", ""。最后，追加一个右括号。从字符串缓冲区获取一个字符串并返回它。 ",AbstractCollection,,
+submit,ExecutorService,public Future<?> submit(Runnable?task),提交一个 Runnable 任务用于执行，并返回一个表示该任务的 Future。,AbstractExecutorService,,
+submit,ExecutorService,"public <T> Future<T> submit(Runnable task, T result)",提交一个 Runnable 任务用于执行，并返回一个 Future，该 Future 表示任务一旦完成后即返回给定的结果。,AbstractExecutorService,,
+invokeAny,ExecutorService,"public <T> T invokeAny(Collection<Callable<T>> tasks)
+",执行给定的任务，如果某个任务已成功完成（也就是未抛出异常），则返回其结果。一旦正常或异常返回后，则取消尚未完成的任务。如果此操作正在进行时修改了给定的集合，则此方法的结果是不明确的。 ,AbstractExecutorService,,
+invokeAny,ExecutorService,"public <T> T invokeAny(Collection<Callable<T>>?tasks,long?timeout, TimeUnit?unit)",执行给定的任务，如果在给定的超时期满前某个任务已成功完成（也就是未抛出异常），则返回其结果。一旦正常或异常返回后，则取消尚未完成的任务。如果此操作正在进行时修改了给定的集合，则此方法的结果是不明确的。,AbstractExecutorService,,
+invokeAll,ExecutorService,public <T> List<Future<T>> invokeAll(Collection<Callable<T>>?tasks),执行给定的任务，当所有任务完成时，返回保持任务状态和结果的 Future 列表。返回列表的所有元素的 Future.isDone() 为 true。注意，可以正常地或通过抛出异常来终止已完成 任务。如果正在进行此操作时修改了给定的集合，则此方法的结果是不明确的。,AbstractExecutorService,,
+……,,,,,,
+getClassLoadingMXBean,,public static ClassLoadingMXBean getClassLoadingMXBean(),返回 Java 虚拟机的类加载系统的托管 Bean。,ManagementFactory,,
+getMemoryMXBean,,public static MemoryMXBean getMemoryMXBean(),返回 Java 虚拟机的内存系统的托管 Bean。,ManagementFactory,,
+getThreadMXBean,,public static ThreadMXBean getThreadMXBean(),返回 Java 虚拟机的线程系统的托管 Bean。,ManagementFactory,,
+getRuntimeMXBean,,public static RuntimeMXBean getRuntimeMXBean(),返回 Java 虚拟机的运行时系统的托管 Bean。,ManagementFactory,,
+getCompilationMXBean,,public static CompilationMXBean getCompilationMXBean(),返回 Java 虚拟机的编译系统的托管 Bean。如果 Java 虚拟机没有编译系统，此方法将返回 null。,ManagementFactory,,
+getOperatingSystemMXBean,,public static OperatingSystemMXBean getOperatingSystemMXBean(),返回运行 Java 虚拟机的操作系统的托管 Bean。,ManagementFactory,,
+getMemoryPoolMXBeans,,public static List<MemoryPoolMXBean> getMemoryPoolMXBeans(),返回 Java 虚拟机中的 MemoryPoolMXBean 对象列表。Java 虚拟机可以有一个或多个内存池。可以在运行期间添加或删除内存池。,ManagementFactory,,
+getMemoryManagerMXBeans,,public static List<MemoryManagerMXBean> getMemoryManagerMXBeans(),返回 Java 虚拟机中的 MemoryManagerMXBean 对象列表。Java 虚拟机可以有一个或多个内存管理器。可以在运行期间添加或删除内存管理器。,ManagementFactory,,
+getGarbageCollectorMXBeans,,public static List<GarbageCollectorMXBean> getGarbageCollectorMXBeans(),返回 Java 虚拟机中的 GarbageCollectorMXBean 对象列表。Java 虚拟机可以有一个或多个 GarbageCollectorMXBean 对象。可以在运行期间添加或删除 GarbageCollectorMXBean。,ManagementFactory,,
+getPlatformMBeanServer,,public static javax.management.MBeanServer getPlatformMBeanServer(),返回平台 MBeanServer。第一次调用此方法时，将首先通过调用 MBeanServerFactory.createMBeanServer() 方法创建平台 MBeanServer，然后通过使用类描述中定义的 MXBean 名称在此平台 MBeanServer 中注册平台 MXBean。在后续的调用中，此方法将直接返回最初创建的平台 MBeanServer。 动态创建和销毁的 MXBean（如内存池和管理器）将自动注册到平台 MBeanServer 和从中注销。 如果设置了系统属性 javax.management.builder.initial，将由指定的 MBeanServerBuilder 进行平台 MBeanServer 创建。 建议也将此平台用于注册平台 MXBean 之外的其他应用程序托管 Bean。这将允许所有 MBean 通过同一个 MBeanServer 发布，从而能够更方便地进行网络发布和发现。应该避免平台 MXBean 的名称冲突。,ManagementFactory,SecurityException - 如果安全管理器和调用方不具有 MBeanServerFactory.createMBeanServer() 所需要的权限,
+newPlatformMXBeanProxy,,"public static <T> T newPlatformMXBeanProxy(javax.management.MBeanServerConnection connection,String mxbeanName,Class<T> mxbeanInterface)","返回用于给定 MXBean 名称的平台 MXBean 接口的代理，以便通过给定 MBeanServerConnection 转发其方法调用。 
+此方法等效于： 
+
+Proxy.newProxyInstance(mxbeanInterface.getClassLoader(), new Class[] { mxbeanInterface }, handler) 
+其中 handler 是一个 InvocationHandler，对 MXBean 接口的方法调用将调度到其上。此 handler 会在将 MXBean 数据类型的输入参数转发到 MBeanServer 之前将其转换为其映射的开放类型，并将通过 MBeanServer 的 MXBean 方法调用的返回值由开放类型转换为在 MXBean 接口中声明的对应返回类型。 
+如果 MXBean 是通知发出者（即它实现了 NotificationEmitter），则 mxbeanInterface 和 NotificationEmitter 都将由此代理实现。 
+
+注： 
+使用 MXBean 代理可以方便地远程访问正在运行的虚拟机的平台 MXBean。所有对 MXBean 代理的方法调用都被转发到 MBeanServerConnection，当连接器服务器出现通信问题时，可能在其中抛出 IOException。如果使用代理远程访问平台 MXBean 的应用程序要访问 MBeanServerConnector 接口，则应该准备捕获 IOException。 
+当客户端应用程序设计为远程访问正在运行的虚拟机（其版本与该应用程序运行其上的虚拟机版本不同）的 MXBean 时，应当准备捕获 InvalidObjectException，当 MXBean 代理接收到一个枚举常数的名称，而该名称客户端应用程序中加载的枚举类又缺少此枚举常数时，将抛出此异常。 
+MBeanServerInvocationHandler 或其 newProxyInstance 方法不能用于为平台 MXBean 创建代理。MBeanServerInvocationHandler 创建的代理对象不会处理类规范中描述的平台 MXBean 的属性。",ManagementFactory,"IllegalArgumentException - 如果 
+·mxbeanName 没有采用有效的 ObjectName 格式，或者 
+·connection 中指定的 MXBean 不是由平台提供的 MXBean，或者 
+·指定的 MXBean 未在 MBeanServerConnection 中注册，或者 
+·指定的 MXBean 不是给定 mxbeanInterface 的实例 
+java.io.IOException - 如果在访问 MBeanServerConnection 时出现通信问题。",
+ManagementPermission,,public ManagementPermission(String name),构造具有指定名称的 ManagementPermission。,ManagementPermission,IllegalArgumentException - 如果 name 参数无效。,
+ManagementPermission,,"public ManagementPermission(String name,String actions)",构造新的 ManagementPermission 对象。,ManagementPermission,IllegalArgumentException - 如果参数无效。,
+Manifest,,public Manifest(),构造新的空 Manifest。,Manifest,,
+Manifest,,public Manifest(java.io.InputStream is),从指定的输入流构造新的 Manifest。,Manifest,java.io.IOException - 如果发生 I/O 错误,
+Manifest,,public Manifest(Manifest man),构造新的 Manifest，它是指定 Manifest 的副本。,Manifest,,
+getMainAttributes,,public Attributes getMainAttributes(),返回 Manifest 的主 Attributes。,Manifest,,
+getEntries,,"public Map<String,Attributes> getEntries()",返回此 Manifest 中所包含条目的 Map。每个条目由一个 String 名称（键）和相关的 Attributes（值）表示。,Manifest,,
+getAttributes,,public Attributes getAttributes(String name),"返回指定条目名称的 Attributes。此方法定义为： 
+            return (Attributes)getEntries().get(name)",Manifest,,
+clear,,public void clear(),清除此 Manifest 中的主 Attributes 和条目。,Manifest,,
+write,,public void write(java.io.OutputStream out),将 Manifest 写入指定的 OutputStream。在调用此方法前，必须在 MainAttributes 中设置 Attributes.Name.MANIFEST_VERSION。,Manifest,java.io.IOException - 如果发生 I/O 错误。,
+read,,public void read(java.io.InputStream is),从指定的 InputStream 读取 Manifest。读取的条目名称和属性将与当前的清单条目进行合并。,Manifest,java.io.IOException - 如果发生 I/O 错误,
+equals,,public boolean equals(Object o),如果指定的 Object 也是一个 Manifest，并且具有相同的主 Attributes 和条目，则返回 true。覆盖：类 Object 中的 equals,Manifest,,
+hashCode,,public int hashCode(),返回 Manifest 的哈希代码。覆盖：类 Object 中的 hashCode,Manifest,,
+clone,,public Object clone(),"返回 Manifest 的浅表复制。浅表复制的实现方式如下： 
+     public Object clone() { return new Manifest(this); }
+ 
+覆盖：
+类 Object 中的 clone",Manifest,,
+size,,int size(),返回此映射中的键-值映射关系数。如果该映射包含多个 Integer.MAX_VALUE 元素，则返回 Integer.MAX_VALUE。,Map,,
+isEmpty,,boolean isEmpty(),如果此映射未包含键-值映射关系，则返回 true。,Map,,
+containsKey,,boolean containsKey(Object key),如果此映射包含指定键的映射关系，则返回 true。更正式地说，当且仅当此映射包含键 k 的以下映射关系时才返回 true：(key==null ? k==null : key.equals(k))。（最多只能有一个这样的映射关系）。,Map,"ClassCastException - 如果该键对于此映射是不合适的类型（可选）。 
+NullPointerException - 如果该键为 null 并且此映射不允许 null 键（可选）。",
+containsValue,,boolean containsValue(Object value),如果此映射为指定值映射一个或多个键，则返回 true。更正式地说，当且仅当此映射至少包含一个 v 的以下映射关系时才返回 true：(value==null ? v==null : value.equals(v))。对于大多数 Map 接口的实现而言，该操作可能需要与映射大小呈线性关系的时间。 ,Map,"ClassCastException - 如果该值对于此映射是不合适的类型（可选）。 
+NullPointerException - 如果该值为 null 并且此映射不允许 null 值（可选）。",
+get,,V get(Object?key),"返回此映射中映射到指定键的值。如果此映射中没有该键的映射关系，则返回 null。返回 null 值并非一定 表明此映射不包含该键的映射关系；也可能此映射将该键显示地映射到 null。可使用 containsKey 操作来区分这两种情况。 
+更正式地说，如果此映射包含满足以下从键 k 到值 v 的映射关系：(key==null ? k==null :key.equals(k))，则此方法返回 v；否则返回 null（最多只能有一个这样的映射关系）。",Map,"ClassCastException - 如果该键对于此映射是不合适的类型（可选）。 
+NullPointerException - 如果该键为 null 并且此映射不允许 null 键（可选）。",
+put,,"V put(K key,V value)",将指定的值与此映射中的指定键相关联（可选操作）。如果此映射中以前包含一个该键的映射关系，则用指定值替换旧值（当且仅当 m.containsKey(k) 返回 true 时，才能说映射 m 包含键 k 的映射关系）。,Map,"UnsupportedOperationException - 如果此映射不支持 put 操作。 
+ClassCastException - 如果指定键或值的类不允许将其存储在此映射中。 
+IllegalArgumentException - 如果此键或值的某些方面不允许将其存储在此映射中。 
+NullPointerException - 如果此映射不允许 null 键或值，并且指定的键或值为 null。
+",
+remove,,V remove(Object key),"如果存在此键的映射关系，则将其从映射中移除（可选操作）。更正式地说，如果此映射包含满足以下从键 k 到值 v 的映射关系：(key==null ? k==null :key.equals(k))，则移除该映射关系（该映射最多只能包含一个这样的映射关系）。 
+返回此映射中以前映射该键的值，或者如果此映射不包含该键的映射关系，则返回 null（如果该实现支持 null 值，则返回 null 也可表明此映射以前将 null 与指定键相关联）。一旦调用返回，则此映射不包含指定键的映射关系。",Map,"ClassCastException - 如果该键对于此映射是不合适的类型（可选）。 
+NullPointerException - 如果该键为 null 并且此映射不允许 null 键（可选）。 
+UnsupportedOperationException - 如果此映射不支持 remove 操作。",
+putAll,,"void putAll(Map<? extends K,? extends V> t)","从指定映射中将所有映射关系复制到此映射中（可选操作）。对于指定映射中的每个键 k 到值 v 的映射关系，该调用的作用等效于在此映射上调用 put(k, v)。如果正在进行此操作的同时修改了指定的映射，则此操作的行为是未指定的。",Map,"UnsupportedOperationException - 如果此映射不支持 putAll 方法。 
+ClassCastException - 如果指定映射中的键或值的类不允许将其存储在此映射中。 
+IllegalArgumentException - 如果指定映射中的键或值的某些方面不允许将其存储在此映射中。 
+NullPointerException - 如果指定的映射为 null，或者如果此映射不允许 null 键或值，并且指定的映射包含 null 键或值。",
+clear,,void clear(),从此映射中移除所有映射关系（可选操作）。,Map,UnsupportedOperationException - 此映射不支持清除。,
+keySet,,Set<K> keySet(),返回此映射中包含的键的 set 视图。该 set 受映射支持，所以对映射的改变可在此 set 中反映出来，反之亦然。如果修改映射的同时正在对该 set 进行迭代（除了通过迭代器自己的 remove 操作外），则迭代结果是不明确的。set 支持通过 Iterator.remove、Set.remove、removeAll retainAll 和 clear 操作实现元素移除，即从映射中移除相应的映射关系。它不支持 add 或 addAll 操作。,Map,,
+values,,Collection<V> values(),返回此映射中包含的值的 collection 视图。该 collection 受映射支持，所以对映射的改变可在此 collection 中反映出来，反之亦然。如果修改映射的同时正在对该 collection 进行迭代（除了通过迭代器自己的 remove 操作外），则迭代结果是不明确的。collection 支持通过 Iterator.remove、Collection.remove、removeAll、retainAll 和 clear 操作实现元素移除，即从映射中移除相应的映射关系。它不支持 add 或 addAll 操作。 ,Map,,
+entrySet,,"Set<Map.Entry<K,V>> entrySet()",返回此映射中包含的映射关系的 set 视图。返回的 set 中的每个元素都是一个 Map.Entry。该 set 受映射支持，所以对映射的改变可在此 set 中反映出来，反之亦然。如果修改映射的同时正在对该 set 进行迭代（除了通过迭代器自己的 remove 操作，或者通过在迭代器返回的映射项上执行 setValue 操作外），则迭代结果是不明确的。set 支持通过 Iterator.remove、Set.remove、removeAll、retainAll 和 clear 操作实现元素移除，即从映射中移除相应的映射关系。它不支持 add 或 addAll 操作。 ,Map,,
+equals,,boolean equals(Object o),"比较指定的对象与此映射是否相等。如果给定的对象也是一个映射，并且这两个映射表示相同的映射关系，则返回 true。更正式地说，如果 t1.entrySet().equals(t2.entrySet())，则两个映射 t1 和 t2 表示相同的映射关系。这可以确保 equals 方法在不同的 Map 接口实现间可正确地工作。 覆盖：类 Object 中的 equals
+",Map,,
+hashCode,,int hashCode(),"返回此映射的哈希代码值。映射的哈希代码定义为此映射 entrySet 视图中每个项的 hashCode 之和。这确保 t1.equals(t2) 意味着对于任意两个映射 t1 和 t2 而言，t1.hashCode()==t2.hashCode()，这正是 Object.hashCode 常规协定所要求的。 
+
+覆盖：
+类 Object 中的 hashCode",Map,,
+getKey,,K getKey(),返回与此项对应的键,Map.Entry,IllegalStateException - 如果已经从底层映射中移除了该项，则实现可能（但不要求）抛出此异常,
+getValue,,V getValue(),返回与此项对应的值。如果已经从底层映射中移除了映射关系（通过迭代器的 remove 操作），则此调用的结果是不明确的。,Map.Entry ,IllegalStateException - 如果已经从底层映射中移除了该项，则实现可能，但不要求，抛出此异常,
+setValue,,V setValue(V value),用指定的值替换与此项对应的值（可选操作）。（写入该映射。）如果已经从映射中移除了映射关系（通过迭代器的 remove 操作），则此调用的行为是不明确的。 ,Map.Entry ,"UnsupportedOperationException - 如果底层映射不支持 put 操作。 
+ClassCastException - 如果指定值的类不允许将该值存储在底层映射中。 
+IllegalArgumentException - 如果此值的某些方面不允许将其存储在底层映射中。 
+NullPointerException - 如果底层映射不允许 null 值，并且指定的值为 null。 
+IllegalStateException - 如果已经从底层映射中移除了该项，则实现可能，但不要求，抛出此异常",
+equals,,boolean equals(Object o),"比较指定对象与此项的相等性。如果给定对象也是一个映射项，并且两个项表示相同的映射关系，则返回 true。更正式地说，如果满足以下条件，则两个项 e1 和 e2 才表示相同的映射关系
+     (e1.getKey()==null ?
+      e2.getKey()==null : e1.getKey().equals(e2.getKey()))  &&
+     (e1.getValue()==null ?
+      e2.getValue()==null : e1.getValue().equals(e2.getValue()))
+ 这可以确保 equals 方法在不同的 Map.Entry 接口实现间可正确地工作。 
+
+覆盖：
+类 Object 中的 equals",Map.Entry ,,
+hashCode,,int hashCode(),"返回此映射项的哈希代码值。映射项 e 的哈希代码定义如下：
+     (e.getKey()==null   ? 0 : e.getKey().hashCode()) ^
+     (e.getValue()==null ? 0 : e.getValue().hashCode())
+ 这确保 e1.equals(e2) 意味着对于任意两个项 e1 和 e2 而言，e1.hashCode()==e2.hashCode()，这正是 Object.hashCode 的常规协定所要求的。 
+
+覆盖：
+类 Object 中的 hashCode",Map.Entry ,,
+pattern,,public Pattern pattern(),返回由此匹配器解释的模式。,Matcher,,
+toMatchResult,,public MatchResult toMatchResult(),作为 MatchResult 返回此匹配器的匹配状态。该结果不受对此匹配器执行的后续操作的影响。,Matcher,,
+usePattern,,public Matcher usePattern(Pattern newPattern),"更改此 Matcher 用于查找匹配项的 Pattern。 
+此方法可导致匹配器丢失有关最后发生匹配的组的信息。维持了输入中匹配器的位置并且不影响其最后追加的位置。从以下版本开始： 
+1.5",Matcher,IllegalArgumentException - 如果 newPattern 为 null。,
+reset,,public Matcher reset(),"重置匹配器。 
+重置匹配器将放弃其所有显式状态信息并将其追加位置设置为零。匹配器的区域被设置为默认区域，默认区域就是其整个字符序列。此匹配器的区域边界的定位和透明度都不受影响。",Matcher,,
+reset,,public Matcher reset(CharSequence input),"重置此具有新输入序列的匹配器。 
+重置匹配器将放弃其所有显式状态信息并将其追加位置设置为零。匹配器的区域被设置为默认区域，默认区域就是其整个字符序列。此匹配器的区域边界的定位和透明度都不受影响。",Matcher,,
+start,MatchResult,public int start(),返回以前匹配的初始索引。,Matcher,IllegalStateException - 如果没有尝试任何匹配，或者以前的匹配操作失败。,
+start,MatchResult,public int start(int group),"返回在以前的匹配操作期间，由给定组所捕获的子序列的初始索引。 
+捕获组是从 1 开始从左到右的索引。组零表示整个模式，因此表达式 m.start(0) 等效于 m.start()。",Matcher,"IllegalStateException - 如果没有尝试任何匹配，或者以前的匹配操作失败。 
+IndexOutOfBoundsException - 如果在给定索引的模式中不存在捕获组。",
+end,MatchResult,public int end(),返回最后匹配字符之后的偏移量。,Matcher,IllegalStateException - 如果没有尝试任何匹配，或者以前的匹配操作失败。,
+end,MatchResult,public int end(int group),"返回在以前的匹配操作期间，由给定组所捕获子序列的最后字符之后的偏移量。 
+捕获组是从 1 开始从左到右的索引。组零表示整个模式，因此表达式 m.end(0) 等效于 m.end()。",Matcher,"IllegalStateException - 如果没有尝试任何匹配，或者以前的匹配操作失败。 
+IndexOutOfBoundsException - 如果在给定索引的模式中不存在捕获组",
+group,MatchResult,public String group(),"返回由以前匹配操作所匹配的输入子序列。 
+对于具有输入序列 s 的匹配器 m，表达式 m.group() 和 s.substring(m.start(), m.end()) 是等效的。 
+注意，某些模式（例如，a*）匹配空字符串。当模式成功匹配输入中的空字符串时，此方法将返回空字符串。",Matcher,IllegalStateException - 如果没有尝试任何匹配，或者以前的匹配操作失败。,
+group,MatchResult,public String group(int group),"返回在以前匹配操作期间由给定组捕获的输入子序列。 
+对于匹配器 m、输入序列 s 和组索引 g，表达式 m.group(g) 和 s.substring(m.start(g), m.end(g)) 是等效的。 
+捕获组是从 1 开始从左到右的索引。组零表示整个模式，因此表达式 m.group(0) 等效于 m.group()。 
+如果该匹配成功了，但指定组未能匹配输入序列的任何部分，则返回 null。注意，某些组（例如，(a*)）匹配空字符串。当这些的组成功匹配输入中的空字符串时，此方法将返回空字符串。",Matcher,"IllegalStateException - 如果没有尝试任何匹配，或者以前的匹配操作失败。 
+IndexOutOfBoundsException - 如果在给定索引的模式中不存在捕获组。",
+groupCount,MatchResult,public int groupCount(),"返回此匹配器模式中的捕获组数。 
+根据惯例，零组表示整个模式。它不包括在此计数中。 
+任何小于或等于此方法返回值的非负整数保证是此匹配器的有效组索引。 ",Matcher,,
+matches,,public boolean matches(),"尝试将整个区域与模式匹配。 
+如果匹配成功，则可以通过 start、end 和 group 方法获取更多信息。",Matcher,,
+find,,public boolean find(),"尝试查找与该模式匹配的输入序列的下一个子序列。 
+此方法从匹配器区域的开头开始，或者如果该方法的前一次调用成功了并且从那时开始匹配器没有被重置，则从以前匹配操作没有匹配的第一个字符开始。 
+如果匹配成功，则可以通过 start、end 和 group 方法获取更多信息。",Matcher,,
+find,,public boolean find(int start),"重置此匹配器，然后尝试查找匹配该模式、从指定索引开始的输入序列的下一个子序列。 
+如果匹配成功，则可通过 start、end 和 group 方法获取更多信息，而 find() 方法的后续调用将从此匹配操作未匹配的第一个字符开始。",Matcher,IndexOutOfBoundsException - 如果开始点小于零或大于输入序列的长度。,
+lookingAt,,public boolean lookingAt(),"尝试将从区域开头开始的输入序列与该模式匹配。 
+与 matches 方法类似，此方法始终从区域的开头开始；与之不同的是，它不需要匹配整个区域。 
+如果匹配成功，则可以通过 start、end 和 group 方法获取更多信息。",Matcher,,
+quoteReplacement,,public static String quoteReplacement(String s),"返回指定 String 的字面值替换 String。 此方法将生成一个 String，它将用作 Matcher 类的 appendReplacement 方法中的字面值替换 s。所产生的 String 将与作为字面值序列的 s 中的字符序列匹配。斜线 ('\') 和美元符号 ('$') 将不具有任何特殊意义。从以下版本开始： 
+1.5 ",Matcher,,
+appendReplacement,,"public Matcher appendReplacement(StringBuffer sb,String replacement)","实现非终端追加和替换步骤。 
+此方法执行以下操作： 
+1. 它从追加位置开始在输入序列读取字符，并将其追加到给定字符串缓冲区。在读取以前匹配之前的最后字符（即位于索引 start() - 1 处的字符）之后，它就会停止。
+2. 它将给定替换字符串追加到字符串缓冲区。 
+3. 它将此匹配器的追加位置设置为最后匹配位置的索引加 1，即 end()。 
+替换字符串可能包含到以前匹配期间所捕获的子序列的引用：$g 每次出现时，都将被 group(g) 的计算结果替换。$ 之后的第一个数始终被视为组引用的一部分。如果后续的数可以形成合法组引用，则将被合并到 g 中。只有数字 '0' 到 '9' 被视为组引用的可能组件。例如，如果第二个组匹配字符串 ""foo""，则传递替换字符串 ""$2bar"" 将导致 ""foobar"" 被追加到字符串缓冲区。可能将美元符号 ($) 作为替换字符串中的字面值（通过前面使用一个反斜线 (\$)）包括进来。 
+注意，在替换字符串中使用反斜线 (\) 和美元符号 ($) 可能导致与作为字面值替换字符串时所产生的结果不同。美元符号可视为到如上所述已捕获子序列的引用，反斜线可用于转义替换字符串中的字面值字符。 
+此方法设计用于循环以及 appendTail 和 find 方法中。例如，以下代码将 one dog two dogs in the yard 写入标准输出流中： 
+ Pattern p = Pattern.compile(""cat"");
+ Matcher m = p.matcher(""one cat two cats in the yard"");
+ StringBuffer sb = new StringBuffer();
+ while (m.find()) {
+     m.appendReplacement(sb, ""dog"");
+ }
+ m.appendTail(sb);
+ System.out.println(sb.toString());
+",Matcher,"IllegalStateException - 如果没有尝试任何匹配，或者以前的匹配操作失败。 
+IndexOutOfBoundsException - 如果替换字符串引用模式中不存在的捕获组。",
+appendTail,,public StringBuffer appendTail(StringBuffer sb),"实现终端追加和替换步骤。 
+此方法从追加位置开始从输入序列读取字符，并将其追加到给定字符串缓冲区。可以在一次或多次调用 appendReplacement 方法后调用它来复制剩余的输入序列。",Matcher,,
+replaceAll,,public String replaceAll(String replacement),"替换模式与给定替换字符串相匹配的输入序列的每个子序列。 
+此方法首先重置匹配器。然后，它将扫描输入序列以查找该模式的匹配项。不属于任何匹配的字符被直接追加到结果字符串；在结果中每个匹配都将被替换字符串所替换。替换字符串可能包含到已捕获子序列的引用，如在 appendReplacement 方法中一样。 
+
+注意，在替换字符串中使用反斜线 (\) 和美元符号 ($) 可能导致与作为字面值替换字符串时所产生的结果不同。美元符号可视为到如上所述已捕获子序列的引用，反斜线可用于转义替换字符串中的字面值字符。 
+
+在给定正则表达式 a*b、输入 ""aabfooaabfooabfoob"" 和替换字符串 ""-"" 的情况下，为该表达式针对匹配器调用此方法将产生字符串 ""-foo-foo-foo-""。 
+
+调用此方法将更改此匹配器的状态。如果在将来的匹配操作中使用该匹配器，则应该首先重置它。
+",Matcher,,
+replaceFirst,,public String replaceFirst(String replacement),"替换模式与给定替换字符串匹配的输入序列的第一个子序列。 
+此方法首先重置匹配器。然后，它将扫描输入序列以查找该模式的匹配项。不是匹配一部分的字符被直接追加到结果字符串；在结果中匹配内容将被替换字符串替换。替换字符串可能包含到已捕获子序列的引用，如在 appendReplacement 方法中一样。 
+
+在给定正则表达式 dog、输入 ""zzzdogzzzdogzzz"" 和替换字符串 ""cat"" 的情况下，为该表达式针对匹配器调用此方法将产生字符串 ""zzzcatzzzdogzzz""。
+
+调用此方法将更改此匹配器的状态。如果在将来的匹配操作中使用该匹配器，则应该首先重置它。",Matcher,NullPointerException - 如果 replacement 为 null。,
+region,,"public Matcher region(int start,int end)","设置此匹配器的区域限制。区域是输入序列的一部分，搜索它可以查找匹配。调用此方法会重置匹配器，然后设置区域，使其从 start 参数指定的索引开始，到 end 参数指定的索引结束。 
+某些构造（如定位点）可能因所用的透明度和定位不同（参见 useTransparentBounds 和 useAnchoringBounds），从而在区域的边界上或边界四周的行为也有所不同。从以下版本开始： 
+1.5 
+",Matcher,IndexOutOfBoundsException - 如果开始点或结束点小于零，并且开始点的长度大于输入序列的长度，结束点的长度大于输入序列的长度，或者开始点大于结束点。,
+regionStart,,public int regionStart(),"报告此匹配器区域的开始索引。此匹配器所进行的搜索被限制在 regionStart（包括）和 regionEnd（不包括）中查找匹配。 从以下版本开始： 
+1.5 
+",Matcher,,
+regionEnd,,public int regionEnd(),"报告此匹配器区域的结束索引（不包括）。此匹配器所进行的搜索被限制在 regionStart（包括）和 regionEnd（不包括）中查找匹配。从以下版本开始： 
+1.5 ",Matcher,,
+hasTransparentBounds,,public boolean hasTransparentBounds(),"查询此匹配器区域边界的透明度。 
+如果此匹配器使用透明 边界，则此方法返回 true；如果使用不透明 边界，则返回 false。 
+
+有关透明和不透明边界的描述，请参阅 useTransparentBounds。 
+
+默认情况下，匹配器使用不透明区域边界。从以下版本开始： 
+1.5 
+",Matcher,,
+useTransparentBounds,,public Matcher useTransparentBounds(boolean b),"设置此匹配器区域边界的透明度。 
+利用参数 true 调用此方法将设置此匹配器使用透明 边界。如果布尔参数为 false，则使用不透明 边界。 
+
+使用透明边界，此匹配器区域的边界对 lookahead、lookbehind 和边界匹配构造都是透明的。可以使用这些构造查看区域边界的外部，以了解匹配是否正确。 
+
+使用不透明边界，此匹配器区域的边界对 lookahead、lookbehind 和试图查看其外部的边界匹配构造都是不透明的。这些构造无法穿过边界查看，因此不能使用它们匹配区域之外的任何内容。 
+
+默认情况下，匹配器使用不透明边界。从以下版本开始： 
+1.5 ",Matcher,,
+hasAnchoringBounds,,public boolean hasAnchoringBounds(),"查询此匹配器区域界限的定位。 
+如果此匹配器使用定位 界限，则此方法返回 true；否则返回 false。 
+
+有关获取定位界限的描述，请参阅 useAnchoringBounds。 
+
+默认情况下，匹配器使用定位区域边界。从以下版本开始： 
+1.5 ",Matcher,,
+useAnchoringBounds,,public Matcher useAnchoringBounds(boolean b),"设置匹配器区域界限的定位。 
+利用参数 true 调用此方法将设置此匹配器使用定位 界限。如果布尔参数为 false，则使用非定位 界限。 
+
+使用定位界限，此匹配器区域的边界与定位点（如 ^ 和 $）匹配。 
+
+不使用定位界限，此匹配器区域的边界将与定位点（如 ^ 和 $）不匹配。 
+
+默认情况下，匹配器使用定位区域边界。
+从以下版本开始： 
+1.5",Matcher,,
+toString,,public String toString(),"返回匹配器的字符串表示形式。包含可用于调试的信息的 Matcher 字符串表示形式。未指定确切格式。 
+
+
+覆盖：
+类 Object 中的 toString
+从以下版本开始： 
+1.5 ",Matcher,,
+hitEnd,,public boolean hitEnd(),"如果匹配器执行的最后匹配操作中搜索引擎遇到输入结尾，则返回 true。 
+此方法返回 true 时，很多输入都可能更改最后搜索的结果。
+从以下版本开始： 
+1.5 
+",Matcher,,
+requireEnd,,public boolean requireEnd(),"如果很多输入都可以将正匹配更改为负匹配，则返回 true。 
+如果此方法返回 true，并且找到了匹配，则很多输入可能导致匹配丢失。如果此方法返回 false，并且找到了匹配，则很多输入可能更改匹配，但是匹配不会丢失。如果未找到匹配，则 requireEnd 没有意义。
+从以下版本开始： 
+1.5 ",Matcher,,
+start,,int start(),返回匹配的初始索引。 ,MatchResult,IllegalStateException - 如果没有尝试任何匹配或者以前的匹配操作失败,
+start,,int start(int group),"返回在匹配期间由给定组捕获的子序列的初始索引。 
+捕获组是从左到右的索引，从 1 开始。组零表示整个模式，因此表达式 m.start(0) 等效于 m.start()。",MatchResult,"IllegalStateException - 如果没有尝试任何匹配或者以前的匹配操作失败 
+IndexOutOfBoundsException - 如果在给定索引的模式中不存在捕获组",
+end,,int end(),返回最后匹配字符之后的偏移量。,MatchResult,IllegalStateException - 如果没有尝试任何匹配或者以前的匹配操作失败,
+end,,int end(int group),"返回在匹配期间由给定组所捕获子序列的最后字符之后的偏移量。 
+捕获组是从左到右的索引，从 1 开始。组零表示整个模式，因此表达式 m.end(0) 等效于 m.end()。",MatchResult,"IllegalStateException - 如果没有尝试任何匹配或者以前的匹配操作失败 
+IndexOutOfBoundsException - 如果在给定索引的模式中不存在捕获组",
+group,,String group(),"返回由以前匹配所匹配的输入子序列。 
+对于具有输入序列 s 的匹配器 m，表达式 m.group() 和 s.substring(m.start(), m.end()) 是等效的。
+注意，某些模式（例如，a*）匹配空字符串。当模式成功匹配输入中的空字符串时，此方法将返回空字符串。",MatchResult,IllegalStateException - 如果没有尝试任何匹配或者以前的匹配操作失败,
+group,,String group(int group),"返回在以前匹配操作期间由给定组捕获的输入子序列。 
+对于匹配器 m、输入序列 s 和组索引 g，表达式 m.group(g) 和 s.substring(m.start(g), m.end(g)) 是等效的。 
+
+捕获组是从左到右的索引，从 1 开始。组零表示整个模式，因此表达式 m.group(0) 等效于 m.group()。 
+
+如果该匹配成功了，但指定组未能匹配输入序列的任何部分，则返回 null。注意，某些组（例如，(a*)）匹配空字符串。当这些的组成功匹配输入中的空字符串时，此方法将返回空字符串。",MatchResult,"IllegalStateException - 如果没有尝试任何匹配或者以前的匹配操作失败 
+IndexOutOfBoundsException - 如果在给定索引的模式中不存在捕获组",
+groupCount,,int groupCount(),"返回此匹配结果的模式中的捕获组数。 
+根据惯例，零组表示整个模式。它不包括在此计数中。 
+
+任何小于或等于由此方法返回的值的非负整数保证是此匹配器的有效组索引。",MatchResult,,
+sin,,public static double sin(double a),"返回角的三角正弦。特殊情况是： 
+·如果参数是 NaN 或无穷大，那么结果是 NaN。 
+·如果参数是零，那么结果是零，符号与参数符号相同。
+计算结果必须在准确结果的 1 ulp 范围内。结果必须具有半单调性。
+",Math,,
+cos,,public static double cos(double a),"返回角的三角余弦。特殊情况是： 
+·如果参数是 NaN 或无穷大，那么结果是 NaN。
+计算结果必须在准确结果的 1 ulp 范围内。结果必须具有半单调性。
+",Math,,
+tan,,public static double tan(double a),"返回角的三角正切。特殊情况是： 
+·如果参数是 NaN 或无穷大，那么结果是 NaN。 
+·如果参数是零，那么结果是零，符号与参数符号相同。
+计算结果必须在准确结果的 1 ulp 范围内。结果必须具有半单调性。
+",Math,,
+asin,,public static double asin(double a),"返回角的反正弦，范围在 -pi/2 到 pi/2 之间。特殊情况是： 
+·如果参数是 NaN 或它的绝对值大于 1，那么结果是 NaN。 
+·如果参数是零，那么结果是零，符号与参数符号相同。
+计算结果必须在准确结果的 1 ulp 范围内。结果必须具有半单调性。
+",Math,,
+acos,,public static double acos(double a),"返回角的反余弦，范围在 0.0 到 pi 之间。特殊情况是： 
+·如果参数是 NaN 或它的绝对值大于 1，那么结果是 NaN。
+计算结果必须在准确结果的 1 ulp 范围内。结果必须具有半单调性。",Math,,
+atan,,public static double atan(double a),"返回角的反正切，范围在 -pi/2 到 pi/2 之间。特殊情况是： 
+·如果参数是 NaN，那么结果是 NaN。 
+·如果参数是零，那么结果是零，符号与参数符号相同。
+计算结果必须在准确结果的 1 ulp 范围内。结果必须具有半单调性。",Math,,
+toRadians,,public static double toRadians(double angdeg),"将用度数测量的角转换为近似相等的用弧度测量的角。从度数到弧度的转换通常是不精确的。从以下版本开始： 
+1.2 
+",Math,,
+toDegrees,,public static double toDegrees(double angrad),"将用弧度测量的角转换为近似相等的用度数测量的角。从弧度到度数的转换通常是不精确的；用户不 应该期望 cos(toRadians(90.0)) 与 0.0 精确相等。 
+从以下版本开始： 
+1.2 ",Math,,
+exp,,public static double exp(double a),"返回欧拉数 e 的 double 次幂的值。特殊情况是： 
+·如果参数是 NaN，那么结果就是 NaN。 
+·如果参数是正无穷大，那么结果就是正无穷大。 
+·如果参数是负无穷大，那么结果就是正零。
+计算结果必须在准确结果的 1 ulp 范围内。结果必须具有半单调性。",Math,,
+log,,public static double log(double a),"返回（底数是 e）double 值的自然对数。特殊情况是： 
+·如果参数是 NaN 或小于零，那么结果是 NaN。 
+·如果参数是正无穷大，那么结果就是正无穷大。 
+·如果参数是正零或负零，那么结果是负无穷大。
+计算结果必须在准确结果的 1 ulp 范围内。结果必须具有半单调性。 ",Math,,
+log10,,public static double log10(double a),"返回 double 值的底数为 10 的对数。特殊情况是： 
+如果参数是 NaN 或小于零，那么结果是 NaN。 
+·如果参数是正无穷大，那么结果就是正无穷大。 
+·如果参数是正零或负零，那么结果是负无穷大。 
+·如果参数等于整数 n 的 10 n，那么结果是 n。 
+计算结果必须在准确结果的 1 ulp 范围内。结果必须具有半单调性。
+从以下版本开始： 
+1.5",Math,,
+sqrt,,public static double sqrt(double a),"返回正确舍入的 double 值的正平方根。特殊情况是： 
+·如果参数是 NaN 或小于零，那么结果是 NaN。 
+·如果参数是正无穷大，那么结果就是正无穷大。 
+·如果参数是正零或负零，那么结果与参数相同。
+否则，结果是最接近该参数值的真实数学平方根的 double 值。",Math,,
+cbrt,,public static double cbrt(double a),"返回 double 值的立方根。对于正的有限值 x，cbrt(-x) == -cbrt(x)；也就是说，负值的立方根是该值大小的负立方根。特殊情况是： 
+·如果参数是 NaN，那么结果就是 NaN。 
+·如果参数是无穷大，那么结果是无穷大，且符号与参数符号相同。 
+·如果参数是零，那么结果是零，符号与参数符号相同。 
+计算结果必须在准确结果的 1 ulp 范围内。
+从以下版本开始： 
+1.5 ",Math,,
+IEEEremainder,,"public static double IEEEremainder(double f1,double f2)","按照 IEEE 754 标准的规定，对两个参数进行余数运算。余数的算术值等于 f1 - f2 × n，其中 n 是最接近 f1/f2 的商的准确算术值的整数，如果两个整数都同样接近 f1/f2，那么 n 是其中的偶数。如果余数是零，则它的符号与第一个参数的符号相同。特殊情况是： 
+·如果两个参数都是 NaN，或者第一个参数是无穷大，或者第二个参数是正零或负零，那么结果是 NaN。 
+·如果第一个参数是有限值，第二个参数是无穷大，那么结果与第一个参数相同。",Math,,
+ceil,,public static double ceil(double a),"返回最小的（最接近负无穷大）double 值，该值大于或等于参数，并且等于某个整数。特殊情况是： 
+·如果参数值已经等于某个整数，那么结果与该参数相同。
+·如果参数是 NaN、无穷大、正零或负零，那么结果与参数相同。
+·如果参数值小于零，但是大于 -1.0，那么结果是负零。
+注意，Math.ceil(x) 的值与 -Math.floor(-x) 的值完全相同。",Math,,
+floor,,public static double floor(double a),"返回最大的（最接近正无穷大）double 值，该值小于或等于参数，并且等于某个整数。特殊情况是： 
+·如果参数值已经等于某个整数，那么结果与该参数相同。
+·如果参数是 NaN、无穷大、正零或负零，那么结果与参数相同。",Math,,
+rint,,public static double rint(double a),"返回其值最接近参数并且是整数的 double 值。如果两个整数的 double 值都同样接近，那么结果取偶数。特殊情况是： 
+·如果参数值是整数，那么结果就是该参数。 
+·如果参数是 NaN 或无穷大或正零或负零，那么结果与参数相同。",Math,,
+atan2,,"public static double atan2(double y,double x)","将矩形坐标 (x, y) 转换成极坐标 (r, theta)。该方法通过计算 y/x 的反正切值来计算相 (phase) theta，范围为从 -pi 到 pi。特殊情况是： 
+·如果两个参数都是 NaN，那么结果是 NaN。 
+·如果第一个参数是正零，第二个参数是正数；或者第一个参数是正的有限值，第二个参数是正的无穷大，那么结果是正零。 
+·如果第一个参数是负零，第二个参数是正数；或者第一个参数是负的有限值，第二个参数是正的无穷大，那么结果是负零。 
+·如果第一个参数是正零，第二个参数是负数；或者第一个参数是正的有限值，第二个参数是负的无穷大，那么结果是最接近 pi 的 double 值。 
+·如果第一个参数是正零，第二个参数是负数；或者第一个参数是负的有限值，第二个参数是负的无穷大，那么结果是最接近 pi 的 double 值。 
+·如果第一个参数是正数，第二个参数是正零或负零；或者第一个参数是正的无穷大，第二个参数是有限值，那么结果是最接近 pi/2 的 double 值。 
+·如果第一个参数是负数，第二个参数是正零或负零；或者第一个参数是负的无穷大，第二个参数是有限值，那么结果是最接近 -pi/2 的 double 值。 
+·如果两个参数都是正的无穷大，那么结果是最接近 pi/4 的 double 值。 
+·如果第一个参数是正的无穷大，第二个参数是负的无穷大，那么结果是最接近 3*pi/4 的 double 值。 
+·如果第一个参数是负的无穷大，第二个参数是正的无穷大，那么结果是最接近 -pi/4 的 double 值。 
+·如果两个参数都是负的无穷大，那么结果是最接近 -3*pi/4 的 double 值。
+计算结果必须在准确结果的 2 ulp 范围内。结果必须具有半单调性。
+",Math,,
+pow,,"public static double pow(double a,double b)","返回第一个参数的第二个参数次幂的值。特殊情况是： 
+·如果第二个参数是正零或负零，那么结果是 1.0。 
+·如果第二个参数是 1.0，那么结果与第一个参数相同。 
+·如果第二个参数是 NaN，那么结果是 NaN。 
+·如果第一个参数是 NaN，第二个参数是非零，那么结果是 NaN。 
+·如果 
+-第一个参数的绝对值大于 1，并且第二个参数是正无穷大，或者 
+-第一个参数的绝对值小于 1，并且第二个参数是负无穷大， 
+那么结果是正无穷大。 
+·如果 
+-第一个参数的绝对值大于 1，并且第二个参数是负无穷大，或者 
+-第一个参数的绝对值小于 1，并且第二个参数是正无穷大， 
+那么结果是正零。 
+·如果第一个参数的绝对值等于1，并且第二个参数是无穷大，那么结果是 NaN。 
+·如果 
+-第一个参数是正零，并且第二个参数大于零，或者 
+-第一个参数是正无穷大，并且第二个参数小于零， 
+那么结果是正零。 
+·如果 
+-第一个参数是正零，并且第二个参数小于零，或者 
+-第一个参数是正无穷大，并且第二个参数大于零， 
+那么结果是正无穷大。 
+·如果 
+-如果第一个参数是负零，并且第二个参数大于零但不是有限的奇数整数，或者 
+-第一个参数是负无穷大，并且第二个参数小于零但不是有限的奇数整数， 
+那么结果是正零。 
+·如果 
+-第一个参数是负零，并且第二个参数是正的有限奇数整数，或者 
+-第一个参数是负无穷大，并且第二个参数是负的有限奇数整数， 
+那么结果是负零。 
+·如果 
+-如果第一个参数是负零，并且第二个参数小于零但不是有限的奇数整数，或者 
+-第一个参数是负无穷大，并且第二个参数大于零但不是有限的奇数整数， 
+那么结果是正无穷大。 
+·如果 
+-第一个参数是负零，并且第二个参数是负的有限奇数整数，或者 
+-第一个参数是负无穷大，并且第二个参数是正的有限奇数整数， 
+那么结果是负无穷大。 
+·如果第一个参数是小于零的有限值， 
+-并且第二个参数是有限的偶数整数，那么结果等于第一个参数的绝对值的第二个参数次幂的结果。 
+-如果第二个参数是有限的奇数整数，那么结果等于第一个参数绝对值的第二个参数次幂的结果的负数。 
+-如果第二个参数是有限的非整数值，那么结果是 NaN。 
+·如果两个参数都是整数，并且结果可以表示为 double 值，那么该结果恰好等于第一个参数的第二个参数次幂的算术结果。",Math,,
+round,,public static int round(float a),"返回最接近参数的 int。通过加上 1/2 将该结果舍入为整数，取结果的基数并将其强制转换为 int 类型。换句话说，结果等于以下表达式的值： 
+
+(int)Math.floor(a + 0.5f)特殊情况是： 
+
+·如果参数是 NaN，那么结果是 0。 
+·如果结果是负无穷大或任何小于或等于 Integer.MIN_VALUE 的值，那么结果等于 Integer.MIN_VALUE 的值。 
+·如果参数是正无穷大或任何大于或等于 Integer.MAX_VALUE 的值，那么结果等于 Integer.MAX_VALUE 的值。",Math,,
+round,,public static long round(double a),"返回最接近参数的 long。通过加上 1/2 将该结果舍入为整数，取结果的基数并将其强制转换为 long 类型。换句话说，结果等于以下表达式的值： 
+
+(long)Math.floor(a + 0.5d)特殊情况是： 
+
+·如果参数是 NaN，那么结果是 0。 
+·如果结果是负无穷大或任何小于或等于 Long.MIN_VALUE 的值，那么结果等于 Long.MIN_VALUE 的值。 
+·如果参数是正无穷大或任何大于或等于 Long.MAX_VALUE 的值，那么结果等于 Long.MAX_VALUE 的值。",Math,,
+random,,public static double random(),"返回带正号的 double 值，大于或等于 0.0，小于 1.0。返回值是一个伪随机 (pseudorandomly) 选择的数，在上述范围内（大致）均匀分布。 
+第一次调用该方法时，它将创建一个新的伪随机数生成器，其结果与以下表达非常类似 
+
+new java.util.Random之后，新的伪随机数生成器可用于该方法的所有调用，但不能用于其他地方。 
+该方法将经过适当的同步，以便能供多个线程正确使用。然而，如果很多线程都需要快速生成伪随机数，则对各线程来说，可以减少对拥有自己的伪随机数生成器的争用。",Math,,
+abs,,public static int abs(int a),"返回 int 值的绝对值。如果参数是非负数，则返回该参数。如果参数是负数，则返回该参数的相反数。 
+注意，如果参数等于 Integer.MIN_VALUE 的值（即能够表示的最小负 int 值），则结果与该值相同且为负。",Math,,
+abs,,public static long abs(long a),"返回 long 值的绝对值。如果参数是非负数，则返回该参数。如果参数是负数，则返回该参数的相反数。 
+注意，如果参数等于 Long.MIN_VALUE 的值（即能够表示的最小负 long 值），则结果与该值相同且为负。",Math,,
+abs,,public static float abs(float a),"返回 float 值的绝对值。如果参数是非负数，则返回该参数。如果参数是负数，则返回该参数的相反数。特殊情况是： 
+·如果参数是正零或负零，那么结果是正零。 
+·如果参数是无穷大，那么结果是正无穷大。 
+·如果参数是 NaN，那么结果就是 NaN。
+换句话说，结果等于以下表达式的值：",Math,,
+abs,,public static double abs(double a),"返回 double 值的绝对值。如果参数是非负数，则返回该参数。如果参数是负数，则返回该参数的相反数。特殊情况是： 
+如果参数是正零或负零，那么结果是正零。 
+如果参数是无穷大，那么结果是正无穷大。 
+如果参数是 NaN，那么结果就是 NaN。
+换句话说，结果等于以下表达式的值： 
+Double.longBitsToDouble((Double.doubleToLongBits(a)<<1)>>>1)",Math,,
+max,,"public static int max(int a,int b)",返回两个 int 值中较大的一个。也就是说，结果是更接近 Integer.MAX_VALUE 值的参数。如果参数值相同，则结果是这个相同值。,Math,,
+max,,"public static long max(long a,long b)",返回两个 long 值中较大的一个。也就是说，结果是更接近 Long.MAX_VALUE 值的参数。如果参数值相同，则结果是这个相同值。,Math,,
+max,,"public static float max(float a,float b)",返回两个 float 值中较大的一个。也就是说，结果是更接近正无穷大的参数。如果参数值相同，则结果是这个相同值。如果两个值都是 NaN，那么结果就是 NaN。与数值比较运算不同，该方法认为负零严格小于正零。如果一个参数是正零，另一个参数是负零，那么结果就是正零。,Math,,
+max,,"public static double max(double a,double b)",返回两个 double 值中较大的一个。也就是说，结果是更接近正无穷大的参数。如果参数值相同，则结果是这个相同值。如果两个值都是 NaN，那么结果就是 NaN。与数值比较运算不同，该方法认为负零严格小于正零。如果一个参数是正零，另一个参数是负零，那么结果就是正零。,Math,,
+min,,"public static int min(int a,int b)",返回两个 int 值中较小的一个。也就是说，结果是更接近 Integer.MIN_VALUE 值的参数。如果参数值相同，则结果是这个相同值。,Math,,
+min,,"public static long min(long a,long b)",返回两个 long 值中较小的一个。也就是说，结果是更接近 Long.MIN_VALUE 值的参数。如果参数值相同，则结果是这个相同值。,Math,,
+min,,"public static float min(float a,float b)",返回两个 float 值中较小的一个。也就是说，结果是更接近负无穷大的值。如果参数值相同，则结果是这个相同值。如果两个值都是 NaN，那么结果就是 NaN。与数值比较运算不同，该方法认为负零严格小于正零。如果一个参数是正零，另一个参数是负零，那么结果是负零。,Math,,
+min,,"public static double min(double a,double b)",返回两个 double 值中较小的一个。也就是说，结果是更接近负无穷大的值。如果参数值相同，则结果是这个相同值。如果两个值都是 NaN，那么结果就是 NaN。与数值比较运算不同，该方法认为负零严格小于正零。如果一个参数是正零，另一个参数是负零，那么结果是负零。,Math,,
+ulp,,public static double ulp(double d),"返回参数的 ulp 大小。double 值的 ulp 是该浮点值与下一个较大 double 值之间的正距离。注意，对于非 NaN x，ulp(-x) == ulp(x)。 
+特殊情况是： 
+
+·如果参数是 NaN，那么结果就是 NaN。 
+·如果参数是正的或负的无穷大，那么结果是正无穷大。 
+·如果参数是正零或负零，那么结果是 Double.MIN_VALUE。 
+·如果参数是 ±Double.MAX_VALUE，那么结果等于 2的971次方。",Math,,
+ulp,,public static float ulp(float f),"返回参数的 ulp 大小。float 值的 ulp 是该浮点值与下一个较大 float 值之间的正距离。注意，对于非 NaN x，ulp(-x) == ulp(x)。 
+特殊情况是： 
+
+·如果参数是 NaN，那么结果就是 NaN。 
+·如果参数是正的或负的无穷大，那么结果是正无穷大。 
+·如果参数是正零或负零，那么结果是 Float.MIN_VALUE。 
+·如果参数是 ±Float.MAX_VALUE，那么结果等于 2的104次方。",Math,,
+signum,,public static double signum(double d),"返回参数的符号函数；如果参数是零，则返回零；如果参数大于零，则返回 1.0；如果参数小于零，则返回 -1.0。 
+特殊情况是： 
+
+·如果参数是 NaN，那么结果就是 NaN。 
+·如果参数是正零或负零，那么结果与参数相同。
+
+从以下版本开始： 
+1.5 ",Math,,
+signum,,public static float signum(float f),"返回参数的符号函数；如果参数是零，则返回零；如果参数大于零，则返回 1.0；如果参数小于零，则返回 -1.0。 
+特殊情况是： 
+
+·如果参数是 NaN，那么结果就是 NaN。 
+·如果参数是正零或负零，那么结果与参数相同。
+
+从以下版本开始： 
+1.5 ",Math,,
+sinh,,public static double sinh(double x),"返回 double 值的双曲线正弦。x 的双曲线正弦的定义是 (ex - e-x)/2，其中 e 是 欧拉数。 
+特殊情况是： 
+
+·如果参数是 NaN，那么结果就是 NaN。 
+·如果参数是无穷大，那么结果是无穷大，且符号与参数符号相同。 
+·如果参数是零，那么结果是零，符号与参数符号相同。 
+计算结果必须在准确结果的 2.5 ulp 范围内。
+
+从以下版本开始： 
+1.5",Math,,
+cosh,,public static double cosh(double x),"返回 double 值的双曲线余弦。x 的双曲线余弦的定义是 (ex + e-x)/2，其中 e 是 欧拉数。 
+特殊情况是： 
+
+·如果参数是 NaN，那么结果就是 NaN。 
+·如果参数是无穷大，那么结果是正无穷大。 
+·如果参数是零，那么结果是 1.0。 
+计算结果必须在准确结果的 2.5 ulp 范围内。
+
+从以下版本开始： 
+1.5",Math,,
+tanh,,public static double tanh(double x),"返回 double 值的双曲线余弦。x 的双曲线正切的定义是 (ex - e-x)/(ex + e-x)，即 sinh(x)/cosh(x)。注意，准确的双曲正切绝对值始终小于 1。 
+特殊情况是： 
+
+如果参数是 NaN，那么结果就是 NaN。 
+如果参数是零，那么结果是零，符号与参数符号相同。 
+如果参数是正无穷大，那么结果是 +1.0。 
+如果参数是负无穷大，那么结果是 -1.0。 
+计算结果必须在准确结果的 2.5 ulp 范围内。对于任何有限的输入，其 tanh 结果的绝对值必定小于或等于 1。注意，一旦准确的双曲正切结果在极限值 ±1 的 1/2 ulp 内，则应该返回有正确符号的 ±1.0。
+
+从以下版本开始： 
+1.5",Math,,
+hypot,,"public static double hypot(double x, double y)","返回 sqrt(x2 +y2)，没有中间溢出或下溢。 
+特殊情况是： 
+
+·如果任何一个参数是无穷大，那么结果就是正无穷大。 
+·如果任何一个参数是 NaN 且都不是无穷大，那么结果是 NaN。 
+计算结果必须在准确结果的 1 ulp 范围内。如果一个参数保存常量，那么在另一个参数中，结果必须具有半单调性。
+
+从以下版本开始： 
+1.5",Math,,
+expm1,,public static double expm1(double x),"返回 ex -1。注意，对于接近零的 x 值，expm1(x) + 1 的准确和比 exp(x) 更接近 ex 的真实结果。 
+特殊情况是： 
+
+如果参数是 NaN，那么结果就是 NaN。 
+如果参数是正无穷大，那么结果就是正无穷大。 
+如果参数是负无穷大，那么结果是 -1.0。 
+如果参数是零，那么结果是零，符号与参数符号相同。 
+计算结果必须在准确结果的 1 ulp 范围内。结果必须具有半单调性。对于任何有限的输入，expm1 的结果一定大于或等于 -1.0。注意，一旦 ex - 1 的准确结果在极限值 -1 的 1/2 ulp 范围内，则应该返回 -1.0。",Math,,
+log1p,,public static double log1p(double x),"返回参数与 1 的和的自然对数。注意，对于小的 x 值，log1p(x) 的结果比 log(1.0+x) 的浮点计算结果更接近 ln(1 + x) 的真实结果。 
+特殊情况是： 
+
+·如果参数是 NaN 或小于 -1，那么结果是 NaN。 
+·如果参数是正无穷大，那么结果就是正无穷大。 
+·如果参数是负数，那么结果是负无穷大。 
+·如果参数是零，那么结果是零，符号与参数符号相同。 
+计算结果必须在准确结果的 1 ulp 范围内。结果必须具有半单调性。",Math,,
+getDeclaringClass,,Class getDeclaringClass(),返回表示声明由此 Member 表示的成员或构造方法的类或接口的 Class 对象。 ,Member,,
+getName,,String getName(),返回此 Member 表示的基础成员或构造方法的简单名称。 ,Member,,
+getModifiers,,int getModifiers(),作为整数返回由此 Member 所表示的成员或构造方法的 Java 语言修饰符。应该使用 Modifier 类解码整数中的修饰符。 ,Member,,
+isSynthetic,,boolean isSynthetic(),"如果此成员是编译器引入的，则返回 true；否则，返回 false。 
+从以下版本开始： 
+1.5 ",Member,,
+publish,,public void publish(LogRecord record),"将 LogRecord 存储在内部缓冲区。 
+如果有 Filter，则调用其 isLoggable 方法以检查给定的日志记录是否为 loggable。如果不是，则返回它。否则，将给定的记录复制到内部循环缓冲区。然后将该记录的级别属性与 pushLevel 进行比较。如果给定的级别大于或等于 pushLevel，则调用 push 将所有已缓冲的记录写入到目标输出 Handler 中。",MemoryHandler,,
+push,,public void push(),"将所有已缓冲的输出 push 到目标 Handler 中。 
+然后清空缓冲区。",MemoryHandler,,
+flush,Handler,public void flush(),"导致目标 Handler 上的刷新。 
+注意，不要将 MemoryHandler 缓冲区的当前内容全部写出。这样会要求进行 ""push"" 操作。",MemoryHandler,,
+close,Handler,public void close(),关闭 Handler，并释放所有相关的资源。这也将关闭目标 Handler。,MemoryHandler,"SecurityException - 如果存在安全管理器并且调用方不具有 LoggingPermission(""control"")。",
+setPushLevel,,public void setPushLevel(Level newLevel),设置 pushLevel。将 LogRecord 复制到内部缓冲区后，如果它的级别大于或等于 pushLevel，则调用 push。,MemoryHandler,"SecurityException - 如果存在安全管理器并且调用方不具有 LoggingPermission(""control"")。",
+getPushLevel,,public Level getPushLevel(),获得 pushLevel。 ,MemoryHandler,,
+isLoggable,,public boolean isLoggable(LogRecord record),"检查此 Handler 是否实际将给定的 LogRecord 记录到其内部缓冲区。 
+此方法检查 LogRecord 是否有合适的级别，以及是否满足任何的 Filter。但是并不检查 LogRecord 是否导致 ""push"" 缓冲区的内容。如果 LogRecord 为 Null，则该方法返回 false。 
+
+覆盖：
+类 Handler 中的 isLoggable",MemoryHandler,,
+getName,,String getName(),返回表示此内存管理器的名称。 ,MemoryManagerMXBean,,
+isValid,,boolean isValid(),测试此内存管理器在 Java 虚拟机中是否有效。一旦 Java 虚拟机将内存管理器从内存系统删除，该内存管理器就变为无效。,MemoryManagerMXBean,,
+getMemoryPoolNames,,String[] getMemoryPoolNames(),返回此内存管理器管理的内存池名称。 ,MemoryManagerMXBean,,
+getObjectPendingFinalizationCount,,int getObjectPendingFinalizationCount(),返回其终止被挂起的对象的近似数目。 ,MemoryMXBean,,
+getHeapMemoryUsage,,MemoryUsage getHeapMemoryUsage(),"返回用于对象分配的堆的当前内存使用量。堆由一个或多个内存池组成。返回的内存使用量中的已使用大小和已提交大小为所有堆内存池的对应值的总和，而返回的内存使用量中表示堆内存设置的初始大小和最大大小则可能不等于所有堆内存池对应值的总和。 
+返回的内存使用量中已使用内存量为活动对象和尚未回收的垃圾对象（如果有）所占用内存的总量。 
+
+MBeanServer 访问：
+MemoryUsage 的映射类型为 CompositeData，具有 MemoryUsage 中指定的那些属性。",MemoryMXBean,,
+getNonHeapMemoryUsage,,MemoryUsage getNonHeapMemoryUsage(),"返回 Java 虚拟机使用的非堆内存的当前使用量。非堆内存由一个或多个内存池组成。返回的内存使用量中的已使用大小和已提交大小为所有非堆内存池的对应值的总和，而返回的内存使用量中表示非堆内存设置的初始大小和最大大小则可能不等于所有非堆内存池对应值的总和。 
+MBeanServer 访问：
+MemoryUsage 的映射类型为 CompositeData，具有 MemoryUsage 中指定的那些属性。",MemoryMXBean,,
+isVerbose,,boolean isVerbose(),测试内存系统的 verbose 输出是否已启用。 ,MemoryMXBean,,
+setVerbose,,void setVerbose(boolean value),"启用或禁用内存系统的 verbose 输出。verbose 输出信息和 verbose 信息发送到的输出流都与实现有关。通常，只要垃圾回收时释放了内存，Java 虚拟机实现就会输出一条消息。 
+此方法的每次调用都会全局启用或禁用 verbose 输出。",MemoryMXBean,"SecurityException - 如果存在安全管理器，且调用方不具有 ManagementPermission(""control"")。",
+gc,,void gc(),"运行垃圾回收器。调用 gc() 实际上等同于调用： 
+ System.gc()",MemoryMXBean,,
+MemoryNotificationInfo,,"public MemoryNotificationInfo(String poolName,MemoryUsage usage,long count)",构造一个 MemoryNotificationInfo 对象。,MemoryNotificationInfo,,
+getPoolName,,public String getPoolName(),返回触发此通知的内存池的名称。内存池使用量已经超过阈值。,MemoryNotificationInfo,,
+getUsage,,public MemoryUsage getUsage(),返回构造此通知时内存池的内存使用量。 ,MemoryNotificationInfo,,
+getCount,,public long getCount(),返回构造通知时内存使用量超过阈值的次数。对于使用量阈值通知，此计数将为阈值计数。对于集合使用量阈值通知，此计数将为集合使用量阈值计数。 ,MemoryNotificationInfo,,
+from,,public static MemoryNotificationInfo from(javax.management.openmbean.CompositeData cd),"返回由给定 CompositeData 表示的 MemoryNotificationInfo 对象。此给定的 CompositeData 必须包含以下属性： 
+属性名称  类型 
+poolName  java.lang.String 
+usage     javax.management.openmbean.CompositeData 
+count     java.lang.Long 
+",MemoryNotificationInfo,IllegalArgumentException - 如果 cd 不表示 MemoryNotificationInfo 对象。,
+getName,,String getName(),返回表示此内存池的名称。 ,MemoryPoolMXBean,,
+getType,,MemoryType getType(),"返回此内存池的类型。 
+MBeanServer 访问：
+MemoryType 的映射类型为 String，值为 MemoryType 的名称。",MemoryPoolMXBean,,
+getUsage,,MemoryUsage getUsage(),"返回此内存池的内存使用量的估计数。如果此内存池无效（即不再存在），此方法将返回 null。 
+此方法请求 Java 虚拟机对此内存池的当前内存使用量进行最佳估算。对于某些内存池，此方法可能是开销很大的操作，需要进行计算以确定估计数。如果是这种情况，实现应该加以注释。 
+
+此方法设计用于监视系统内存使用量和检测低内存情况。 
+
+MBeanServer 访问：
+MemoryUsage 的映射类型为 CompositeData，具有 MemoryUsage 中指定的那些属性。",MemoryPoolMXBean,,
+getPeakUsage,,MemoryUsage getPeakUsage(),"返回自 Java 虚拟机启动以来或自峰值重置以来此内存池的峰值内存使用量。如果此内存池无效（即不再存在），此方法将返回 null。 
+MBeanServer 访问：
+MemoryUsage 的映射类型为 CompositeData，具有 MemoryUsage 中指定的那些属性。",MemoryPoolMXBean,,
+resetPeakUsage,,void resetPeakUsage(),将此内存池的峰值内存使用量统计重置为当前内存使用量。 ,MemoryPoolMXBean,"SecurityException - 如果存在安全管理器，且调用方不具有 ManagementPermission(""control"")。",
+isValid,,boolean isValid(),测试此内存池在 Java 虚拟机中是否有效。一旦 Java 虚拟机将内存池从内存系统删除，该内存池就变为无效。,MemoryPoolMXBean,,
+getMemoryManagerNames,,String[] getMemoryManagerNames(),返回管理此内存池的内存管理器的名称。每个内存池将由至少一个内存管理器进行管理。,MemoryPoolMXBean,,
+getUsageThreshold,,long getUsageThreshold(),返回此内存池的使用量阈值（以字节为单位）。每个内存池都具有一个与平台有关的默认阈值。可以通过 setUsageThreshold 方法更改当前的使用量阈值。,MemoryPoolMXBean,UnsupportedOperationException - 如果此内存池不支持使用量阈值。,
+setUsageThreshold,,void setUsageThreshold(long threshold),如果此内存池支持使用量阈值，则将此内存池的阈值设置为给定的 threshold 值。如果阈值设置为正数，将启用此内存池中的使用量阈值超过检查。如果设置为零，则将禁用使用量阈值超过检查。 ,MemoryPoolMXBean,"IllegalArgumentException - 如果 threshold 为负或大于此内存池的最大内存量（如果已定义）。 
+UnsupportedOperationException - 如果此内存池不支持使用量阈值。 
+SecurityException - 如果存在安全管理器，且调用方不具有 ManagementPermission(""control"")。",
+isUsageThresholdExceeded,,boolean isUsageThresholdExceeded(),测试此内存池的使用量是否达到或超过其使用量阈值。 ,MemoryPoolMXBean,UnsupportedOperationException - 如果此内存池不支持使用量阈值。,
+getUsageThresholdCount,,long getUsageThresholdCount(),返回内存使用量超过其阈值的次数。 ,MemoryPoolMXBean,UnsupportedOperationException - 如果此内存池不支持使用量阈值。,
+isUsageThresholdSupported,,boolean isUsageThresholdSupported(),测试此内存池是否支持使用量阈值。 ,MemoryPoolMXBean,,
+getCollectionUsageThreshold,,long getCollectionUsageThreshold(),返回此内存池的回收使用量阈值（以字节为单位）。默认值为零。可以通过 setCollectionUsageThreshold 方法更改回收使用量阈值。,MemoryPoolMXBean,UnsupportedOperationException - 如果此内存池不支持回收使用量阈值。,
+setCollectionUsageThreshold,,void setCollectionUsageThreshold(long threhsold),"将此内存池的回收使用量阈值设置为给定的 threshold 值。当此阈值设置为正数时，Java 虚拟机将在对此内存池中不使用的对象进行了回收工作后，在最恰当的时间检查内存使用量。 
+如果阈值设置为正数，将启用此内存池中的回收使用量阈值超过检查。如果设置为零，则将禁用回收使用量阈值超过检查。",MemoryPoolMXBean,"IllegalArgumentException - 如果 threshold 为负或大于此内存池的最大内存量（如果已定义）。 
+UnsupportedOperationException - 如果此内存池不支持回收使用量阈值。 
+SecurityException - 如果存在安全管理器，且调用方不具有 ManagementPermission(""control"")。",
+isCollectionUsageThresholdExceeded,,boolean isCollectionUsageThresholdExceeded(),测试在 Java 虚拟机最近一次回收工作之后，此内存池的内存使用量是否达到或超过了其回收使用量阈值。此方法不会请求 Java 虚拟机执行其正常自动内存管理之外的任何垃圾回收操作。 ,MemoryPoolMXBean,UnsupportedOperationException - 如果此内存池不支持使用量阈值。,
+getCollectionUsageThresholdCount,,long getCollectionUsageThresholdCount(),返回 Java 虚拟机已检测到内存使用量达到或超过回收使用量阈值的次数。 ,MemoryPoolMXBean,UnsupportedOperationException - 如果此内存池不支持回收使用量阈值。,
+getCollectionUsage,,MemoryUsage getCollectionUsage(),"返回 Java 虚拟机最近回收了此内存池中的不使用的对象之后的内存使用量。此方法不会请求 Java 虚拟机执行其正常的自动内存管理之外的任何垃圾回收操作。如果 Java 虚拟机不支持此方法，此方法将返回 null。 
+MBeanServer 访问：
+MemoryUsage 的映射类型为 CompositeData，具有 MemoryUsage 中指定的那些属性。",MemoryPoolMXBean,,
+isCollectionUsageThresholdSupported,,boolean isCollectionUsageThresholdSupported(),测试此内存池是否支持回收使用量阈值。,MemoryPoolMXBean,,
+values,,public static final MemoryType[] values(),"按照声明该枚举类型的常量的顺序，返回包含这些常量的数组。该方法可用于迭代常量，如下所示： 
+for(MemoryType c :MemoryType.values())
+        System.out.println(c);",MemoryType ,,
+valueOf,,public static MemoryType valueOf(String name),返回带有指定名称的该类型的枚举常量。字符串必须与用于声明该类型的枚举常量的标识符完全匹配。（不允许有多余的空格。）,MemoryType ,"如果该枚举类型没有带有指定名称的常量， - 则抛出 IllegalArgumentException
+",
+toString,,public String toString(),"返回该 MemoryType 的字符串表示形式。 
+
+覆盖：
+类 Enum<MemoryType> 中的 toString",MemoryType ,,
+MemoryUsage,,"public MemoryUsage(long init,long used,long committed,long max)",构造一个 MemoryUsage 对象。 ,MemoryUsage,"IllegalArgumentException - 如果 
+·init 或 max 的值为负数，但不是 -1；或者 
+·used 或 committed 的值为负数；或者 
+·used 大于 committed 的值；或者 
+·committed 大于 max 的值（如果 max 已定义）。 ",
+getInit,,public long getInit(),返回 Java 虚拟机最初从操作系统请求用于内存管理的内存量（以字节为单位）。如果没有定义初始内存大小，此方法将返回 -1。,MemoryUsage,,
+getUsed,,public long getUsed(),返回已使用的内存量（以字节为单位）。 ,MemoryUsage,,
+getCommitted,,public long getCommitted(),返回已提交给 Java 虚拟机使用的内存量（以字节为单位）。此内存量保证可供 Java 虚拟机使用。 ,MemoryUsage,,
+getMax,,public long getMax(),"返回可以用于内存管理的最大内存量（以字节为单位）。如果没有定义最大内存大小，此方法将返回 -1。 
+如果此内存量大于已提交的内存量，则不能保证内存管理能够使用此内存量。即使已使用的内存量没有超过这个最大大小，Java 虚拟机也可能会无法分配内存。",MemoryUsage,,
+toString,,public String toString(),"返回此内存使用量的描述性表示形式。 
+
+覆盖：
+类 Object 中的 toString ",MemoryUsage,,
+from,,public static MemoryUsage from(javax.management.openmbean.CompositeData cd),"返回由给定 CompositeData 表示的 MemoryUsage 对象。给定的 CompositeData 必须包含以下属性： 
+
+属性名称   类型 
+init       java.lang.Long 
+used       java.lang.Long 
+committed  java.lang.Long 
+max        java.lang.Long ",MemoryUsage,IllegalArgumentException - 如果 cd 不表示具有上述属性的 MemoryUsage。,
+getDeclaringClass,Member,public Class<?> getDeclaringClass(),返回表示声明由此 Method 对象表示的方法的类或接口的 Class 对象。 ,Method,,
+getName,Member,public String getName(),以 String 形式返回此 Method 对象表示的方法名称。 ,Method,,
+getModifiers,Member,public int getModifiers(),以整数形式返回此 Method 对象所表示方法的 Java 语言修饰符。应该使用 Modifier 类对修饰符进行解码。 ,Method,,
+getTypeParameters,GenericDeclaration,public TypeVariable<Method>[] getTypeParameters(),"返回 TypeVariable 对象的数组，这些对象描述了由 GenericDeclaration 对象表示的一般声明按声明顺序来声明的类型变量。如果基本一般声明没有声明类型变量，则返回长度为 0 的数组。
+
+从以下版本开始： 
+1.5",Method,"GenericSignatureFormatError - 如果此一般声明的一般签名不符合 Java Virtual Machine Specification, 3rd edition 中指定的格式",
+getReturnType,,public Class<?> getReturnType(),返回一个 Class 对象，该对象描述了此 Method 对象所表示的方法的正式返回类型。 ,Method,,
+getGenericReturnType,,public Type getGenericReturnType(),"返回表示由此 Method 对象所表示方法的正式返回类型的 Type 对象。 
+如果返回类型是参数化类型，则返回的 Type 对象必须实际反映源代码中所用参数的实际类型。 
+
+如果返回类型是类型变量或参数化类型，则创建它。否则将分析它。
+
+从以下版本开始： 
+1.5",Method,"GenericSignatureFormatError - 如果一般方法签名不符合 Java Virtual Machine Specification, 3rd edition 中指定的格式 
+TypeNotPresentException - 如果基础方法的返回类型引用不存在的类型声明 
+MalformedParameterizedTypeException - 如果基础方法的返回类型引用无论如何都无法实例化的参数化类型",
+getParameterTypes,,public Class<?>[] getParameterTypes(),按照声明顺序返回 Class 对象的数组，这些对象描述了此 Method 对象所表示的方法的形参类型。如果基础方法不带参数，则返回长度为 0 的数组。 ,Method,,
+getGenericParameterTypes,,public Type[] getGenericParameterTypes(),"按照声明顺序返回 Type 对象的数组，这些对象描述了此 Method 对象所表示的方法的形参类型的。如果基础方法不带参数，则返回长度为 0 的数组。 
+如果形参类型是参数化类型，则为其返回的 Type 对象必须实际反映源代码中使用的实际类型参数。 
+
+如果形参类型是类型变量或参数化类型，则创建它。否则将分析它。
+
+从以下版本开始： 
+1.5",Method,"GenericSignatureFormatError - 如果一般方法签名不符合 Java Virtual Machine Specification, 3rd edition 中指定的格式 
+TypeNotPresentException - 如果基础方法的所有参数类型都引用不存在的类型声明 
+MalformedParameterizedTypeException - 如果所有基础方法的参数类型引用无论",
+getExceptionTypes,,public Class<?>[] getExceptionTypes(),返回 Class 对象的数组，这些对象描述了声明将此 Method 对象表示的基础方法抛出的异常类型。如果此方法没有在其 throws 子句中声明异常，则返回长度为 0 的数组。,Method,,
+getGenericExceptionTypes,,public Type[] getGenericExceptionTypes(),"返回 Type 对象数组，这些对象描述了声明由此 Method 对象抛出的异常。如果基础方法没有在其 throws 子句中声明异常，则返回长度为 0 的数组。 
+如果异常类型是参数化的类型，那么为它返回的 Type 对象必须实际反映源代码中所用参数的实际类型。 
+
+如果异常类型是类型变量或参数化类型，则创建它。否则将分析它。
+
+从以下版本开始： 
+1.5",Method,"GenericSignatureFormatError - 如果一般方法签名不符合 Java Virtual Machine Specification, 3rd edition 中指定的格式 
+TypeNotPresentException - 如果基础方法的 throws 子句引用不存在的类型声明 
+MalformedParameterizedTypeException - 如果基础方法的 throws 子句引用无论如何都无法实例化的参数化类型",
+equals,,public boolean equals(Object obj),"将此 Method 与指定对象进行比较。如果对象相同，则返回 true。如果它们由相同的类声明，具有相同的名称、形参类型和返回类型，则两个 Methods 相同。 
+
+覆盖：
+类 Object 中的 equals",Method,,
+hashCode,,public int hashCode(),"返回此 Method 的哈希代码。哈希代码按基础方法的声明类名称和方法名称的哈希代码的异或计算。 
+
+覆盖：
+类 Object 中的 hashCode",Method,,
+toString,,public String toString(),"返回描述此 Method 的字符串。该字符串被格式化为方法访问修饰符（如果有），后面依次跟着方法返回类型、空格、声明方法的类、句点、方法名、括号以及由逗号分隔的方法的形参类型列表。如果方法抛出检查异常，则参数列表后跟着空格、单词 throws 以及由逗号分隔的抛出异常类型的列表。例如： 
+    public boolean java.lang.Object.equals(java.lang.Object)
+ 访问修饰符按照由 ""The Java Language Specification"" 指定的规范化顺序放置。首先是 public，protected 或 private，接着是按以下顺序的其他修饰符：abstract、static、final、synchronized native。 
+
+
+覆盖：
+类 Object 中的 toString",Method,,
+toGenericString,,public String toGenericString(),"返回描述此 Method 的字符串，包括类型参数。该字符串被格式化为方法访问修饰符（如果有），依次后跟用尖括号括起来的由逗号分隔的方法类型参数列表（如果有）、方法的一般返回类型、空格、声明方法的类、句点、方法名、括号以及由逗号分隔的方法的一般形参类型列表。空格用于将访问修饰符和类型参数或返回类型互相分隔开。如果不存在类型参数，则类型参数列表会被省略；如果类型参数列表存在，则用空格将列表与类名分隔开。如果声明方法以抛出异常，则参数列表后跟空格、单词 throws 以及由逗号分隔开的抛出一般异常类型的列表。如果不存在类型参数，则类型参数列表会被省略。 
+访问修饰符按照 ""The Java Language Specification"" 指定的规范化顺序放置。首先是 public，protected 或 private，接着是按以下顺序的其他修饰符：abstract、static、final、synchronized native。
+
+从以下版本开始： 
+1.5 ",Method,,
+invoke,,"public Object invoke(Object obj, Object... args)","对带有指定参数的指定对象调用由此 Method 对象表示的基础方法。个别参数被自动解包，以便与基本形参相匹配，基本参数和引用参数都随需服从方法调用转换。 
+如果基础方法是静态的，那么可以忽略指定的 obj 参数。该参数可以为 null。 
+
+如果基础方法所需的形参数为 0，则所提供的 args 数组长度可以为 0 或 null。 
+
+如果基础方法是实例方法，则使用动态方法查找来调用它，这一点记录在 Java Language Specification, Second Edition 的第 15.12.4.4 节中；在发生基于目标对象的运行时类型的重写时更应该这样做。 
+
+如果基础方法是静态的，并且尚未初始化声明此方法的类，则会将其初始化。 
+
+如果方法正常完成，则将该方法返回的值返回给调用方；如果该值为基本类型，则首先适当地将其包装在对象中。但是，如果该值的类型为一组基本类型，则数组元素不 被包装在对象中；换句话说，将返回基本类型的数组。如果基础方法返回类型为 void，则该调用返回 null。",Method,"IllegalAccessException - 如果此 Method 对象强制执行 Java 语言访问控制，并且基础方法是不可访问的。 
+IllegalArgumentException - 如果该方法是实例方法，且指定对象参数不是声明基础方法的类或接口（或其中的子类或实现程序）的实例；如果实参和形参的数量不相同；如果基本参数的解包转换失败；或者如果在解包后，无法通过方法调用转换将参数值转换为相应的形参类型。 
+InvocationTargetException - 如果基础方法抛出异常。 
+NullPointerException - 如果指定对象为 null，且该方法是一个实例方法。 
+ExceptionInInitializerError - 如果由此方法引起的初始化失败。",
+isBridge,,public boolean isBridge(),"如果此方法是 bridge 方法，则返回 true；否则，返回 false。
+从以下版本开始： 
+1.5",Method,,
+isVarArgs,,public boolean isVarArgs(),"如果将此方法声明为带有可变数量的参数，则返回 true；否则，返回 false。 
+
+从以下版本开始： 
+1.5",Method,,
+isSynthetic,Member,public boolean isSynthetic(),"如果此方法为复合方法，则返回 true；否则，返回 false。 
+
+从以下版本开始： 
+1.5",Method,,
+getAnnotation,AnnotatedElement,public <T extends Annotation> T getAnnotation(Class<T> annotationClass),"如果存在该元素的指定类型的注释，则返回这些注释，否则返回 null。
+覆盖：
+类 AccessibleObject 中的 getAnnotation",Method,,
+getDeclaredAnnotations,AnnotatedElement,public Annotation[] getDeclaredAnnotations(),"返回直接存在于此元素上的所有注释。与此接口中的其他方法不同，该方法将忽略继承的注释。（如果没有注释直接存在于此元素上，则返回长度为零的一个数组。）该方法的调用方可以随意修改返回的数组；这不会对其他调用方返回的数组产生任何影响。
+覆盖：
+类 AccessibleObject 中的 getDeclaredAnnotations",Method,,
+getDefaultValue,,public Object getDefaultValue(),"返回由此 Method 实例表示的注释成员的默认值。如果该成员为基本类型，则返回相应包装器类型的实例。如果不存在与该成员关联的默认值或者该成员实例不表示注释类型的声明成员，则返回 null。
+
+从以下版本开始： 
+1.5",Method,TypeNotPresentException - 如果注释类型是 Class 且找不到默认类值的定义。,
+getParameterAnnotations,,public Annotation[][] getParameterAnnotations(),"返回表示按照声明顺序对此 Method 对象所表示方法的形参进行注释的那个数组的数组。（如果基础方法没有参数，则返回长度为零的数组。如果该方法有一个或多个参数，则为每个不带注释的参数返回长度为零的嵌套数组。）返回数组中包含的注释对象是可序列化的。此方法的调用方可以随意修改返回的数组；这不会对其他调用方返回的数组产生任何影响。
+
+从以下版本开始： 
+1.5",Method,,
+MissingFormatArgumentException,,public MissingFormatArgumentException(String s),构造此类的带有不匹配的格式说明符的一个实例。 ,MissingFormatArgumentException,,
+getFormatSpecifier,,public String getFormatSpecifier(),返回不匹配的格式说明符。 ,MissingFormatArgumentException,,
+getMessage,,public String getMessage(),"返回此 throwable 的详细消息字符串。 
+
+覆盖：
+类 Throwable 中的 getMessage",MissingFormatArgumentException,,
+MissingFormatWidthException,,public MissingFormatWidthException(String s),构造此类的带有指定格式说明符的实例。 ,MissingFormatWidthException,,
+getFormatSpecifier,,public String getFormatSpecifier(),返回没有宽度的格式说明符。 ,MissingFormatWidthException,,
+getMessage,,public String getMessage(),"返回此 throwable 的详细消息字符串。 
+
+覆盖：
+类 Throwable 中的 getMessage",MissingFormatWidthException,,
+MissingResourceException,,"public MissingResourceException(String s,String className,String key)",构造带有指定信息的 MissingResourceException。详细消息是描述这个特定异常的字符串。 ,MissingResourceException,,
+getClassName,,public String getClassName(),获得构造方法所传递的参数。 ,MissingResourceException,,
+getKey,,public String getKey(),获得构造方法所传递的参数。 ,MissingResourceException,,
+Modifier,,public Modifier(),构造方法,Modifier,,
+isPublic,,public static boolean isPublic(int mod),如果整数参数包括 public 修饰符，则返回 true，否则返回 false。 ,Modifier,,
+isPrivate,,public static boolean isPrivate(int mod),如果整数参数包括 private 修饰符，则返回 true，否则返回 false。 ,Modifier,,
+isProtected,,public static boolean isProtected(int mod),如果整数参数包括 protected 修饰符，则返回 true，否则返回 false。 ,Modifier,,
+isStatic,,public static boolean isStatic(int mod),如果整数参数包括 static 修饰符，则返回 true，否则返回 false。 ,Modifier,,
+isFinal,,public static boolean isFinal(int mod),如果整数参数包括 final 修饰符，则返回 true，否则返回 false。 ,Modifier,,
+isSynchronized,,public static boolean isSynchronized(int mod),如果整数参数包括 synchronized 修饰符，则返回 true，否则返回 false。 ,Modifier,,
+isVolatile,,public static boolean isVolatile(int mod),如果整数参数包括 volatile 修饰符，则返回 true，否则返回 false。 ,Modifier,,
+isTransient,,public static boolean isTransient(int mod),如果整数参数包括 transient 修饰符，则返回 true，否则返回 false。 ,Modifier,,
+isNative,,public static boolean isNative(int mod),如果整数参数包括 native 修饰符，则返回 true，否则返回 false。 ,Modifier,,
+isInterface,,public static boolean isInterface(int mod),如果整数参数包括 interface 修饰符，则返回 true，否则返回 false。 ,Modifier,,
+isAbstract,,public static boolean isAbstract(int mod),如果整数参数包括 abstract 修饰符，则返回 true，否则返回 false。 ,Modifier,,
+isStrict,,public static boolean isStrict(int mod),如果整数参数包括 strictfp 修饰符，则返回 true，否则返回 false。 ,Modifier,,
+toString,,public static String toString(int mod),"返回描述指定修饰符中的访问修饰符标志的字符串。例如： 
+    public final synchronized strictfp
+ 返回的修饰符名称的顺序与 The Java Language Specification, Second Edition 的§8.1.1、§8.3.1、§8.4.3、§8.8.3 和 §9.1.1 中给出的建议修饰符排序是一致的。此方法使用的完整修饰符排序是： 
+public protected private abstract static final transient volatile synchronized native strictfp interface 
+这个类中讨论的 interface 修饰符不是真正的 Java 语言修饰符，它将出现在此方法列出的其他所有修饰符的后面。此方法可能返回一个不是有效 Java 实体修饰符的修饰符；换句话说，它没有对该输入表示的可能有效的组合修饰符进行检查。",Modifier,,
+NegativeArraySizeException,,public NegativeArraySizeException(),构造不带详细消息的 NegativeArraySizeException。 ,NegativeArraySizeException,,
+NegativeArraySizeException,,public NegativeArraySizeException(String s),构造带指定详细消息的 NegativeArraySizeException。 ,NegativeArraySizeException,,
+NoClassDefFoundError,,public NoClassDefFoundError(),构造不带详细消息的 NoClassDefFoundError。 ,NoClassDefFoundError,,
+NoClassDefFoundError,,public NoClassDefFoundError(String s),构造带指定详细消息的 NoClassDefFoundError。 ,NoClassDefFoundError,,
+NodeChangeEvent,,"public NodeChangeEvent(Preferences parent,Preferences child)",构造新的 NodeChangeEvent 实例。 ,NodeChangeEvent,,
+getParent,,public Preferences getParent(),返回添加或移除节点的父节点。 ,NodeChangeEvent,,
+getChild,,public Preferences getChild(),返回添加或移除的节点。 ,NodeChangeEvent,,
+childAdded,,void childAdded(NodeChangeEvent evt),添加子节点时调用此方法。 ,NodeChangeListener,,
+childRemoved,,void childRemoved(NodeChangeEvent evt),移除子节点时调用此方法。 ,NodeChangeListener,,
+NoSuchElementException,,public NoSuchElementException(),构造一个 NoSuchElementException，用 null 作为其错误消息字符串。 ,NoSuchElementException,,
+NoSuchElementException,,public NoSuchElementException(String s),构造一个 NoSuchElementException，保存对错误消息字符串 s 的引用，以便将来通过 getMessage 方法进行检索。 ,NoSuchElementException,,
+NoSuchFieldError,,public NoSuchFieldError(),构造不带详细消息的 NoSuchFieldException。 ,NoSuchFieldError,,
+NoSuchFieldError,,public NoSuchFieldError(String s),构造带指定详细消息的 NoSuchFieldException。 ,NoSuchFieldError,,
+NoSuchFieldException,,public NoSuchFieldException(),构造方法。 ,NoSuchFieldException,,
+NoSuchFieldException,,public NoSuchFieldException(String s),带有详细消息的构造方法。 ,NoSuchFieldException,,
+NoSuchMethodError,,public NoSuchMethodError(),构造不带详细消息的 NoSuchMethodError。 ,NoSuchMethodError,,
+NoSuchMethodError,,public NoSuchMethodError(String s),构造带指定详细消息的 NoSuchMethodError。 ,NoSuchMethodError,,
+NoSuchMethodException,,public NoSuchMethodException(),构造不带详细消息的 NoSuchMethodException。 ,NoSuchMethodException,,
+NoSuchMethodException,,public NoSuchMethodException(String s),构造带指定详细消息的 NoSuchMethodException。 ,NoSuchMethodException,,
+NullPointerException,,public NullPointerException(),构造不带详细消息的 NullPointerException。 ,NullPointerException,,
+NullPointerException,,public NullPointerException(String s),构造带指定详细消息的 NullPointerException。 ,NullPointerException,,
+Number,,public Number(),构造方法,Number,,
+intValue,,public abstract int intValue(),以 int 形式返回指定的数值。这可能会涉及到舍入或取整。 ,Number,,
+longValue,,public abstract long longValue(),以 long 形式返回指定的数值。这可能涉及到舍入或取整。 ,Number,,
+floatValue,,public abstract float floatValue(),以 float 形式返回指定的数值。这可能会涉及到舍入。 ,Number,,
+doubleValue,,public abstract double doubleValue(),以 double 形式返回指定的数值。这可能会涉及到舍入。 ,Number,,
+byteValue,,public byte byteValue(),"以 byte 形式返回指定的数值。这可能会涉及到舍入或取整。
+
+从以下版本开始： 
+JDK1.1 ",Number,,
+shortValue,,public short shortValue(),"以 short 形式返回指定的数值。这可能会涉及到舍入或取整。 
+
+从以下版本开始： 
+JDK1.1",Number,,
+NumberFormatException,,public NumberFormatException(),构造不带详细消息的 NumberFormatException。 ,NumberFormatException,,
+NumberFormatException,,public NumberFormatException(String s),构造带指定详细消息的 NumberFormatException。 ,NumberFormatException,,
+Object,,public Object(),构造方法,Object,,
+getClass,,public final Class<? extends Object> getClass(),返回一个对象的运行时类。该 Class 对象是由所表示类的 static synchronized 方法锁定的对象。 ,Object,,
+hashCode,,public int hashCode(),"返回该对象的哈希代码值。支持该方法是为哈希表提供一些优点，例如，java.util.Hashtable 提供的哈希表。 
+hashCode 的常规协定是： 
+
+·在 Java 应用程序执行期间，在同一对象上多次调用 hashCode 方法时，必须一致地返回相同的整数，前提是对象上 equals 比较中所用的信息没有被修改。从某一应用程序的一次执行到同一应用程序的另一次执行，该整数无需保持一致。 
+·如果根据 equals(Object) 方法，两个对象是相等的，那么在两个对象中的每个对象上调用 hashCode 方法都必须生成相同的整数结果。 
+·以下情况不 是必需的：如果根据 equals(java.lang.Object) 方法，两个对象不相等，那么在两个对象中的任一对象上调用 hashCode 方法必定会生成不同的整数结果。但是，程序员应该知道，为不相等的对象生成不同整数结果可以提高哈希表的性能。 
+实际上，由 Object 类定义的 hashCode 方法确实会针对不同的对象返回不同的整数。（这一般是通过将该对象的内部地址转换成一个整数来实现的，但是 JavaTM 编程语言不需要这种实现技巧。）
+",Object,,
+equals,,public boolean equals(Object obj),"指示某个其他对象是否与此对象“相等”。 
+equals 方法在非空对象引用上实现相等关系： 
+
+·自反性：对于任何非空引用值 x，x.equals(x) 都应返回 true。 
+·对称性：对于任何非空引用值 x 和 y，当且仅当 y.equals(x) 返回 true 时，x.equals(y) 才应返回 true。 
+·传递性：对于任何非空引用值 x、y 和 z，如果 x.equals(y) 返回 true，并且 y.equals(z) 返回 true，那么 x.equals(z) 应返回 true。 
+·一致性：对于任何非空引用值 x 和 y，多次调用 x.equals(y) 始终返回 true 或始终返回 false，前提是对象上 equals 比较中所用的信息没有被修改。 
+·对于任何非空引用值 x，x.equals(null) 都应返回 false。 
+Object 类的 equals 方法实现对象上差别可能性最大的相等关系；即，对于任何非空引用值 x 和 y，当且仅当 x 和 y 引用同一个对象时，此方法才返回 true（x == y 具有值 true）。 
+
+注意：当此方法被重写时，通常有必要重写 hashCode 方法，以维护 hashCode 方法的常规协定，该协定声明相等对象必须具有相等的哈希代码。
+",Object,,
+clone,,protected Object clone(),"创建并返回此对象的一个副本。“副本”的准确含义可能依赖于对象的类。一般来说，对于任何对象 x，如果表达式： 
+x.clone() != x是正确的，则表达式： 
+x.clone().getClass() == x.getClass()将为 true，但这些不是绝对条件。一般情况下是： 
+x.clone().equals(x)将为 true，但这不是绝对条件。 
+按照惯例，返回的对象应该通过调用 super.clone 获得。如果一个类及其所有的超类（Object 除外）都遵守此约定，则 x.clone().getClass() == x.getClass()。 
+
+按照惯例，此方法返回的对象应该独立于该对象（正被克隆的对象）。要获得此独立性，在 super.clone 返回对象之前，有必要对该对象的一个或多个字段进行修改。这通常意味着要复制包含正在被克隆对象的内部“深层结构”的所有可变对象，并使用对副本的引用替换对这些对象的引用。如果一个类只包含基本字段或对不变对象的引用，那么通常不需要修改 super.clone 返回的对象中的字段。 
+
+Object 类的 clone 方法执行特定的克隆操作。首先，如果此对象的类不能实现接口 Cloneable，则会抛出 CloneNotSupportedException。注意：所有的数组都被视为实现接口 Cloneable。否则，此方法会创建此对象的类的一个新实例，并像通过分配那样，严格使用此对象相应字段的内容初始化该对象的所有字段；这些字段的内容没有被自我克隆。所以，此方法执行的是该对象的“浅表复制”，而不“深层复制”操作。 
+
+Object 类本身不实现接口 Cloneable，所以在类为 Object 的对象上调用 clone 方法将会导致在运行时抛出异常。
+",Object,CloneNotSupportedException - 如果对象的类不支持 Cloneable 接口，则重写 clone 方法的子类也会抛出此异常，以指示无法克隆某个实例。,
+toString,,public String toString(),"返回该对象的字符串表示。通常，toString 方法会返回一个“以文本方式表示”此对象的字符串。结果应是一个简明但易于读懂。建议所有子类都重写此方法。 
+Object 类的 toString 方法返回一个字符串，该字符串由类名（对象是该类的一个实例）、at 标记符“@”和此对象哈希代码的无符号十六进制表示组成。换句话说，该方法返回一个字符串，它的值等于： 
+
+getClass().getName() + '@' + Integer.toHexString(hashCode())",Object,,
+notify,,public final void notify(),"唤醒在此对象监视器上等待的单个线程。如果所有线程都在此对象上等待，则会选择唤醒其中一个线程。选择是任意性的，并在对实现做出决定时发生。线程通过调用其中一个 wait 方法，在对象的监视器上等待。 
+直到当前的线程放弃此对象上的锁定，才能继续执行被唤醒的线程。被唤醒的线程将以常规方式与在该对象上主动同步的其他所有线程进行竞争；例如，唤醒的线程在作为锁定此对象的下一个线程方面没有可靠的特权或劣势。 
+
+此方法只应由作为此对象监视器的所有者的线程来调用。通过以下三种方法之一，线程可以成为此对象监视器的所有者： 
+
+·通过执行此对象的同步 (Sychronized) 实例方法。 
+·通过执行在此对象上进行同步的 synchronized 语句的正文。 
+·对于 Class 类型的对象，可以通过执行该类的同步静态方法。 
+一次只能有一个线程拥有对象的监视器。
+",Object,IllegalMonitorStateException - 如果当前的线程不是此对象监视器的所有者。,
+notifyAll,,public final void notifyAll(),"唤醒在此对象监视器上等待的所有线程。线程通过调用其中一个 wait 方法，在对象的监视器上等待。 
+直到当前的线程放弃此对象上的锁定，才能继续执行被唤醒的线程。被唤醒的线程将以常规方式与在该对象上主动同步的其他所有线程进行竞争；例如，唤醒的线程在作为锁定此对象的下一个线程方面没有可靠的特权或劣势。 
+
+此方法只应由作为此对象监视器的所有者的线程来调用。请参阅 notify 方法，了解线程能够成为监视器所有者的方法的描述。",Object,IllegalMonitorStateException - 如果当前的线程不是此对象监视器的所有者。,
+wait,,public final void wait(long timeout),"导致当前的线程等待，直到其他线程调用此对象的 notify() 方法或 notifyAll() 方法，或者超过指定的时间量。 
+当前的线程必须拥有此对象监视器。 
+
+此方法导致当前线程（称之为 T）将其自身放置在对象的等待集中，然后放弃此对象上的所有同步要求。出于线程调度目的，线程 T 被禁用，且处于休眠状态，直到发生以下四种情况之一： 
+
+·其他某个线程调用此对象的 notify 方法，并且线程 T 碰巧被任选为被唤醒的线程。 
+·其他某个线程调用此对象的 notifyAll 方法。 
+·其他某个线程中断线程 T。 
+·已经到达指定的实际时间。但是，如果 timeout 为零，则不考虑实际时间，该线程将一直等待，直到获得通知。 
+然后，从对象的等待集中删除线程 T，并重新进行线程调度。然后，该线程以常规方式与其他线程竞争，以获得在该对象上同步的权利；一旦获得对该对象的控制权，该对象上的所有其同步声明都将被还原到以前的状态??这就是调用 wait 方法时的情况。然后，线程 T 从 wait 方法的调用中返回。所以，从 wait 方法返回时，该对象和线程 T 的同步状态与调用 wait 方法时的情况完全相同。 
+在没有被通知、中断或超时的情况下，线程还可以唤醒一个所谓的虚假唤醒 (spurious wakeup)。虽然这种情况在实践中很少发生，但是应用程序必须通过以下方式防止其发生，即对应该导致该线程被提醒的条件进行测试，如果不满足该条件，则继续等待。换句话说，等待应总是发生在循环中，如下面的示例： 
+
+synchronized (obj) {
+while (<condition does not hold>)
+obj.wait(timeout);
+... // Perform action appropriate to condition
+     }
+ （有关这一主题的更多信息，请参阅 Doug Lea 撰写的《Concurrent Programming in Java (Second Edition)》(Addison-Wesley, 2000) 中的第 3.2.3 节或 Joshua Bloch 撰写的《Effective Java Programming Language Guide》(Addison-Wesley, 2001) 中的第 50 项。 
+如果当前线程在等待时被其他线程中断，则会抛出 InterruptedException。在按上述形式恢复此对象的锁定状态时才会抛出此异常。 
+
+注意，由于 wait 方法将当前的线程放入了对象的等待集中，所以它只能解除此对象的锁定；可以同步当前线程的任何其他对象在线程等待时仍处于锁定状态。 
+
+此方法只应由作为此对象监视器的所有者的线程来调用。请参阅 notify 方法，了解线程能够成为监视器所有者的方法的描述。
+",Object,"IllegalArgumentException - 如果超时值为负。 
+IllegalMonitorStateException - 如果当前的线程不是此对象监视器的所有者。 
+InterruptedException - 如果在当前线程等待通知之前或者正在等待通知时，另一个线程中断了当前线程。在抛出此异常时，当前线程的中断状态 被清除。",
+wait,,"public final void wait(long timeout,int nanos)","导致当前的线程等待，直到其他线程调用此对象的 notify() 方法或 notifyAll() 方法，或者其他某个线程中断当前线程，或者已超过某个实际时间量。 
+此方法类似于一个参数的 wait 方法，但它允许更好地控制在放弃之前等待通知的时间量。用毫微秒度量的实际时间量可以通过以下公式计算出来： 
+
+1000000*timeout+nanos在其他所有方面，此方法执行的操作与带有一个参数的 wait(long) 方法相同。需要特别指出的是，wait(0, 0) 与 wait(0) 相同。 
+
+当前的线程必须拥有此对象监视器。该线程发布对此监视器的所有权，并等待下面两个条件之一发生： 
+
+·其他线程通过调用 notify 方法，或 notifyAll 方法通知在此对象的监视器上等待的线程醒来。 
+·timeout 毫秒值与 nanos 毫微秒参数值之和指定的超时时间已用完。 
+然后，该线程等到重新获得对监视器的所有权后才能继续执行。 
+
+对于某一个参数的版本，实现中断和虚假唤醒是有可能的，并且此方法应始终在循环中使用： 
+
+synchronized (obj) {
+while (<condition does not hold>)
+obj.wait(timeout, nanos);
+... // Perform action appropriate to condition
+     }
+ 此方法只应由作为此对象监视器的所有者的线程来调用。请参阅 notify 方法，了解线程能够成为监视器所有者的方法的描述。",Object,"IllegalArgumentException - 如果超时值是负数，或者毫微秒值不在 0-999999 范围内。 
+IllegalMonitorStateException - 如果当前线程不是此对象监视器的所有者。 
+InterruptedException - 如果在当前线程等待通知之前或者正在等待通知时，其他线程中断了当前线程。在抛出此异常时，当前线程的中断状态 被清除。",
+wait,,public final void wait(),"导致当前的线程等待，直到其他线程调用此对象的 notify() 方法或 notifyAll() 方法。换句话说，此方法的行为就好像它仅执行 wait(0) 调用一样。 
+当前的线程必须拥有此对象监视器。该线程发布对此监视器的所有权并等待，直到其他线程通过调用 notify 方法，或 notifyAll 方法通知在此对象的监视器上等待的线程醒来。然后该线程将等到重新获得对监视器的所有权后才能继续执行。 
+
+对于某一个参数的版本，实现中断和虚假唤醒是可能的，而且此方法应始终在循环中使用： 
+
+synchronized (obj) {
+while (<condition does not hold>)
+obj.wait();
+... // Perform action appropriate to condition
+     }
+ 此方法只应由作为此对象监视器的所有者的线程来调用。请参阅 notify 方法，了解线程能够成为监视器所有者的方法的描述。",Object,"IllegalMonitorStateException - 如果当前的线程不是此对象监视器的所有者。 
+InterruptedException - 如果在当前线程等待通知之前或者正在等待通知时，另一个线程中断了当前线程。在抛出此异常时，当前线程的中断状态 被清除。",
+finalize,,protected void finalize(),"当垃圾回收器确定不存在对该对象的更多引用时，由对象的垃圾回收器调用此方法。子类重写 finalize 方法，以配置系统资源或执行其他清除。 
+finalize 的常规协定是：当 JavaTM 虚拟机已确定尚未终止的任何线程无法再通过任何方法访问此对象时，将调用此方法，除非由于准备终止的其他某个对象或类的终结操作执行了某个操作。finalize 方法可以采取任何操作，其中包括再次使此对象对其他线程可用；不过，finalize 的主要目的是在不可撤消地丢弃对象之前执行清除操作。例如，表示输入/输出连接的对象的 finalize 方法可执行显式 I/O 事务，以便在永久丢弃对象之前中断连接。 
+
+Object 类的 finalize 方法执行非特殊性操作；它仅执行一些常规返回。Object 的子类可以重写此定义。 
+
+Java 编程语言不保证哪个线程将调用某个给定对象的 finalize 方法。但可以保证在调用 finalize 时，调用 finalize 的线程将不会持有任何用户可见的同步锁定。如果 finalize 方法抛出未捕获的异常，那么该异常将被忽略，并且该对象的终结操作将终止。 
+
+在启用某个对象的 finalize 方法后，将不会执行进一步操作，直到 Java 虚拟机再次确定尚未终止的任何线程无法再通过任何方法访问此对象，其中包括由准备终止的其他对象或类执行的可能操作，在执行该操作时，对象可能被丢弃。 
+
+对于任何给定对象，Java 虚拟机最多只调用一次 finalize 方法。 
+
+finalize 方法抛出的任何异常都会导致此对象的终结操作停止，但可以通过其他方法忽略它。",Object,Throwable - 此方法抛出的 Exception,
+Observable,,public Observable(),构造一个带有零个观察者的 Observable。 ,Observable,,
+addObserver,,public void addObserver(Observer o),如果观察者与集合中已有的观察者不同，则向对象的观察者集合中添加此观察者。未指定向多个观察者发送通知的顺序。请参阅该类的注释。 ,Observable,NullPointerException - 如果参数 o 为 null。,
+deleteObserver,,public void deleteObserver(Observer o),从对象的观察者集合中删除某个观察者。向此方法传递 null 将使其无效。 ,Observable,,
+notifyObservers,,public void notifyObservers(),"如果 hasChanged 方法指示对象已改变，则通知其所有观察者，并调用 clearChanged 方法来指示此对象不再改变。 
+每个观察者都有其 update 方法，其调用参数有两个：observable 对象和 null。换句话说，此方法等效于： 
+
+notifyObservers(null)",Observable,,
+notifyObservers,,public void notifyObservers(Object arg),"如果 hasChanged 方法指示对象已改变，则通知其所有观察者，并调用 clearChanged 方法来指示此对象不再改变。 
+每个观察者都有其 update 方法，其调用参数有两个：observable 对象和 arg 参数。 ",Observable,,
+deleteObservers,,public void deleteObservers(),清除观察者列表，使此对象不再有任何观察者。 ,Observable,,
+setChanged,,protected void setChanged(),标记此 Observable 对象为已改变的对象；现在 hasChanged 方法将返回 true。 ,Observable,,
+clearChanged,,protected void clearChanged(),指示对象不再改变，或者它已对其所有的观察者通知了最近的改变，所以 hasChanged 方法将返回 false。notifyObservers 方法自动调用此方法。 ,Observable,,
+hasChanged,,public boolean hasChanged(),测试对象是否改变。 ,Observable,,
+countObservers,,public int countObservers(),返回 Observable 对象的观察者数目。 ,Observable,,
+update,,"void update(Observable o,Object arg)",只要改变了 observable 对象就调用此方法。应用程序调用 Observable 对象的 notifyObservers 方法，以便向所有该对象的观察者通知此改变。 ,Observer,,
+getName,,String getName(),"返回操作系统名称。此方法等效于 System.getProperty(""os.name"")。 ",OperatingSystemMXBean,SecurityException - 如果安全管理器存在并且其 checkPropertiesAccess 方法不允许访问此系统属性。,
+getArch,,String getArch(),"返回操作系统的架构。此方法等效于 System.getProperty(""os.arch"")。 ",OperatingSystemMXBean,"SecurityException - 如果安全管理器存在并且其 checkPropertiesAccess 方法不允许访问此系统属性。
+",
+getVersion,,String getVersion(),"返回操作系统的版本。此方法等效于 System.getProperty(""os.version"")。 ",OperatingSystemMXBean,SecurityException - 如果安全管理器存在并且其 checkPropertiesAccess 方法不允许访问此系统属性。,
+getAvailableProcessors,,int getAvailableProcessors(),"返回 Java 虚拟机可以使用的处理器数目。此方法等效于 Runtime.availableProcessors() 方法。 
+该值在特定的虚拟机调用期间可能更改。",OperatingSystemMXBean,,
+OutOfMemoryError,,public OutOfMemoryError(),构造不带详细消息的 OutOfMemoryError。 ,OutOfMemoryError,,
+OutOfMemoryError,,public OutOfMemoryError(String s),构造带指定详细消息的 OutOfMemoryError。 ,OutOfMemoryError,,
+newPacker,,public static Pack200.Packer newPacker(),"获取一个实现 Packer 的新的类实例。 
+·如果定义了系统属性 java.util.jar.Pack200.Packer，那么该值将为具体实现类（必须实现 Packer）的完全限定名称。加载并实例化此类。如果此进程失败，则抛出未指定错误。
+
+·如果尚未用系统属性指定实现，那么实例化系统默认的实现类并返回结果。
+
+注：如果多个线程同时使用返回的对象，则无法保证返回的对象操作正确。多线程应用程序应该分配多个打包器引擎，或者利用一个锁定来顺序使用一个引擎。",Pack200,,
+newUnpacker,,public static Pack200.Unpacker newUnpacker(),"获取一个实现 Unpacker 的新的类实例。 
+·如果定义了系统属性 java.util.jar.Pack200.Unpacker，那么该值将为具体实现类（必须实现 Unpacker）的完全限定名称。加载并实例化此类。如果此进程失败，则抛出未指定错误。
+
+·如果尚未用系统属性指定实现，那么实例化系统默认的实现类并返回结果。
+
+注：如果多个线程同时使用返回的对象，则无法保证返回的对象操作正确。多线程应用程序应该分配多个解包器引擎，或者利用一个锁定来顺序使用一个引擎。",Pack200,,
+properties,,"SortedMap<String,String> properties()","获取此引擎属性的集合。此集合是“实时视图”，所以更改其内容可立即影响 Packer 引擎，并且在映射中可立即见到引擎中的变化（如进度指示）。 
+属性映射可能包含指定和默认属性的预定义实现。鼓励用户在修改已存在的属性前阅读该信息，并完全理解其含意。 
+
+特定实现的属性是用与实现者相关的包名称作前缀的，以 com. 或类似前缀开头。以 pack. 和 unpack. 开头的所有属性名称保留给此 API 使用。 
+
+未知属性可以用未指定的错误忽略或拒绝，并且无效的条目可能导致抛出未指定的错误。 
+
+返回的映射实现了所有可选的 SortedMap 操作。",Pack200.Packer,,
+pack,,"void pack(JarFile in,java.io.OutputStream out)","接收 JarFile 并将其转换为 Pack200 存档。 
+关闭其输入，但并不关闭其输出。（Pack200 存档是可追加的。） ",Pack200.Packer,java.io.IOException - 如果遇到错误,
+addPropertyChangeListener,,void addPropertyChangeListener(java.beans.PropertyChangeListener listener),为属性映射上的 PropertyChange 事件注册一个侦听器。通常应用程序使用它来更新进度条。 ,Pack200.Packer,,
+removePropertyChangeListener,,void removePropertyChangeListener(java.beans.PropertyChangeListener listener),移除由 addPropertyChangeListener(java.beans.PropertyChangeListener) 所添加的 PropertyChange 事件侦听器。 ,Pack200.Packer,,
+properties,,"SortedMap<String,String> properties()","获取此引擎属性的集合。此集合是“实时视图”，所以更改其内容可立即影响 Packer 引擎，并且在映射中可立即见到引擎中的变化（如进度指示）。 
+属性映射可能包含指定和默认属性的预定义实现。鼓励用户在修改已存在的属性前阅读该信息，并完全理解其含意。 
+
+特定实现的属性是用与实现者相关的包名称作前缀的，以 com. 或类似前缀开头。以 pack. 和 unpack. 开头的所有属性名称保留给此 API 使用。 
+
+未知的属性可以用未指定的错误忽略或拒绝，并且无效的条目可能导致抛出未指定的错误。",Pack200.Unpacker,,
+unpack,,"void unpack(java.io.InputStream in,JarOutputStream out)","读取 Pack200 存档，并将已编码的 JAR 写入 JarOutputStream。将读取输入流的全部内容。使用下面描述的替代方法将 Pack200 存档读取到文件中并传递 File 对象可能更加高效。 
+关闭其输入，但并不关闭其输出。（输出可以累积更多元素。）",Pack200.Unpacker,java.io.IOException - 如果遇到错误。,
+unpack,,"void unpack(java.io.File in,JarOutputStream out)","读取 Pack200 存档，并将已编码的 JAR 写入 JarOutputStream。 
+不关闭其输出。（输出可以累积更多元素。）",Pack200.Unpacker,java.io.IOException - 如果遇到错误。,
+addPropertyChangeListener,,void addPropertyChangeListener(java.beans.PropertyChangeListener listener),为属性映射上的 PropertyChange 事件注册一个侦听器。通常应用程序使用它来更新进度条。,Pack200.Unpacker,,
+removePropertyChangeListener,,void removePropertyChangeListener(java.beans.PropertyChangeListener listener),移除由 addPropertyChangeListener(java.beans.PropertyChangeListener) 所添加的 PropertyChange 事件侦听器。 ,Pack200.Unpacker,,
+getName,,public String getName(),返回此包的名称。 ,Package,,
+getSpecificationTitle,,public String getSpecificationTitle(),返回此包实现的规范标题。 ,Package,,
+getSpecificationVersion
